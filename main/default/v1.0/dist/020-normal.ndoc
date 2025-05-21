@@ -95,7 +95,7 @@ page(template:normal){
             /*stroke:basic(width:4,dash:[20])*/
             stroke:zigzag(amplitude:5,wavelength:5,basic(width:4))
         )
-        image("../images/error.png", position:(95,-40),size:(10,80))
+        image("images/error.png", position:(95,-40),size:(10,80))
     }
 //
 //    stack(template:"HintWarning",
