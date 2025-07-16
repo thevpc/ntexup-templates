@@ -1,8 +1,8 @@
-@normal page{
-    @header {
+normal{
+    header {
         "Plan"
     }
-    @body {
+    body {
         column{
             "#1-# Introduction"
             "#2-# Chapter 1"
