@@ -72,7 +72,8 @@
                     stroke:basic(width:3)
                 ),
                 image("avatars/vpc.png", origin:center, position:(90,50),size:(10,40),preserve-aspect-ratio)
-                @Palette{}
+                Palette()
+                $componentBody
             }
         }
 
@@ -100,6 +101,7 @@
                     stroke:zigzag(amplitude:5,wavelength:5,basic(width:4))
                 )
                 image("images/error.png", position:(95,-40),size:(10,80))
+                $componentBody
             }
         }
     //    @define HintWarning{
@@ -169,6 +171,7 @@
                         foreground-color:dark-gray
                     }
                 }
+                $componentBody
             }
         }
         @define body2a{
@@ -184,6 +187,7 @@
                         foreground-color:dark-gray
                     }
                 }
+                $componentBody
             }
         }
         @define body2b{
@@ -200,6 +204,7 @@
                         foreground-color:dark-gray
                     }
                 }
+                $componentBody
             }
         }
         @define body3a{
@@ -216,6 +221,7 @@
                         foreground-color:dark-gray
                     }
                 }
+                $componentBody
             }
         }
         @define body3b{
@@ -232,6 +238,7 @@
                         foreground-color:dark-gray
                     }
                 }
+                $componentBody
             }
         }
         @define body3c{
@@ -247,7 +254,10 @@
                         foreground-color:dark-gray
                     }
                 }
+                $componentBody
             }
         }
+
+        $componentBody
     }
 }
