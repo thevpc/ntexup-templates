@@ -2,13 +2,13 @@ $palette=["#26355D","#AF47D2","#DE3163","#1d8147","#FF8F00","#FF7F50","#FFBF00",
 //palette:["#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED","#26355D","#AF47D2","#DE3163","#2ECC71"]
 styles:{
     "*" : {
-        font-size : 8%g
+        font-size : 8%P
         debug-color: red,
         font-family : "Serif",
     }
 
     source : {
-        font-size : 7%g,
+        font-size : 7%P,
         font-family : "monospaced",
         source-primary-color: $palette
         source-keyword-color: $palette[1]
@@ -26,9 +26,9 @@ styles:{
     }
     .ul-bullet:{
         background: $palette[1]
-        position:(50,0.75%g),
+        position:(50,0.75%P),
         origin:top,
-        size:3%g
+        size:3%P
     }
     .ol-bullet:{
         background: $palette[2]
@@ -43,7 +43,7 @@ styles:{
 }
 
 @define Palette{
-    stack(size:100%g){
+    stack(size:100%P){
 //palette
        rectangle(
            origin : top-left,
