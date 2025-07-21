@@ -6,7 +6,7 @@
                origin : center,
                position : (50,30),
                size : (100,30),
-               font-size: 30%g,
+               font-size: 30%P,
                font-bold,
                background: $palette[1],
            }
@@ -14,28 +14,28 @@
                color: "#2c779a"
                origin : center,
                position : (50,50),
-               font-size: 10%g,
+               font-size: 10%P,
                font-bold,
            }
            .author:{
                color: "#112f3d",
                origin : center,
                position : (50,60),
-               font-size: 10%g,
+               font-size: 10%P,
                font-bold,
            }
            .date:{
                color: "#112f3d",
                origin : center,
                position : (50,65),
-               font-size: 10%g,
+               font-size: 10%P,
                font-bold
            }
            .version:{
                color: "#112f3d",
                origin : center,
                position : (50,69),
-               font-size: 10%g,
+               font-size: 10%P,
                font-bold,
            },
         }
