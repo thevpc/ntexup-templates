@@ -1,4 +1,4 @@
-$palette=["#26355D","#AF47D2","#DE3163","#1d8147","#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED"]
+$palette=arrayRotate(["#26355D","#AF47D2","#DE3163","#1d8147","#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED"],either(accentColorIndex,0))
 //palette:["#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED","#26355D","#AF47D2","#DE3163","#2ECC71"]
 styles:{
     "*" : {
