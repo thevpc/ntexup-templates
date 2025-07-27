@@ -5,8 +5,8 @@
     page{
         styles{
             .H1:{
-                color: $palette[4],
-                background: $palette[1],
+                color: themeColors[4],
+                background: themeColors[1],
                 position : (50,10),
                 origin : center,
                 size : (100,20),
@@ -16,7 +16,7 @@
         }
 
         @define header{
-            stack(
+            group(
                     position : (50,10),
                     size     : (100,20),
                     origin : center,
@@ -33,20 +33,20 @@
                     }
                 }
                 rectangle(
-                    background: $palette[1],
+                    background: themeColors[1],
                     position:(0,0),
                     size:(100,100)
-                    color: $palette[1],
+                    color: themeColors[1],
                     draw-contour:true,
                 )
                 rectangle(
-                    background: $palette[2],
+                    background: themeColors[2],
                     position:(0,98),
                     size:(100,3)
                 )
                 polygon(
                     5, show,
-                    color: $palette[2],
+                    color: themeColors[2],
                     size:(14,70),
                     at:center
                     position:(10,50),
@@ -55,7 +55,7 @@
                 )
                 polygon(
                     5, show,
-                    color: $palette[3],
+                    color: themeColors[3],
                     size:(14,70),
                     at:center
                     position:(10,50),
@@ -64,7 +64,7 @@
                 )
                 polygon(
                     5, show,
-                    color: $palette[4],
+                    color: themeColors[4],
                     size:(14,70),
                     at:center
                     position:(10,50),
@@ -72,57 +72,59 @@
                     stroke:basic(width:3)
                 ),
                 image("avatars/vpc.png", origin:center, position:(90,50),size:(10,40),preserve-aspect-ratio)
-                Palette()
-                $componentBody
+                if(themeShowPalette){
+                    Palette()
+                }
+                componentBody
             }
         }
 
         @define hint-error{
-            stack(
+            group(
                     position : (50,80),
                     size     : (80,10),
                     origin : center,
             ){
                 styles:{
                     "*" :{
-                        color: $palette[1],
+                        color: themeColors[1],
                         foreground-color:white,
                         font-size:20,
                         font-bold
                     }
                 }
                 rectangle(
-                    background: $palette[3],
+                    background: themeColors[3],
                     position:(0,0),
                     size:(100,100)
-                    color: $palette[3],
+                    color: themeColors[3],
                     draw-contour:true,
                     /*stroke:basic(width:4,dash:[20])*/
                     stroke:zigzag(amplitude:5,wavelength:5,basic(width:4))
                 )
                 image("images/error.png", position:(95,-40),size:(10,80))
-                $componentBody
+                componentBody
             }
         }
     //    @define HintWarning{
-    //    stack(
+    //    group(
     //            position : (50,80),
     //            size     : (80,10),
     //            origin : center,
     //    ){
     //        styles:{
     //            "*" :{
-    //                color: $palette[1],
+    //                color: themeColors[1],
     //                foreground-color:white,
     //                font-size:20,
     //                font-bold
     //            }
     //        }
     //        rectangle(
-    //            background: $palette[3],
+    //            background: themeColors[3],
     //            position:(0,0),
     //            size:(100,100)
-    //            color: $palette[1],
+    //            color: themeColors[1],
     //            draw-contour:true,
     //            /*stroke:basic(width:4,dash:[20])*/
     //            stroke:sloppy(basic(width:2), width:4)
@@ -131,24 +133,24 @@
     //    }
     //    }
     //    @define HintInfo{
-    //    stack(
+    //    group(
     //            position : (50,80),
     //            size     : (80,10),
     //            origin : center,
     //    ){
     //        styles:{
     //            "*" :{
-    //                color: $palette[1],
+    //                color: themeColors[1],
     //                foreground-color:white,
     //                font-size:20,
     //                font-bold
     //            }
     //        }
     //        rectangle(
-    //            background: $palette[3],
+    //            background: themeColors[3],
     //            position:(0,0),
     //            size:(100,100)
-    //            color: $palette[1],
+    //            color: themeColors[1],
     //            draw-contour:true,
     //            /*stroke:basic(width:4,dash:[20])*/
     //            stroke:sloppy(basic(width:2), width:4)
@@ -158,7 +160,7 @@
     //    }
 
         @define body{
-            stack(
+            group(
                     position : (1,22),
                     size     : (98,72),
                     origin : top-left,
@@ -171,11 +173,11 @@
                         foreground-color:dark-gray
                     }
                 }
-                $componentBody
+                componentBody
             }
         }
         @define body2a{
-            stack(position : (1,22),
+            group(position : (1,22),
                   size     : (48,72),
                   origin : top-left,
                   font-size:20,
@@ -187,11 +189,11 @@
                         foreground-color:dark-gray
                     }
                 }
-                $componentBody
+                componentBody
             }
         }
         @define body2b{
-            stack(
+            group(
                   position : (51,22),
                   size     : (48,72),
                   origin : top-left,
@@ -204,11 +206,11 @@
                         foreground-color:dark-gray
                     }
                 }
-                $componentBody
+                componentBody
             }
         }
         @define body3a{
-            stack(
+            group(
                   position : (1,22),
                   size     : (32,72),
                   origin : top-left,
@@ -221,11 +223,11 @@
                         foreground-color:dark-gray
                     }
                 }
-                $componentBody
+                componentBody
             }
         }
         @define body3b{
-            stack(
+            group(
                   position : (33,22),
                   size     : (32,72),
                   origin : top-left,
@@ -238,11 +240,11 @@
                         foreground-color:dark-gray
                     }
                 }
-                $componentBody
+                componentBody
             }
         }
         @define body3c{
-            stack(position : (66,22),
+            group(position : (66,22),
                   size     : (32,72),
                   origin : top-left,
                   font-size:20,
@@ -254,10 +256,10 @@
                         foreground-color:dark-gray
                     }
                 }
-                $componentBody
+                componentBody
             }
         }
 
-        $componentBody
+        componentBody
     }
 }
