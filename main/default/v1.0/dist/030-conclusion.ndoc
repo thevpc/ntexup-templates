@@ -8,7 +8,7 @@
                size : (100,30),
                font-size: 30%P,
                font-bold,
-               background: $palette[1],
+               background: themeColors[1],
            }
            .subtitle:{
                color: "#2c779a"
@@ -39,6 +39,6 @@
                font-bold,
            },
         }
-        $componentBody
+        componentBody
     }
 }
