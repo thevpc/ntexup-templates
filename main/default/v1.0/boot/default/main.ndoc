@@ -1,2 +1,2 @@
 import("${template.templateUrl}")
-import("pages")
+import("02-pages")
