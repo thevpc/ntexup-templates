@@ -1,7 +1,7 @@
 /**
  *
  */
-@define normal{
+@define normal(title){
     page{
         styles{
             .H1:{
@@ -33,44 +33,44 @@
                     }
                 }
                 rectangle(
-                    background: themeColors[1],
+                    background: linearGradientColor(themeColors[1],lighterColor(themeColors[1]),(0,50)),
                     position:(0,0),
                     size:(100,100)
                     color: themeColors[1],
                     draw-contour:true,
                 )
                 rectangle(
-                    background: themeColors[2],
+                    background: linearGradientColor(rotateSinebowColor(themeColors[0],10),lighterColor(rotateSinebowColor(themeColors[0],10),0.1)),
                     position:(0,98),
-                    size:(100,3)
+                    size:(100,5)
                 )
-                polygon(
-                    5, show,
-                    color: themeColors[2],
-                    size:(14,70),
-                    at:center
-                    position:(10,50),
-                    rotate:0,
-                    stroke:basic(width:3)
-                )
-                polygon(
-                    5, show,
-                    color: themeColors[3],
-                    size:(14,70),
-                    at:center
-                    position:(10,50),
-                    rotate: 20
-                    stroke:basic(width:3)
-                )
-                polygon(
-                    5, show,
-                    color: themeColors[4],
-                    size:(14,70),
-                    at:center
-                    position:(10,50),
-                    rotate: 40
-                    stroke:basic(width:3)
-                ),
+//                polygon(
+//                    5, show,
+//                    color: themeColors[2],
+//                    size:(14,70),
+//                    at:center
+//                    position:(10,50),
+//                    rotate:0,
+//                    stroke:basic(width:3)
+//                )
+//                polygon(
+//                    5, show,
+//                    color: themeColors[3],
+//                    size:(14,70),
+//                    at:center
+//                    position:(10,50),
+//                    rotate: 20
+//                    stroke:basic(width:3)
+//                )
+//                polygon(
+//                    5, show,
+//                    color: themeColors[4],
+//                    size:(14,70),
+//                    at:center
+//                    position:(10,50),
+//                    rotate: 40
+//                    stroke:basic(width:3)
+//                ),
                 image("avatars/vpc.png", origin:center, position:(90,50),size:(10,40),preserve-aspect-ratio)
                 if(themeShowPalette){
                     Palette()
@@ -258,6 +258,9 @@
                 }
                 componentBody
             }
+        }
+        header {
+            text("${title}"),
         }
         componentBody
     }
