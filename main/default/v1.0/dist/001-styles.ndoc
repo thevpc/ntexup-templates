@@ -1,4 +1,6 @@
-themeColors=arrayLeftRotate(["#26355D","#AF47D2","#DE3163","#1d8147","#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED"],either((themeColorAccent - 1),0))
+themeShowPalette:=false
+themeColorAccent:=1
+themeColors:=arrayLeftRotate(["#26355D","#AF47D2","#DE3163","#1d8147","#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED"],either((themeColorAccent - 1),0))
 styles:{
     "*" : {
         font-size : 8%P
@@ -38,6 +40,20 @@ styles:{
     }
     arc:{
         at:center,
+    }
+
+    .image-fig:{
+        margin: 1
+    }
+    .image-fig-legend:{
+        at:bottom
+        font-size:3%P
+    }
+    .image-fig-title:{
+        at:top
+        font-size:4%P
+        font-bold,
+        color:themeColors[4]
     }
 }
 
@@ -153,3 +169,13 @@ styles:{
        )
     }
 }
+
+@define image-fig(src,title,legend){
+    @(img) group{
+        rectangle(color:gray , stroke:dashed,size:98,round-corner:3)
+        @(image-fig) image(src,size:(95,85),at:center)
+        @(image-fig-title) text("$title")
+        @(image-fig-legend) text("$legend")
+    }
+}
+
