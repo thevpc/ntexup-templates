@@ -66,7 +66,7 @@
            origin : center,
            position : (50,32),
            size : (150,40),
-           background: themeColors[2],
+           background: rotateSinebowColor(themeColors[1],10),
            rotate:-5
            draw-contour
            stroke:{width:5}
