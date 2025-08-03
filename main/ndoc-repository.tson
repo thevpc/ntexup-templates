@@ -1,3 +1,3 @@
-@name("Small") "/main/default/v1.0/boot/small"
-@name("Default Medium") @recommended "/main/default/v1.0/boot/default"
-@name("Default Large") "/main/default/v1.0/boot/large"
+@name("Small") "/default/v1.0/boot/small"
+@name("Default Medium") @recommended "/default/v1.0/boot/default"
+@name("Default Large") "/default/v1.0/boot/large"
