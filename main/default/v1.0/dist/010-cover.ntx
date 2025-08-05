@@ -1,0 +1,85 @@
+@define cover{
+    page{
+        styles{
+           .title:{
+               color: "#dddddd",
+               origin : center,
+               position : (50,27),
+               font-size:30%P,
+               font-family:Monospaced,
+               font-bold,
+               shadow:(color:gray,shift:(0.3,0.5))
+           }
+           .subtitle:{
+               color: themeColors[2]
+               origin : center,
+               position : (50,40),
+               font-size:20%P,
+               font-bold,
+               font-family:Serif,
+           }
+           .subsubtitle:{
+               color: themeColors[2]
+               origin : center,
+               position : (50,60),
+               font-size:13%P,
+               font-bold,
+               font-family:Serif,
+           }
+           .author:{
+               color: themeColors[1],
+               origin : center,
+               position : (50,70),
+               font-size:8%P,
+               font-bold,
+           }
+           .email:{
+               color: themeColors[1],
+               origin : center,
+               position : (50,73),
+               font-size:6%P,
+               font-bold,
+           }
+           .affiliation:{
+               color: themeColors[1],
+               origin : center,
+               position : (50,76),
+               font-size:8%P,
+               font-bold,
+           }
+           .date:{
+               color: themeColors[1],
+               origin : center,
+               position : (50,85),
+               font-size:5%P,
+               font-bold,
+           }
+           .version:{
+               color: themeColors[1],
+               origin : center,
+               position : (50,87),
+               font-size:5%P,
+               font-bold,
+           },
+        }
+       rectangle(
+           origin : center,
+           position : (50,32),
+           size : (150,40),
+           background: rotateSinebowColor(themeColors[1],10),
+           rotate:-5
+           draw-contour
+           stroke:{width:5}
+       )
+       rectangle(
+           origin : center,
+           position : (50,30),
+           size : (150,40),
+           background: themeColors[1],
+           rotate:-5
+           draw-contour
+           stroke:{width:5}
+       )
+       componentBody
+    }
+}
