@@ -3,13 +3,13 @@ themeColorAccent:=1
 themeColors:=arrayLeftRotate(["#26355D","#AF47D2","#DE3163","#1d8147","#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED"],either((themeColorAccent - 1),0))
 styles:{
     "*" : {
-        font-size : 8%P
+        font-size : 5%P
         debug-color: red,
         font-family : "Serif",
     }
 
     source : {
-        font-size : 7%P,
+        font-size : 4%P,
         font-family : "monospaced",
         source-primary-color: themeColors
         source-keyword-color: themeColors[1]
@@ -24,16 +24,19 @@ styles:{
 
     .ul-item:{
         margin : (5,0)
+        at:left,
     }
     .ul-bullet:{
         background: themeColors[1]
-        position:(50,0.75%P),
-        origin:top,
+        at:left,
         size:3%P
     }
     .ol-bullet:{
-        background: themeColors[2]
+        color: themeColors[2]
         at:center,
+    }
+    .ol-item:{
+        at:left,
     }
     ellipse:{
         at:center,
