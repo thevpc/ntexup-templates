@@ -9,7 +9,7 @@ styles:{
     }
 
     source : {
-        font-size : 4%P,
+        font-size : 3%P,
         font-family : "monospaced",
         source-primary-color: themeColors
         source-keyword-color: themeColors[1]
