@@ -164,7 +164,7 @@
                     position : (1,22),
                     size     : (98,72),
                     origin : top-left,
-                    font-size:20,
+                    font-size: 5%P,
                     color: "#6b3a09",
                     font-bold
             ){
