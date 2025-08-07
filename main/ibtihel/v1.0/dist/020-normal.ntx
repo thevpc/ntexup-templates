@@ -1,0 +1,115 @@
+/**
+ *
+ */
+@define normal(title,variant:1){
+    page{
+          validVariant=((either(variant,1)%14)+1)
+          titleColor=themeColors[3]
+
+          if(validVariant==1){
+              polygon(points:[(0,0),(57,0),(50,100),(0,100)],background-color:themeColors[1])
+              polygon(points:[(0,2),(60,2),(53,97),(0,97)],background-color:themeColors[2])
+          }
+
+          if(validVariant==2){
+              polygon(points:[(60,0),(100,0),(100,100),(40,100)],background-color:themeColors[2])
+              polygon(points:[(57,0),(60,0),(40,100),(37,100)],background-color:themeColors[1])
+          }
+
+          if(validVariant==3){
+                titleColor=themeColors[2]
+                polygon(points:[(30,0),(100,0),(100,100),(10,100)],background-color:themeColors[3])
+                polygon(points:[(27,0),(30,0),(10,100),(7,100)],background-color:themeColors[1])
+          }
+
+          if(validVariant==4){
+                titleColor=white
+                polygon(points:[(0,0),(100,0),(100,10),(0,20)],background-color:themeColors[3])
+          }
+
+          if(either(validVariant,1)==5){
+                polygon(points:[(43,60),(100,60),(100,95),(35,95)],background-color:themeColors[3])
+                polygon(points:[(60,0),(100,0),(100,90),(40,90)],background-color:themeColors[2])
+                polygon(points:[(55,6),(60,6),(53,40),(47,40)],stroke:5,color:white)
+                polygon(points:[(58,0),(63,0),(56,30),(51,30)],background-color:themeColors[3])
+          }
+
+          if(either(validVariant,1)==6){
+                polygon(points:[(0,0),(0,100),(100,100),(100,0)],background-color:white)
+                polygon(points:[(0,0),(50,0),(70,100),(0,100)],background-color:themeColors[2])
+                polygon(points:[(50,5),(53,5),(70,95),(67,95)],stroke:5,color:gray)
+                polygon(points:[(50,0),(53,0),(70,90),(67,90)],background-color:themeColors[1])
+          }
+
+          if(either(validVariant,1)==7){
+                polygon(points:[(0,5),(12,5),(0,35),(0,35)],background-color:themeColors[1])
+                polygon(points:[(0,0),(10,0),(0,25),(0,20)],background-color:themeColors[2])
+                polygon(points:[(0,95),(12,95),(0,65),(0,65)],background-color:themeColors[1])
+                polygon(points:[(0,100),(10,100),(0,75),(0,80)],background-color:themeColors[2])
+                polygon(points:[(60,53),(70,13),(100,13),(100,93),(70,93)],background-color:themeColors[1])
+                polygon(points:[(60,50),(70,10),(100,10),(100,90),(70,90)],background-color:themeColors[2])
+          }
+
+          if(either(validVariant,1)==8){
+                polygon(points:[(55,6),(60,6),(53,40),(47,40)],stroke:5,color:white)
+                polygon(points:[(0,5),(12,5),(0,35),(0,35)],background-color:themeColors[1])
+                polygon(points:[(0,0),(10,0),(0,25),(0,20)],background-color:themeColors[2])
+                polygon(points:[(75,0),(100,0),(100,80),(96,100),(51,100)],background-color:themeColors[1])
+                polygon(points:[(60,0),(100,0),(100,75),(95,98),(40,98)],background-color:themeColors[2])
+                polygon(points:[(58,0),(63,0),(56,30),(51,30)],background-color:themeColors[1])
+          }
+
+
+          if(either(validVariant,1)==9){
+                polygon(points:[(0,15),(100,15),(100,85),(0,85)],background-color:themeColors[2])
+                polygon(points:[(55,0),(95,0),(95,100),(55,100)],background-color:themeColors[1])
+          }
+
+
+          if(either(validVariant,1)==10){
+                polygon(points:[(0,0),(57,0),(50,100),(0,100)],background-color:themeColors[1])
+                polygon(points:[(0,2),(70,2),(63,97),(0,97)],background-color:themeColors[2])
+          }
+
+
+          if(either(validVariant,1)==11){
+                polygon(points:[(0,0),(100,0),(100,100),(0,100)],background-color:themeColors[4])
+                polygon(points:[(0,0),(40,0),(40,100),(0,100)],background-color:themeColors[2])
+          }
+
+          if(either(validVariant,1)==12){
+                polygon(points:[(0,0),(100,0),(100,100),(0,100)],background-color:themeColors[4])
+          }
+
+          if(either(validVariant,1)==13){
+                polygon(points:[(0,0),(45,0),(45,100),(0,100)],background-color:themeColors[2])
+          }
+
+         text("${title}",
+            position:(35,5)
+            font-size:10%P,
+            color:titleColor,
+            font-bold
+            shadow:(shift:(0,0.2))
+         )
+           @define body{
+              group(
+                      position : (0,22),
+                      size     : (98,72),
+                      origin : top-left,
+                      font-size: 5%P,
+                      color: "#6b3a09",
+                      font-bold
+              ){
+                  styles:{
+                      "*" :{
+                          color: "#6b3a09",
+                      }
+                  }
+                  componentBody
+              }
+          }
+          componentBody
+    }
+
+}
