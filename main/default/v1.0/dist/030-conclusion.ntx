@@ -1,4 +1,4 @@
-@define conclusion{
+@define conclusion(title:"",author:""){
     page{
         styles{
            .title:{
@@ -6,7 +6,7 @@
                origin : center,
                position : (50,30),
                size : (100,30),
-               font-size: 30%P,
+               font-size: 15%P,
                font-bold,
                background: themeColors[1],
            }
@@ -21,7 +21,7 @@
                color: "#112f3d",
                origin : center,
                position : (50,60),
-               font-size: 10%P,
+               font-size: 5%P,
                font-bold,
            }
            .date:{
@@ -39,6 +39,8 @@
                font-bold,
            },
         }
+        @(title)    text(either("$title","Thank you")),
+        @(author)     text(either("${author}","")),
         componentBody
     }
 }
