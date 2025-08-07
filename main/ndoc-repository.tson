@@ -1,3 +1,7 @@
 @name("Small") "/default/v1.0/boot/small"
 @name("Default Medium") @recommended "/default/v1.0/boot/default"
 @name("Default Large") "/default/v1.0/boot/large"
+
+@name("Ibtihel Small") "/ibtihel/v1.0/boot/small"
+@name("Ibtihel Medium") @recommended "/ibtihel/v1.0/boot/default"
+@name("Ibtihel Large") "/ibtihel/v1.0/boot/large"
