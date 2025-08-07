@@ -1,11 +1,11 @@
-@define cover{
+@define cover(title,subtitle:"",subsubtitle:"",author:"",email:"",date:"",version:"",affiliation:""){
     page{
         styles{
            .title:{
                color: "#dddddd",
                origin : center,
-               position : (50,27),
-               font-size:30%P,
+               position : (50,25),
+               font-size:16%P,
                font-family:Monospaced,
                font-bold,
                shadow:(color:gray,shift:(0.3,0.5))
@@ -13,8 +13,8 @@
            .subtitle:{
                color: themeColors[2]
                origin : center,
-               position : (50,40),
-               font-size:20%P,
+               position : (50,41),
+               font-size:7%P,
                font-bold,
                font-family:Serif,
            }
@@ -22,7 +22,7 @@
                color: themeColors[2]
                origin : center,
                position : (50,60),
-               font-size:6%P,
+               font-size:5%P,
                font-bold,
                font-family:Serif,
            }
@@ -30,21 +30,21 @@
                color: themeColors[1],
                origin : center,
                position : (50,68),
-               font-size:6%P,
+               font-size:5%P,
                font-bold,
            }
            .email:{
                color: themeColors[1],
                origin : center,
                position : (50,76),
-               font-size:6%P,
+               font-size:5%P,
                font-bold,
            }
            .affiliation:{
                color: themeColors[1],
                origin : center,
                position : (50,82),
-               font-size:6%P,
+               font-size:5%P,
                font-bold,
            }
            .date:{
@@ -80,6 +80,14 @@
            draw-contour
            stroke:{width:5}
        )
+        @(title)       text("${title}")
+        @(subtitle)    text(value: either("${subtitle}",""))
+        @(subsubtitle) text(either("${subsubtitle}",""))
+        @(author)      text(either("${author}",""))
+        @(email)       text(either("${email}",""))
+        @(affiliation) text(either("${affiliation}",""))
+        @(date)        text(either("${date}",""))
+        @(version)     text(either("${version}",""))
        componentBody
     }
 }
