@@ -80,4 +80,11 @@ Note that you can always edit the .ntx files and choose another template; these 
 Note also that you can choose templates from themes other than classic.
 
 
+## Related Repositories
+
+- [ntexup](https://github.com/thevpc/ntexup):  
+  The main ntexup presentation and document generator tool.
+
+- [ntexup-doc-slides](https://github.com/thevpc/ntexup-doc-slides):  
+  A showcase slide deck demonstrating ntexup capabilities and theme compatibility.
 
