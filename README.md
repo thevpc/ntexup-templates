@@ -12,61 +12,72 @@ This project serves as a central collection of reusable templates, including:
 - Lecture and course templates
 - Academic paper and report layouts
 - Technical documentation frameworks
-- Thematic design presets for slides
+- Thematic design presets for slides (themes)
 - Custom style and branding examples
 
-All templates here are provided in .ntx format, ready to be used directly with `ntexup`.
+All templates here are provided in `.ntx` format, ready to be used directly with `ntexup`.
 
 ## Using the Templates
-Install ntexup from the main repository.
-the in your main.ntx file just drop the following
 
+Install `ntexup` from the main repository.
 
-```java
+In your `main.ntx` file, just add the following line to include a theme:
+
+```tson
 include("github://thevpc/ntexup-templates/classic/v1.0/theme")
 ```
 
-you can change the themeName (here `default`) with one of the available followings :
+You can change the themeName (here classic) to one of the available themes:
 
-- default
+- classic
 - ibtihel
 
-___(More themes coming soon)___
+(More themes coming soon)
 
+You can customize the theme by setting some variables in your main.ntx, for example:
 
+```tson
+// Set your preferred theme name
+themeName = "classic"
 
+// Use an accent color number from 1 to 12
+themeColorAccent = 1
 
-## creating new projects from scratch
-in this repo
+// Show palette colors
+themeShowPalette = true
 
-### create a single file project
-
-this will create a project with the template `default` that you can edit in a single file. use this for testing.
-
-```bash
-nuts ntexup --new --template github://thevpc/ntexup-templates/main/default/v1.0/boot/small
+// Finally load the theme
+include("github://thevpc/ntexup-templates/${themeName}/v1.0/theme")
 ```
 
-### create a multi-file project
+## Creating New Projects from Scratch
+You can create a new project from scratch using the ntexup command-line tool.
 
-this will create a project with the template `default` that you can edit in a single file. 
-If you are not sure what to choose, choose this. this is good start. it ll help you create
-slides each in a file apart.
-
-```bash
-nuts ntexup --new --template github://thevpc/ntexup-templates/main/default/v1.0/boot/default
-```
-
-### create a complex/large project
-this will create the foundation of a big project with many sections and stylings.
-If you ca use this when you are familiar enough with ntexup.
+### Create a Single-File Project
+This will create a project with the small template — suitable for quick tests in a single file.
 
 ```bash
-nuts ntexup --new --template github://thevpc/ntexup-templates/main/default/v1.0/boot/large
+nuts ntexup --new --template github://thevpc/ntexup-templates/classic/v1.0/templates/small
 ```
 
-note that you can always change the ntx file content and choose another template, this is a simple startup project only
+### Create a Multi-File Project
+This will create a project with the medium template — a good starting point where slides are split into multiple files.
 
-note also that you can change another templates (other than 'default')
+```bash
+nuts ntexup --new --template github://thevpc/ntexup-templates/classic/v1.0/templates/medium
+```
+
+### Create a Complex/Large Project
+Use this when you are familiar enough with ntexup. It creates a project foundation with many sections and stylings.
+
+```bash
+nuts ntexup --new --template github://thevpc/ntexup-templates/classic/v1.0/templates/large
+```
+
+Note that you can always edit the .ntx files and choose another template; these are just simple startup projects.
+
+
+Note also that you can choose templates from themes other than classic.
+
 
 
