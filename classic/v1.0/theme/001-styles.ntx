@@ -1,6 +1,20 @@
+import(
+    "net.thevpc.ntexup:ntexup-extension-plantuml:0.8.6.0"
+    "net.thevpc.ntexup:ntexup-extension-animated-gif:0.8.6.0"
+    "net.thevpc.ntexup:ntexup-extension-svg:0.8.6.0"
+    "net.thevpc.ntexup:ntexup-extension-shapes2d:0.8.6.0"
+    "net.thevpc.ntexup:ntexup-extension-shapes3d:0.8.6.0"
+    "net.thevpc.ntexup:ntexup-extension-plot2d:0.8.6.0"
+    "net.thevpc.ntexup:ntexup-extension-presenters:0.8.6.0"
+    "net.thevpc.ntexup:ntexup-extension-latex:0.8.6.0"
+)
+
 themeShowPalette:=false
 themeColorAccent:=1
 themeColors:=arrayLeftRotate(["#26355D","#AF47D2","#DE3163","#1d8147","#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED"],either((themeColorAccent - 1),0))
+
+
+
 styles:{
     "*" : {
         font-size : 5%P
