@@ -11,7 +11,7 @@
                shadow:(color:gray,shift:(0.3,0.5))
            }
            .subtitle:{
-               color: themeColors[2]
+               color: documentColors[2]
                origin : center,
                position : (50,41),
                font-size:7%P,
@@ -19,7 +19,7 @@
                font-family:Serif,
            }
            .subsubtitle:{
-               color: themeColors[2]
+               color: documentColors[2]
                origin : center,
                position : (50,60),
                font-size:5%P,
@@ -27,35 +27,35 @@
                font-family:Serif,
            }
            .author:{
-               color: themeColors[1],
+               color: documentColors[1],
                origin : center,
                position : (50,68),
                font-size:5%P,
                font-bold,
            }
            .email:{
-               color: themeColors[1],
+               color: documentColors[1],
                origin : center,
                position : (50,76),
                font-size:5%P,
                font-bold,
            }
            .affiliation:{
-               color: themeColors[1],
+               color: documentColors[1],
                origin : center,
                position : (50,82),
                font-size:5%P,
                font-bold,
            }
            .date:{
-               color: themeColors[1],
+               color: documentColors[1],
                origin : center,
                position : (50,88),
                font-size:5%P,
                font-bold,
            }
            .version:{
-               color: themeColors[1],
+               color: documentColors[1],
                origin : center,
                position : (50,96),
                font-size:5%P,
@@ -66,7 +66,7 @@
            origin : center,
            position : (50,32),
            size : (150,40),
-           background: rotateSinebowColor(themeColors[1],10),
+           background: rotateSinebowColor(documentColors[1],10),
            rotate:-5
            draw-contour
            stroke:{width:5}
@@ -75,7 +75,7 @@
            origin : center,
            position : (50,30),
            size : (150,40),
-           background: themeColors[1],
+           background: documentColors[1],
            rotate:-5
            draw-contour
            stroke:{width:5}
