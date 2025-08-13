@@ -10,9 +10,9 @@ import(
 )
 
 themeShowPalette:=false
-themeColorAccent:=1
-themeColors:=arrayLeftRotate(["#FC4100","#00215E","#DE3163","#2C4E80","#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED"],either((themeColorAccent - 1),0))
-//themeColors:=arrayLeftRotate(["#26355D","#AF47D2","#DE3163","#1d8147","#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED"],either((themeColorAccent - 1),0))
+documentColorAccent:=1
+documentColors:=arrayLeftRotate(["#FC4100","#00215E","#DE3163","#2C4E80","#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED"],either((documentColorAccent - 1),0))
+//documentColors:=arrayLeftRotate(["#26355D","#AF47D2","#DE3163","#1d8147","#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED"],either((documentColorAccent - 1),0))
 styles:{
     "*" : {
         font-size : 5%P
@@ -23,12 +23,12 @@ styles:{
     source : {
         font-size : 3%P,
         font-family : "monospaced",
-        source-primary-color: themeColors
-        source-keyword-color: themeColors[1]
-        source-separator-color: themeColors[6]
-        source-string-color: themeColors[4]
-        source-comments-color: themeColors[12]
-        source-number-color: themeColors[3]
+        source-primary-color: documentColors
+        source-keyword-color: documentColors[1]
+        source-separator-color: documentColors[6]
+        source-string-color: documentColors[4]
+        source-comments-color: documentColors[12]
+        source-number-color: documentColors[3]
         source-keyword-font-bold,
         //draw-contour,
 
@@ -39,12 +39,12 @@ styles:{
         at:left,
     }
     .ul-bullet:{
-        background: themeColors[1]
+        background: documentColors[1]
         at:left,
         size:3%P
     }
     .ol-bullet:{
-        color: themeColors[2]
+        color: documentColors[2]
         at:center,
     }
     .ol-item:{
@@ -68,7 +68,7 @@ styles:{
         at:top
         font-size:4%P
         font-bold,
-        color:themeColors[4]
+        color:documentColors[4]
     }
 }
 
@@ -78,7 +78,7 @@ styles:{
            origin : top-left,
            position : (0.5,1),
            size : (1,2),
-           background: themeColors[1],
+           background: documentColors[1],
            rotate:0
            color:gray
            draw-contour
@@ -87,7 +87,7 @@ styles:{
            origin : top-left,
            position : (0.5,3),
            size : (1,2),
-           background: themeColors[2],
+           background: documentColors[2],
            color:gray
            rotate:0
            draw-contour
@@ -96,7 +96,7 @@ styles:{
            origin : top-left,
            position : (0.5,5),
            size : (1,2),
-           background: themeColors[3],
+           background: documentColors[3],
            rotate:0
            color:gray
            draw-contour
@@ -105,7 +105,7 @@ styles:{
            origin : top-left,
            position : (0.5,7),
            size : (1,2),
-           background: themeColors[4],
+           background: documentColors[4],
            rotate:0
            color:gray
            draw-contour
@@ -114,7 +114,7 @@ styles:{
            origin : top-left,
            position : (0.5,9),
            size : (1,2),
-           background: themeColors[5],
+           background: documentColors[5],
            rotate:0
            color:gray
            draw-contour
@@ -123,7 +123,7 @@ styles:{
            origin : top-left,
            position : (0.5,11),
            size : (1,2),
-           background: themeColors[6],
+           background: documentColors[6],
            rotate:0
            color:gray
            draw-contour
@@ -132,7 +132,7 @@ styles:{
            origin : top-left,
            position : (1.5,1.5),
            size : (1,2),
-           background: themeColors[7],
+           background: documentColors[7],
            rotate:0
            color:gray
            draw-contour
@@ -141,7 +141,7 @@ styles:{
            origin : top-left,
            position : (1.5,3.5),
            size : (1,2),
-           background: themeColors[8],
+           background: documentColors[8],
            rotate:0
            color:gray
            draw-contour
@@ -150,7 +150,7 @@ styles:{
            origin : top-left,
            position : (1.5,5.5),
            size : (1,2),
-           background: themeColors[9],
+           background: documentColors[9],
            rotate:0
            color:gray
            draw-contour
@@ -159,7 +159,7 @@ styles:{
            origin : top-left,
            position : (1.5,7.5),
            size : (1,2),
-           background: themeColors[10],
+           background: documentColors[10],
            rotate:0
            color:gray
            draw-contour
@@ -168,7 +168,7 @@ styles:{
            origin : top-left,
            position : (1.5,9.5),
            size : (1,2),
-           background: themeColors[11],
+           background: documentColors[11],
            rotate:0
            color:gray
            draw-contour
@@ -177,7 +177,7 @@ styles:{
            origin : top-left,
            position : (1.5,11.5),
            size : (1,2),
-           background: themeColors[12],
+           background: documentColors[12],
            rotate:0
            color:gray
            draw-contour
