@@ -8,7 +8,7 @@
                size : (100,30),
                font-size: 15%P,
                font-bold,
-               background: themeColors[1],
+               background: documentColors[1],
            }
            .subtitle:{
                color: "#2c779a"
