@@ -41,7 +41,7 @@ You can customize the theme by setting some variables in your main.ntx, for exam
 themeName = "classic"
 
 // Use an accent color number from 1 to 12
-themeColorAccent = 1
+documentColorAccent = 1
 
 // Show palette colors
 themeShowPalette = true
