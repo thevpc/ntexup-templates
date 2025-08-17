@@ -2,7 +2,9 @@
  *
  */
 @define normal(title){
-    page{
+    page(
+        componentName:normalPage
+    ){
         styles{
             .H1:{
                 color: documentColors[4],
@@ -17,6 +19,7 @@
 
         @define header{
             group(
+                    componentName:normalHeader
                     position : (50,0),
                     origin : top,
                     size     : (100,8),
@@ -34,6 +37,7 @@
                     }
                 }
                 rectangle(
+                    componentName:normalHeaderBox
                     background: documentColors[4],
                     position:(0,0),
                     size:(100,100)
@@ -41,6 +45,7 @@
                     draw-contour:true,
                 )
                 rectangle(
+                    componentName:normalHeaderRow
                     background: documentColors[2],
                     position:(0,98),
                     size:(100,5)
