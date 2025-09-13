@@ -5,6 +5,9 @@
     page(
         componentName:normalPage
     ){
+       rectangle(
+           background: white,
+       )
         styles{
             .H1:{
                 color: documentColors[4],
@@ -33,20 +36,20 @@
                         at:center
                         color: documentColors[1],
                         position:(50,50)
-                        font-size:5%P
+                        font-size:5%P,
+                        shadow:{shift:(0.3,5)}
                     }
                 }
                 rectangle(
                     componentName:normalHeaderBox
-                    background: documentColors[4],
+                    background: documentColors[3],
                     position:(0,0),
                     size:(100,100)
                     color: documentColors[1],
-                    draw-contour:true,
                 )
                 rectangle(
                     componentName:normalHeaderRow
-                    background: documentColors[2],
+                    background: documentColors[1],
                     position:(0,98),
                     size:(100,5)
                 )
@@ -86,58 +89,6 @@
                 componentBody
             }
         }
-    //    @define HintWarning{
-    //    group(
-    //            position : (50,80),
-    //            size     : (80,10),
-    //            origin : center,
-    //    ){
-    //        styles:{
-    //            "*" :{
-    //                color: documentColors[1],
-    //                foreground-color:white,
-    //                font-size:20,
-    //                font-bold
-    //            }
-    //        }
-    //        rectangle(
-    //            background: documentColors[3],
-    //            position:(0,0),
-    //            size:(100,100)
-    //            color: documentColors[1],
-    //            draw-contour:true,
-    //            /*stroke:basic(width:4,dash:[20])*/
-    //            stroke:sloppy(basic(width:2), width:4)
-    //        )
-    //        image("../images/warning.png", position:(95,-40),size:(10,80))
-    //    }
-    //    }
-    //    @define HintInfo{
-    //    group(
-    //            position : (50,80),
-    //            size     : (80,10),
-    //            origin : center,
-    //    ){
-    //        styles:{
-    //            "*" :{
-    //                color: documentColors[1],
-    //                foreground-color:white,
-    //                font-size:20,
-    //                font-bold
-    //            }
-    //        }
-    //        rectangle(
-    //            background: documentColors[3],
-    //            position:(0,0),
-    //            size:(100,100)
-    //            color: documentColors[1],
-    //            draw-contour:true,
-    //            /*stroke:basic(width:4,dash:[20])*/
-    //            stroke:sloppy(basic(width:2), width:4)
-    //        )
-    //        image("../images/info.png", position:(95,-40),size:(10,80))
-    //    }
-    //    }
 
         @define body{
             group(
