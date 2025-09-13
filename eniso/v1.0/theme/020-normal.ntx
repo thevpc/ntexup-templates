@@ -37,7 +37,7 @@
                         color: documentColors[1],
                         position:(50,50)
                         font-size:5%P,
-                        shadow:{shift:(0.3,5)}
+                        shadow:{shift:(0.1,0.5)}
                     }
                 }
                 rectangle(
@@ -92,11 +92,10 @@
 
         @define body{
             group(
-                    position : (1,22),
-                    size     : (98,72),
+                    position : (1,8.5),
+                    size     : (98,86.5),
                     origin : top-left,
                     font-size: 5%P,
-                    color: "#6b3a09",
                     font-bold
             ){
                 styles:{
