@@ -1,4 +1,4 @@
-@define cover(title,subtitle:"",subsubtitle:"",author:"",email:"",date:"",version:"",affiliation:""){
+@define cover-slide(title,subtitle:"",subsubtitle:"",author:"",email:"",date:"",version:"",affiliation:""){
     page{
         styles{
            .title:{
