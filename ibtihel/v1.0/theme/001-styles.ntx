@@ -1,4 +1,4 @@
-import(
+include(
     "net.thevpc.ntexup:ntexup-extension-plantuml:0.8.6.0"
     "net.thevpc.ntexup:ntexup-extension-animated-gif:0.8.6.0"
     "net.thevpc.ntexup:ntexup-extension-svg:0.8.6.0"
