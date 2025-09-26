@@ -1,2 +1,2 @@
-import("01-styles")
-import("02-pages")
+include("01-styles")
+include("02-pages")
