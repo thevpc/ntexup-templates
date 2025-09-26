@@ -1,4 +1,4 @@
-cover{
+cover-slide{
     @(title)       text("${template.title}")
     @(subtitle)    text("${template.subtitle}")
     @(subsubtitle) text("${template.subsubtitle}")
