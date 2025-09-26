@@ -1,3 +1,1 @@
-@name("eniso small v1.0") @binaries("0.8.6.0") "small"
-@name("eniso large v1.0") @binaries("0.8.6.0") "large"
-@name("eniso medium v1.0") @recommended() @binaries("0.8.6.0") "medium"
+template(version:"1.0", binaries:"0.8.6.0", recommended:"medium")
