@@ -1,6 +1,6 @@
 include("${template.templateUrl}")
 
-cover{
+cover-slide{
     @(title)       text("${template.title}")
     @(subtitle)    text("${template.subtitle}")
     @(subsubtitle) text("${template.subsubtitle}")
@@ -11,7 +11,7 @@ cover{
     @(version)     text("${template.version}")
 }
 
-normal{
+content-slide{
     header {
         "Plan"
     }
@@ -25,7 +25,7 @@ normal{
     }
 }
 
-normal{
+content-slide{
     header {
         "Conclusion"
     }
