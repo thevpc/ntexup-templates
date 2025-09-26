@@ -1,4 +1,4 @@
-import("${template.templateUrl}")
+include("${template.templateUrl}")
 
 cover{
     @(title)       text("${template.title}")
