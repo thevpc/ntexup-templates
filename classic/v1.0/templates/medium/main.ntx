@@ -1,2 +1,2 @@
-import("${template.templateUrl}")
-import("pages")
+include("${template.templateUrl}")
+include("pages")
