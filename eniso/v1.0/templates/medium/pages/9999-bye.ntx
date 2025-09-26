@@ -1,4 +1,4 @@
-conclusion{
+conclusion-slide{
     @(title)    text("Thank you!"),
     @(author)   text("${template.email}"),
 }
