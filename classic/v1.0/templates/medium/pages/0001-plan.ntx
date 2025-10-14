@@ -1,0 +1,10 @@
+agenda-slide(title:"Plan"){
+    body {
+        ol{
+            ¶ Introduction
+            ¶ Chapter 1
+            ¶ Chapter 2
+            ¶ Conclusion
+        }
+    }
+}
