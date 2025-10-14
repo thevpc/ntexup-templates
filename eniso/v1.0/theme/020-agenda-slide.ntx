@@ -259,6 +259,9 @@
                 componentBody
             }
         }
+       rectangle(
+           background: white,
+       )
         header {
             text("${title}"),
         }
