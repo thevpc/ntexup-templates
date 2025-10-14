@@ -8,6 +8,15 @@ import(
     "net.thevpc.ntexup:ntexup-extension-presenters:0.8.7.0"
     "net.thevpc.ntexup:ntexup-extension-latex:0.8.7.0"
 )
+documentTitle:="My Document"
+documentSubtitle:=""
+documentSubsubtitle:=""
+documentAuthor:="me"
+documentAuthorEmail:="me@here.com"
+documentAuthorAffiliation:=""
+documentChapter:=""
+documentDate:=""
+documentVersion:="1.0"
 
 themeShowPalette:=false
 documentColorAccent:=1
