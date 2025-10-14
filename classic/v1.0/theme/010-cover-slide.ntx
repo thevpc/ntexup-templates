@@ -1,0 +1,96 @@
+@define cover-slide(){
+    page{
+        styles{
+           .title:{
+               color: "#dddddd",
+               origin : center,
+               position : (50,25),
+               font-size:16%P,
+               font-family:Monospaced,
+               font-bold,
+               shadow:(color:gray,shift:(0.3,0.5))
+           }
+           .subtitle:{
+               color: documentColors[2]
+               origin : center,
+               position : (50,41),
+               font-size:7%P,
+               font-bold,
+               font-family:Serif,
+           }
+           .subsubtitle:{
+               color: documentColors[2]
+               origin : center,
+               position : (50,60),
+               font-size:5%P,
+               font-bold,
+               font-family:Serif,
+           }
+           .author:{
+               color: documentColors[1],
+               origin : center,
+               position : (50,68),
+               font-size:5%P,
+               font-bold,
+           }
+           .email:{
+               color: documentColors[1],
+               origin : center,
+               position : (50,76),
+               font-size:5%P,
+               font-bold,
+           }
+           .affiliation:{
+               color: documentColors[1],
+               origin : center,
+               position : (50,82),
+               font-size:5%P,
+               font-bold,
+           }
+           .date:{
+               color: documentColors[1],
+               origin : center,
+               position : (50,88),
+               font-size:5%P,
+               font-bold,
+           }
+           .version:{
+               color: documentColors[1],
+               origin : center,
+               position : (50,96),
+               font-size:5%P,
+               font-bold,
+           },
+        }
+       rectangle(
+           background: white,
+       )
+       rectangle(
+           origin : center,
+           position : (50,32),
+           size : (150,40),
+           background: rotateSinebowColor(documentColors[1],10),
+           rotate:-5
+           draw-contour
+           stroke:{width:5}
+       )
+       rectangle(
+           origin : center,
+           position : (50,30),
+           size : (150,40),
+           background: documentColors[1],
+           rotate:-5
+           draw-contour
+           stroke:{width:5}
+       )
+        @(title)       text("${documentTitle}")
+        @(subtitle)    text(value: either("${documentSubtitle}",""))
+        @(subsubtitle) text(either("${documentSubsubtitle}",""))
+        @(author)      text(either("${documentAuthor}",""))
+        @(email)       text(either("${documentAuthorEmail}",""))
+        @(affiliation) text(either("${documentAuthorAffiliation}",""))
+        @(date)        text(either("${documentDate}",""))
+        @(version)     text(either("${documentVersion}",""))
+       componentBody
+    }
+}
