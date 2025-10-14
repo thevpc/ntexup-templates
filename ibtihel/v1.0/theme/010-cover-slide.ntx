@@ -75,14 +75,14 @@
             polygon(points:[(58,0),(63,0),(56,30),(51,30)],background-color:documentColors[1])
 
 
-            @(title)       text("${title}")
-            @(subtitle)    text(value: either("${subtitle}",""))
-            @(subsubtitle) text(either("${subsubtitle}",""))
-            @(author)      text(either("${author}",""))
-            @(email)       text(either("${email}",""))
-            @(affiliation) text(either("${affiliation}",""))
-            @(date)        text(either("${date}",""))
-            @(version)     text(either("${version}",""))
+            @(title)       text("${documentTitle}")
+        @(subtitle)    text(value: either("${documentSubtitle}",""))
+        @(subsubtitle) text(either("${documentSubsubtitle}",""))
+        @(author)      text(either("${documentAuthor}",""))
+        @(email)       text(either("${documentAuthorEmail}",""))
+        @(affiliation) text(either("${documentAuthorAffiliation}",""))
+        @(date)        text(either("${documentDate}",""))
+        @(version)     text(either("${documentVersion}",""))
            componentBody
 
         }
