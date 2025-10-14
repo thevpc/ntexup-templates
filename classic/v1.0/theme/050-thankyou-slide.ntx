@@ -1,0 +1,49 @@
+@define thankyou-slide(title:""){
+    page{
+        styles{
+           .title:{
+               color: "#dddddd",
+               origin : center,
+               position : (50,30),
+               size : (100,30),
+               font-size: 15%P,
+               font-bold,
+               background: documentColors[1],
+           }
+           .subtitle:{
+               color: "#2c779a"
+               origin : center,
+               position : (50,50),
+               font-size: 10%P,
+               font-bold,
+           }
+           .author:{
+               color: "#112f3d",
+               origin : center,
+               position : (50,60),
+               font-size: 5%P,
+               font-bold,
+           }
+           .date:{
+               color: "#112f3d",
+               origin : center,
+               position : (50,65),
+               font-size: 10%P,
+               font-bold
+           }
+           .version:{
+               color: "#112f3d",
+               origin : center,
+               position : (50,69),
+               font-size: 10%P,
+               font-bold,
+           },
+        }
+       rectangle(
+           background: white,
+       )
+        @(title)    text(either("$title","Thank you")),
+        @(author)     text(either("${documentAuthor}","")),
+        componentBody
+    }
+}
