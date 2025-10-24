@@ -57,21 +57,21 @@ You can create a new project from scratch using the ntexup command-line tool.
 This will create a project with the small template — suitable for quick tests in a single file.
 
 ```bash
-nuts ntexup --new --template github://thevpc/ntexup-templates/classic/v1.0/templates/small
+nuts ntexup new --template=classic-small
 ```
 
 ### Create a Multi-File Project
 This will create a project with the medium template — a good starting point where slides are split into multiple files.
 
 ```bash
-nuts ntexup --new --template github://thevpc/ntexup-templates/classic/v1.0/templates/medium
+nuts ntexup new --template=classic-medium
 ```
 
 ### Create a Complex/Large Project
 Use this when you are familiar enough with ntexup. It creates a project foundation with many sections and stylings.
 
 ```bash
-nuts ntexup --new --template github://thevpc/ntexup-templates/classic/v1.0/templates/large
+nuts ntexup new --template=classic-large
 ```
 
 Note that you can always edit the .ntx files and choose another template; these are just simple startup projects.
