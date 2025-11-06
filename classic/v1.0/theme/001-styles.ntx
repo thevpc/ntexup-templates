@@ -56,7 +56,7 @@ styles:{
     .ul-bullet:{
         background: documentColors[1]
         at:left,
-        size:3%P
+        size:2%P
     }
     .ol-bullet:{
         color: documentColors[2]
