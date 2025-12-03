@@ -5,7 +5,7 @@
                color: "#dddddd",
                origin : center,
                position : (50,25),
-               font-size:16%P,
+               font-size:12%P,
                font-family:Monospaced,
                font-bold,
                shadow:(color:gray,shift:(0.3,0.5))
