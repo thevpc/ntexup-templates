@@ -1,6 +1,6 @@
 content-slide(title:"My Slide"){
     body {
-        grid(columns:2){
+        columns(){
             ul{
                 ¶ First Idea
                 ¶ My Second Idea
