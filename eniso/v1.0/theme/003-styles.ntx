@@ -1,0 +1,175 @@
+styles:{
+    "*" : {
+        font-size : 5%P
+        debug-color: red,
+        font-family : "Serif",
+    }
+
+    source : {
+        font-size : 3%P,
+        font-family : "monospaced",
+        source-primary-color: documentColors
+        source-keyword-color: documentColors[1]
+        source-separator-color: documentColors[6]
+        source-string-color: documentColors[4]
+        source-comments-color: documentColors[12]
+        source-number-color: documentColors[3]
+        source-keyword-font-bold,
+        //draw-contour,
+
+    }
+
+    page: {
+        background:Gray93
+    }
+
+    .ul-item:{
+        margin : (5,0)
+        at:left,
+    }
+    .ul-bullet:{
+        background: documentColors[1]
+        at:left,
+        size:3%P
+    }
+    .ol-bullet:{
+        color: documentColors[2]
+        at:center,
+    }
+    .ol-item:{
+        at:left,
+    }
+    ellipse:{
+        at:center,
+    }
+    arc:{
+        at:center,
+    }
+
+    .image-fig:{
+        margin: 1
+    }
+    .image-fig-legend:{
+        at:bottom
+        font-size:2%P
+        margin:(1,1,1,2)
+    }
+    .image-fig-title:{
+        at:top
+        font-size:2%P
+        color:gray35
+    }
+}
+
+@define Palette{
+    group(size:100%P){
+       rectangle(
+           origin : top-left,
+           position : (0.5,1),
+           size : (1,2),
+           background: documentColors[1],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (0.5,3),
+           size : (1,2),
+           background: documentColors[2],
+           color:gray
+           rotate:0
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (0.5,5),
+           size : (1,2),
+           background: documentColors[3],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (0.5,7),
+           size : (1,2),
+           background: documentColors[4],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (0.5,9),
+           size : (1,2),
+           background: documentColors[5],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (0.5,11),
+           size : (1,2),
+           background: documentColors[6],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (1.5,1.5),
+           size : (1,2),
+           background: documentColors[7],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (1.5,3.5),
+           size : (1,2),
+           background: documentColors[8],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (1.5,5.5),
+           size : (1,2),
+           background: documentColors[9],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (1.5,7.5),
+           size : (1,2),
+           background: documentColors[10],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (1.5,9.5),
+           size : (1,2),
+           background: documentColors[11],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (1.5,11.5),
+           size : (1,2),
+           background: documentColors[12],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+    }
+}
