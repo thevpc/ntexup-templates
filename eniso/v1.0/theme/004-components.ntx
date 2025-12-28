@@ -1,0 +1,9 @@
+@define image-fig(src,title,legend){
+    @(img) group{
+        rectangle(color:gray23 , stroke:dashed,size:98,round-corner:3)
+        @(image-fig) image(src,size:(95,85),at:center)
+        @(image-fig-title) text("$title")
+        @(image-fig-legend) text("$legend")
+    }
+}
+
