@@ -1,11 +1,11 @@
-styles:{
-    "*" : {
+styles{
+    (*){
         font-size : 5%P
         debug-color: red,
         font-family : "Serif",
     }
 
-    source : {
+    source{
         font-size : 3%P,
         font-family : "monospaced",
         source-primary-color: documentColors
@@ -19,41 +19,41 @@ styles:{
 
     }
 
-    page: {
+    page{
         background:Gray93
     }
 
-    .ul-item:{
+    (.ul-item){
         margin : (5,0)
         at:left,
     }
-    .ul-bullet:{
+    (.ul-bullet){
         background: documentColors[1]
         at:left,
         size:2%P
     }
-    .ol-bullet:{
+    (.ol-bullet){
         color: documentColors[2]
         at:center,
     }
-    .ol-item:{
+    (.ol-item){
         at:left,
     }
-    ellipse:{
+    ellipse{
         at:center,
     }
-    arc:{
+    arc{
         at:center,
     }
 
-    .image-fig:{
+    (.image-fig){
         margin: 1
     }
-    .image-fig-legend:{
+    (.image-fig-legend){
         at:bottom
         font-size:3%P
     }
-    .image-fig-title:{
+    (.image-fig-title){
         at:top
         font-size:4%P
         font-bold,
