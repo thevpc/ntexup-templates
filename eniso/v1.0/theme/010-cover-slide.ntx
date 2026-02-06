@@ -1,7 +1,7 @@
 @define cover-slide(){
     page{
         styles{
-           .title:{
+           (.title){
                color: "#dddddd",
                origin : center,
                position : (50,25),
@@ -10,7 +10,7 @@
                font-bold,
                shadow:(color:gray,shift:(0.3,0.5),alpha:0.8)
            }
-           .subtitle:{
+           (.subtitle){
                color: documentColors[2]
                origin : center,
                position : (50,41),
@@ -18,7 +18,7 @@
                font-bold,
                font-family:Serif,
            }
-           .subsubtitle:{
+           (.subsubtitle){
                color: documentColors[2]
                origin : center,
                position : (50,60),
@@ -26,35 +26,35 @@
                font-bold,
                font-family:Serif,
            }
-           .author:{
+           (.author){
                color: documentColors[1],
                origin : center,
                position : (50,68),
                font-size:5%P,
                font-bold,
            }
-           .email:{
+           (.email){
                color: documentColors[1],
                origin : center,
                position : (50,76),
                font-size:5%P,
                font-bold,
            }
-           .affiliation:{
+           (.affiliation){
                color: documentColors[1],
                origin : center,
                position : (50,82),
                font-size:5%P,
                font-bold,
            }
-           .date:{
+           (.date){
                color: documentColors[1],
                origin : center,
                position : (50,88),
                font-size:5%P,
                font-bold,
            }
-           .version:{
+           (.version){
                color: documentColors[1],
                origin : center,
                position : (50,96),
