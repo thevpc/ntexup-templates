@@ -91,6 +91,6 @@
         @(affiliation) text(either("${documentAuthorAffiliation}",""))
         @(date)        text(either("${documentDate}",""))
         @(version)     text(either("${documentVersion}",""))
-       componentBody
+       body
     }
 }
