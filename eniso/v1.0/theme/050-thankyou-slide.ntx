@@ -41,6 +41,6 @@
         }
         @(title)    text(either("$title","Thank you")),
         @(author)     text(either("${documentAuthor}","")),
-        componentBody
+        body
     }
 }
