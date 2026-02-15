@@ -161,6 +161,6 @@
                        font-bold,
          )
          image("images/eniso.png", at:bottom-right,size:(20,40),margin:(5,5,0,5), preserve-aspect-ratio)
-       componentBody
+       body
     }
 }
