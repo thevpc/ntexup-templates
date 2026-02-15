@@ -75,7 +75,7 @@
                 if(themeShowPalette){
                     Palette()
                 }
-                componentBody
+                body
             }
         }
 
@@ -103,7 +103,7 @@
                     stroke:zigzag(amplitude:5,wavelength:5,basic(width:4))
                 )
                 image("images/error.png", position:(95,-40),size:(10,80))
-                componentBody
+                body
             }
         }
     //    @define HintWarning{
@@ -173,7 +173,7 @@
                         foreground-color:dark-gray
                     }
                 }
-                componentBody
+                body
             }
         }
         @define body2a{
@@ -189,7 +189,7 @@
                         foreground-color:dark-gray
                     }
                 }
-                componentBody
+                body
             }
         }
         @define body2b{
@@ -206,7 +206,7 @@
                         foreground-color:dark-gray
                     }
                 }
-                componentBody
+                body
             }
         }
         @define body3a{
@@ -223,7 +223,7 @@
                         foreground-color:dark-gray
                     }
                 }
-                componentBody
+                body
             }
         }
         @define body3b{
@@ -240,7 +240,7 @@
                         foreground-color:dark-gray
                     }
                 }
-                componentBody
+                body
             }
         }
         @define body3c{
@@ -256,7 +256,7 @@
                         foreground-color:dark-gray
                     }
                 }
-                componentBody
+                body
             }
         }
        rectangle(
@@ -265,6 +265,6 @@
         header {
             text("${title}"),
         }
-        componentBody
+        body
     }
 }
