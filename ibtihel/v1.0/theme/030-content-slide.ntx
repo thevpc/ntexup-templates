@@ -106,9 +106,9 @@
                           color: "#6b3a09",
                       }
                   }
-                  componentBody
+                  body
               }
           }
-          componentBody
+          body
     }
 }
