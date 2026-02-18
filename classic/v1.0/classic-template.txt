@@ -1,0 +1,1335 @@
+// ********************************
+// *  My Presentation
+// *  last updated : 2025-10-10
+// *  author       : @your-id-here
+// ********************************
+
+//---------------------------------------------
+// PREPARE ENV
+//---------------------------------------------
+documentTitle="My Document"
+documentSubtitle=""
+documentSubsubtitle=""
+documentAuthor="me"
+documentAuthorEmail="me@here.com"
+documentAuthorAffiliation="my institution"
+documentChapter="Chapter 1"
+documentDate="2025-10-14"
+documentVersion="1.0"
+
+//---------------------------------------------
+
+include("${template.templateUrl}")
+
+cover-slide()
+
+agenda-slide(title:"Plan"){
+    body {
+        ol{
+            ¶ Introduction
+            ¶ Chapter 1
+            ¶ Chapter 2
+            ¶ Conclusion
+        }
+    }
+}
+
+content-slide(title:"My Slide"){
+    body {
+        row{
+            ul{
+                ¶ First Idea
+                ¶ My Second Idea
+                ¶ My Third Idea
+            }
+            ul{
+                ¶ First Idea
+                ¶ My Second Idea
+                ¶ My Third Idea
+            }
+        }
+    }
+}
+
+conclusion-slide(title:"Conclusion"){
+    body {
+        ul{
+            ¶ First Point
+            ¶ Second Point
+            ¶ Third Point
+            ¶ Fourth Point
+        }
+    }
+}
+
+thankyou-slide()
+// ********************************
+// *  My Presentation
+// *  last updated : 2025-10-10
+// *  author       : @your-id-here
+// ********************************
+
+//---------------------------------------------
+// PREPARE ENV
+//---------------------------------------------
+documentTitle="My Document"
+documentSubtitle=""
+documentSubsubtitle=""
+documentAuthor="me"
+documentAuthorEmail="me@here.com"
+documentAuthorAffiliation="my institution"
+documentChapter="Chapter 1"
+documentDate="2025-10-14"
+documentVersion="1.0"
+
+//---------------------------------------------
+
+include("01-styles")
+include("02-pages")
+conclusion-slide(title:"Conclusion"){
+    body {
+        ul{
+            ¶ First Point
+            ¶ Second Point
+            ¶ Third Point
+            ¶ Fourth Point
+        }
+    }
+}
+thankyou-slide()
+cover-slide()
+agenda-slide(title:"Plan"){
+    body {
+        ol{
+            ¶ Introduction
+            ¶ Chapter 1
+            ¶ Chapter 2
+            ¶ Conclusion
+        }
+    }
+}
+include("${template.templateUrl}")
+// ********************************
+// *  My Presentation
+// *  last updated : 2025-10-10
+// *  author       : @your-id-here
+// ********************************
+
+//---------------------------------------------
+// PREPARE ENV
+//---------------------------------------------
+documentTitle="My Document"
+documentSubtitle=""
+documentSubsubtitle=""
+documentAuthor="me"
+documentAuthorEmail="me@here.com"
+documentAuthorAffiliation="my institution"
+documentChapter="Chapter 1"
+documentDate="2025-10-14"
+documentVersion="1.0"
+
+//---------------------------------------------
+
+include("${template.templateUrl}")
+cover-slide()
+include("pages")
+thankyou-slide()
+agenda-slide(title:"Plan"){
+    body {
+        ol{
+            ¶ Introduction
+            ¶ Chapter 1
+            ¶ Chapter 2
+            ¶ Conclusion
+        }
+    }
+}
+content-slide(title:"My Slide"){
+    body {
+        row{
+            ul{
+                ¶ First Idea
+                ¶ My Second Idea
+                ¶ My Third Idea
+            }
+            ul{
+                ¶ First Idea
+                ¶ My Second Idea
+                ¶ My Third Idea
+            }
+        }
+    }
+}
+conclusion-slide(title:"Conclusion"){
+    body {
+        ul{
+            ¶ First Point
+            ¶ Second Point
+            ¶ Third Point
+            ¶ Fourth Point
+        }
+    }
+}
+import(
+    "common-functions"
+    "plantuml"
+    "animated-gif"
+    "svg"
+    "shapes2d"
+    "shapes3d"
+    "plot2d"
+    "presenters"
+    "latex"
+)
+documentTitle:="My Document"
+documentSubtitle:=""
+documentSubsubtitle:=""
+documentAuthor:="me"
+documentAuthorEmail:="me@here.com"
+documentAuthorAffiliation:=""
+documentChapter:=""
+documentDate:=""
+documentVersion:="1.0"
+
+themeShowPalette:=false
+documentColorAccent:=1
+documentColors:=arrayLeftRotate(["#26355D","#AF47D2","#DE3163","#1d8147","#FF8F00","#FF7F50","#FFBF00","#FFDB00","#9FE2BF","#40E0D0","#CCCCFF","#6495ED"],either((documentColorAccent - 1),0))
+styles{
+    (*){
+        font-size : 5%P
+        debug-color: red,
+        font-family : "Serif",
+    }
+
+    source{
+        font-size : 3%P,
+        font-family : "monospaced",
+        source-primary-color: documentColors
+        source-keyword-color: documentColors[1]
+        source-separator-color: documentColors[6]
+        source-string-color: documentColors[4]
+        source-comments-color: documentColors[12]
+        source-number-color: documentColors[3]
+        source-keyword-font-bold,
+        //draw-contour,
+
+    }
+
+    page{
+        background:Gray93
+    }
+
+    (.ul-item){
+        margin : (5,0)
+        at:left,
+    }
+    (.ul-bullet){
+        background: documentColors[1]
+        at:left,
+        size:2%P
+    }
+    (.ol-bullet){
+        color: documentColors[2]
+        at:center,
+    }
+    (.ol-item){
+        at:left,
+    }
+    ellipse{
+        at:center,
+    }
+    arc{
+        at:center,
+    }
+
+    (.image-fig){
+        margin: 1
+    }
+    (.image-fig-legend){
+        at:bottom
+        font-size:3%P
+    }
+    (.image-fig-title){
+        at:top
+        font-size:4%P
+        font-bold,
+        color:documentColors[4]
+    }
+}
+
+@define Palette{
+    group(size:100%P){
+       rectangle(
+           origin : top-left,
+           position : (0.5,1),
+           size : (1,2),
+           background: documentColors[1],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (0.5,3),
+           size : (1,2),
+           background: documentColors[2],
+           color:gray
+           rotate:0
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (0.5,5),
+           size : (1,2),
+           background: documentColors[3],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (0.5,7),
+           size : (1,2),
+           background: documentColors[4],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (0.5,9),
+           size : (1,2),
+           background: documentColors[5],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (0.5,11),
+           size : (1,2),
+           background: documentColors[6],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (1.5,1.5),
+           size : (1,2),
+           background: documentColors[7],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (1.5,3.5),
+           size : (1,2),
+           background: documentColors[8],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (1.5,5.5),
+           size : (1,2),
+           background: documentColors[9],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (1.5,7.5),
+           size : (1,2),
+           background: documentColors[10],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (1.5,9.5),
+           size : (1,2),
+           background: documentColors[11],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+       rectangle(
+           origin : top-left,
+           position : (1.5,11.5),
+           size : (1,2),
+           background: documentColors[12],
+           rotate:0
+           color:gray
+           draw-contour
+       )
+    }
+}
+@define image-fig(src,title,legend){
+    @(img) group{
+        rectangle(color:gray , stroke:dashed,size:98,round-corner:3)
+        @(image-fig) image(src,size:(95,85),at:center)
+        @(image-fig-title) text("$title")
+        @(image-fig-legend) text("$legend")
+    }
+}
+
+@define cover-slide(){
+    page{
+        styles{
+           (.title){
+               color: "#dddddd",
+               origin : center,
+               position : (50,25),
+               font-size:12%P,
+               font-family:Monospaced,
+               font-bold,
+               shadow:(color:gray,shift:(0.3,0.5))
+           }
+           (.subtitle){
+               color: documentColors[2]
+               origin : center,
+               position : (50,41),
+               font-size:7%P,
+               font-bold,
+               font-family:Serif,
+           }
+           (.subsubtitle){
+               color: documentColors[2]
+               origin : center,
+               position : (50,60),
+               font-size:5%P,
+               font-bold,
+               font-family:Serif,
+           }
+           (.author){
+               color: documentColors[1],
+               origin : center,
+               position : (50,68),
+               font-size:5%P,
+               font-bold,
+           }
+           (.email){
+               color: documentColors[1],
+               origin : center,
+               position : (50,76),
+               font-size:5%P,
+               font-bold,
+           }
+           (.affiliation){
+               color: documentColors[1],
+               origin : center,
+               position : (50,82),
+               font-size:5%P,
+               font-bold,
+           }
+           (.date){
+               color: documentColors[1],
+               origin : center,
+               position : (50,88),
+               font-size:5%P,
+               font-bold,
+           }
+           (.version){
+               color: documentColors[1],
+               origin : center,
+               position : (50,96),
+               font-size:5%P,
+               font-bold,
+           },
+        }
+       rectangle(
+           background: white,
+       )
+       rectangle(
+           origin : center,
+           position : (50,32),
+           size : (150,40),
+           background: rotateSinebowColor(documentColors[1],10),
+           rotate:-5
+           draw-contour
+           stroke:{width:5}
+       )
+       rectangle(
+           origin : center,
+           position : (50,30),
+           size : (150,40),
+           background: documentColors[1],
+           rotate:-5
+           draw-contour
+           stroke:{width:5}
+       )
+        @(title)       text("${documentTitle}")
+        @(subtitle)    text(value: either("${documentSubtitle}",""))
+        @(subsubtitle) text(either("${documentSubsubtitle}",""))
+        @(author)      text(either("${documentAuthor}",""))
+        @(email)       text(either("${documentAuthorEmail}",""))
+        @(affiliation) text(either("${documentAuthorAffiliation}",""))
+        @(date)        text(either("${documentDate}",""))
+        @(version)     text(either("${documentVersion}",""))
+       body
+    }
+}
+/**
+ *
+ */
+@define agenda-slide(title){
+    page{
+        styles{
+            .H1:{
+                color: documentColors[4],
+                background: documentColors[1],
+                position : (50,10),
+                origin : center,
+                size : (100,20),
+                font-size:50,
+                font-bold
+            }
+        }
+
+        @define header{
+            group(
+                    position : (50,10),
+                    size     : (100,20),
+                    origin : center,
+            ){
+                styles:{
+                    "*" :{
+                        font-size:50,
+                        font-bold,
+                    },
+                    text :{
+                        at:center
+                        color:white
+                        position:(50,50)
+                    }
+                }
+                rectangle(
+                    background: linearGradientColor(documentColors[1],lighterColor(documentColors[1]),(0,50)),
+                    position:(0,0),
+                    size:(100,100)
+                    color: documentColors[1],
+                    draw-contour:true,
+                )
+                rectangle(
+                    background: linearGradientColor(rotateSinebowColor(documentColors[0],10),lighterColor(rotateSinebowColor(documentColors[0],10),0.1)),
+                    position:(0,98),
+                    size:(100,5)
+                )
+//                polygon(
+//                    5, show,
+//                    color: documentColors[2],
+//                    size:(14,70),
+//                    at:center
+//                    position:(10,50),
+//                    rotate:0,
+//                    stroke:basic(width:3)
+//                )
+//                polygon(
+//                    5, show,
+//                    color: documentColors[3],
+//                    size:(14,70),
+//                    at:center
+//                    position:(10,50),
+//                    rotate: 20
+//                    stroke:basic(width:3)
+//                )
+//                polygon(
+//                    5, show,
+//                    color: documentColors[4],
+//                    size:(14,70),
+//                    at:center
+//                    position:(10,50),
+//                    rotate: 40
+//                    stroke:basic(width:3)
+//                ),
+                image("avatars/vpc.png", origin:center, position:(90,50),size:(10,40),preserve-aspect-ratio)
+                if(themeShowPalette){
+                    Palette()
+                }
+                body
+            }
+        }
+
+        @define hint-error{
+            group(
+                    position : (50,80),
+                    size     : (80,10),
+                    origin : center,
+            ){
+                styles:{
+                    "*" :{
+                        color: documentColors[1],
+                        foreground-color:white,
+                        font-size:20,
+                        font-bold
+                    }
+                }
+                rectangle(
+                    background: documentColors[3],
+                    position:(0,0),
+                    size:(100,100)
+                    color: documentColors[3],
+                    draw-contour:true,
+                    /*stroke:basic(width:4,dash:[20])*/
+                    stroke:zigzag(amplitude:5,wavelength:5,basic(width:4))
+                )
+                image("images/error.png", position:(95,-40),size:(10,80))
+                body
+            }
+        }
+    //    @define HintWarning{
+    //    group(
+    //            position : (50,80),
+    //            size     : (80,10),
+    //            origin : center,
+    //    ){
+    //        styles:{
+    //            "*" :{
+    //                color: documentColors[1],
+    //                foreground-color:white,
+    //                font-size:20,
+    //                font-bold
+    //            }
+    //        }
+    //        rectangle(
+    //            background: documentColors[3],
+    //            position:(0,0),
+    //            size:(100,100)
+    //            color: documentColors[1],
+    //            draw-contour:true,
+    //            /*stroke:basic(width:4,dash:[20])*/
+    //            stroke:sloppy(basic(width:2), width:4)
+    //        )
+    //        image("../images/warning.png", position:(95,-40),size:(10,80))
+    //    }
+    //    }
+    //    @define HintInfo{
+    //    group(
+    //            position : (50,80),
+    //            size     : (80,10),
+    //            origin : center,
+    //    ){
+    //        styles:{
+    //            "*" :{
+    //                color: documentColors[1],
+    //                foreground-color:white,
+    //                font-size:20,
+    //                font-bold
+    //            }
+    //        }
+    //        rectangle(
+    //            background: documentColors[3],
+    //            position:(0,0),
+    //            size:(100,100)
+    //            color: documentColors[1],
+    //            draw-contour:true,
+    //            /*stroke:basic(width:4,dash:[20])*/
+    //            stroke:sloppy(basic(width:2), width:4)
+    //        )
+    //        image("../images/info.png", position:(95,-40),size:(10,80))
+    //    }
+    //    }
+
+        @define body{
+            group(
+                    position : (1,22),
+                    size     : (98,72),
+                    origin : top-left,
+                    font-size: 5%P,
+                    color: "#6b3a09",
+                    font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body2a{
+            group(position : (1,22),
+                  size     : (48,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body2b{
+            group(
+                  position : (51,22),
+                  size     : (48,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body3a{
+            group(
+                  position : (1,22),
+                  size     : (32,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body3b{
+            group(
+                  position : (33,22),
+                  size     : (32,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body3c{
+            group(position : (66,22),
+                  size     : (32,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+       rectangle(
+           background: white,
+       )
+        header {
+            text("${title}"),
+        }
+        body
+    }
+}
+/**
+ *
+ */
+@define content-slide(title){
+    page{
+        styles{
+            .H1:{
+                color: documentColors[4],
+                background: documentColors[1],
+                position : (50,10),
+                origin : center,
+                size : (100,20),
+                font-size:50,
+                font-bold
+            }
+        }
+
+        @define header{
+            group(
+                    position : (50,10),
+                    size     : (100,20),
+                    origin : center,
+            ){
+                styles:{
+                    "*" :{
+                        font-size:50,
+                        font-bold,
+                    },
+                    text :{
+                        at:center
+                        color:white
+                        position:(50,50)
+                    }
+                }
+                rectangle(
+                    background: linearGradientColor(documentColors[1],lighterColor(documentColors[1]),(0,50)),
+                    position:(0,0),
+                    size:(100,100)
+                    color: documentColors[1],
+                    draw-contour:true,
+                )
+                rectangle(
+                    background: linearGradientColor(rotateSinebowColor(documentColors[0],10),lighterColor(rotateSinebowColor(documentColors[0],10),0.1)),
+                    position:(0,98),
+                    size:(100,5)
+                )
+//                polygon(
+//                    5, show,
+//                    color: documentColors[2],
+//                    size:(14,70),
+//                    at:center
+//                    position:(10,50),
+//                    rotate:0,
+//                    stroke:basic(width:3)
+//                )
+//                polygon(
+//                    5, show,
+//                    color: documentColors[3],
+//                    size:(14,70),
+//                    at:center
+//                    position:(10,50),
+//                    rotate: 20
+//                    stroke:basic(width:3)
+//                )
+//                polygon(
+//                    5, show,
+//                    color: documentColors[4],
+//                    size:(14,70),
+//                    at:center
+//                    position:(10,50),
+//                    rotate: 40
+//                    stroke:basic(width:3)
+//                ),
+                image("avatars/vpc.png", origin:center, position:(90,50),size:(10,40),preserve-aspect-ratio)
+                if(themeShowPalette){
+                    Palette()
+                }
+                body
+            }
+        }
+
+        @define hint-error{
+            group(
+                    position : (50,80),
+                    size     : (80,10),
+                    origin : center,
+            ){
+                styles:{
+                    "*" :{
+                        color: documentColors[1],
+                        foreground-color:white,
+                        font-size:20,
+                        font-bold
+                    }
+                }
+                rectangle(
+                    background: documentColors[3],
+                    position:(0,0),
+                    size:(100,100)
+                    color: documentColors[3],
+                    draw-contour:true,
+                    /*stroke:basic(width:4,dash:[20])*/
+                    stroke:zigzag(amplitude:5,wavelength:5,basic(width:4))
+                )
+                image("images/error.png", position:(95,-40),size:(10,80))
+                body
+            }
+        }
+    //    @define HintWarning{
+    //    group(
+    //            position : (50,80),
+    //            size     : (80,10),
+    //            origin : center,
+    //    ){
+    //        styles:{
+    //            "*" :{
+    //                color: documentColors[1],
+    //                foreground-color:white,
+    //                font-size:20,
+    //                font-bold
+    //            }
+    //        }
+    //        rectangle(
+    //            background: documentColors[3],
+    //            position:(0,0),
+    //            size:(100,100)
+    //            color: documentColors[1],
+    //            draw-contour:true,
+    //            /*stroke:basic(width:4,dash:[20])*/
+    //            stroke:sloppy(basic(width:2), width:4)
+    //        )
+    //        image("../images/warning.png", position:(95,-40),size:(10,80))
+    //    }
+    //    }
+    //    @define HintInfo{
+    //    group(
+    //            position : (50,80),
+    //            size     : (80,10),
+    //            origin : center,
+    //    ){
+    //        styles:{
+    //            "*" :{
+    //                color: documentColors[1],
+    //                foreground-color:white,
+    //                font-size:20,
+    //                font-bold
+    //            }
+    //        }
+    //        rectangle(
+    //            background: documentColors[3],
+    //            position:(0,0),
+    //            size:(100,100)
+    //            color: documentColors[1],
+    //            draw-contour:true,
+    //            /*stroke:basic(width:4,dash:[20])*/
+    //            stroke:sloppy(basic(width:2), width:4)
+    //        )
+    //        image("../images/info.png", position:(95,-40),size:(10,80))
+    //    }
+    //    }
+
+        @define body{
+            group(
+                    position : (1,22),
+                    size     : (98,72),
+                    origin : top-left,
+                    font-size: 5%P,
+                    color: "#6b3a09",
+                    font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body2a{
+            group(position : (1,22),
+                  size     : (48,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body2b{
+            group(
+                  position : (51,22),
+                  size     : (48,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body3a{
+            group(
+                  position : (1,22),
+                  size     : (32,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body3b{
+            group(
+                  position : (33,22),
+                  size     : (32,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body3c{
+            group(position : (66,22),
+                  size     : (32,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+       rectangle(
+           background: white,
+       )
+        header {
+            text("${title}"),
+        }
+        body
+    }
+}
+/**
+ *
+ */
+@define conclusion-slide(title){
+    page{
+        styles{
+            .H1:{
+                color: documentColors[4],
+                background: documentColors[1],
+                position : (50,10),
+                origin : center,
+                size : (100,20),
+                font-size:50,
+                font-bold
+            }
+        }
+
+        @define header{
+            group(
+                    position : (50,10),
+                    size     : (100,20),
+                    origin : center,
+            ){
+                styles:{
+                    "*" :{
+                        font-size:50,
+                        font-bold,
+                    },
+                    text :{
+                        at:center
+                        color:white
+                        position:(50,50)
+                    }
+                }
+                rectangle(
+                    background: linearGradientColor(documentColors[1],lighterColor(documentColors[1]),(0,50)),
+                    position:(0,0),
+                    size:(100,100)
+                    color: documentColors[1],
+                    draw-contour:true,
+                )
+                rectangle(
+                    background: linearGradientColor(rotateSinebowColor(documentColors[0],10),lighterColor(rotateSinebowColor(documentColors[0],10),0.1)),
+                    position:(0,98),
+                    size:(100,5)
+                )
+//                polygon(
+//                    5, show,
+//                    color: documentColors[2],
+//                    size:(14,70),
+//                    at:center
+//                    position:(10,50),
+//                    rotate:0,
+//                    stroke:basic(width:3)
+//                )
+//                polygon(
+//                    5, show,
+//                    color: documentColors[3],
+//                    size:(14,70),
+//                    at:center
+//                    position:(10,50),
+//                    rotate: 20
+//                    stroke:basic(width:3)
+//                )
+//                polygon(
+//                    5, show,
+//                    color: documentColors[4],
+//                    size:(14,70),
+//                    at:center
+//                    position:(10,50),
+//                    rotate: 40
+//                    stroke:basic(width:3)
+//                ),
+                image("avatars/vpc.png", origin:center, position:(90,50),size:(10,40),preserve-aspect-ratio)
+                if(themeShowPalette){
+                    Palette()
+                }
+                body
+            }
+        }
+
+        @define hint-error{
+            group(
+                    position : (50,80),
+                    size     : (80,10),
+                    origin : center,
+            ){
+                styles:{
+                    "*" :{
+                        color: documentColors[1],
+                        foreground-color:white,
+                        font-size:20,
+                        font-bold
+                    }
+                }
+                rectangle(
+                    background: documentColors[3],
+                    position:(0,0),
+                    size:(100,100)
+                    color: documentColors[3],
+                    draw-contour:true,
+                    /*stroke:basic(width:4,dash:[20])*/
+                    stroke:zigzag(amplitude:5,wavelength:5,basic(width:4))
+                )
+                image("images/error.png", position:(95,-40),size:(10,80))
+                body
+            }
+        }
+    //    @define HintWarning{
+    //    group(
+    //            position : (50,80),
+    //            size     : (80,10),
+    //            origin : center,
+    //    ){
+    //        styles:{
+    //            "*" :{
+    //                color: documentColors[1],
+    //                foreground-color:white,
+    //                font-size:20,
+    //                font-bold
+    //            }
+    //        }
+    //        rectangle(
+    //            background: documentColors[3],
+    //            position:(0,0),
+    //            size:(100,100)
+    //            color: documentColors[1],
+    //            draw-contour:true,
+    //            /*stroke:basic(width:4,dash:[20])*/
+    //            stroke:sloppy(basic(width:2), width:4)
+    //        )
+    //        image("../images/warning.png", position:(95,-40),size:(10,80))
+    //    }
+    //    }
+    //    @define HintInfo{
+    //    group(
+    //            position : (50,80),
+    //            size     : (80,10),
+    //            origin : center,
+    //    ){
+    //        styles:{
+    //            "*" :{
+    //                color: documentColors[1],
+    //                foreground-color:white,
+    //                font-size:20,
+    //                font-bold
+    //            }
+    //        }
+    //        rectangle(
+    //            background: documentColors[3],
+    //            position:(0,0),
+    //            size:(100,100)
+    //            color: documentColors[1],
+    //            draw-contour:true,
+    //            /*stroke:basic(width:4,dash:[20])*/
+    //            stroke:sloppy(basic(width:2), width:4)
+    //        )
+    //        image("../images/info.png", position:(95,-40),size:(10,80))
+    //    }
+    //    }
+
+        @define body{
+            group(
+                    position : (1,22),
+                    size     : (98,72),
+                    origin : top-left,
+                    font-size: 5%P,
+                    color: "#6b3a09",
+                    font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body2a{
+            group(position : (1,22),
+                  size     : (48,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body2b{
+            group(
+                  position : (51,22),
+                  size     : (48,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body3a{
+            group(
+                  position : (1,22),
+                  size     : (32,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body3b{
+            group(
+                  position : (33,22),
+                  size     : (32,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+        @define body3c{
+            group(position : (66,22),
+                  size     : (32,72),
+                  origin : top-left,
+                  font-size:20,
+                  color: "#6b3a09",
+                  font-bold
+            ){
+                styles:{
+                    "*" :{
+                        foreground-color:dark-gray
+                    }
+                }
+                body
+            }
+        }
+       rectangle(
+           background: white,
+       )
+        header {
+            text("${title}"),
+        }
+        body
+    }
+}
+@define thankyou-slide(title:""){
+    page{
+        styles{
+           (.title){
+               color: "#dddddd",
+               origin : center,
+               position : (50,30),
+               size : (100,30),
+               font-size: 15%P,
+               font-bold,
+               background: documentColors[1],
+           }
+           (.subtitle){
+               color: "#2c779a"
+               origin : center,
+               position : (50,50),
+               font-size: 10%P,
+               font-bold,
+           }
+           (.author){
+               color: "#112f3d",
+               origin : center,
+               position : (50,60),
+               font-size: 5%P,
+               font-bold,
+           }
+           (.date){
+               color: "#112f3d",
+               origin : center,
+               position : (50,65),
+               font-size: 10%P,
+               font-bold
+           }
+           (.version){
+               color: "#112f3d",
+               origin : center,
+               position : (50,69),
+               font-size: 10%P,
+               font-bold,
+           },
+        }
+       rectangle(
+           background: white,
+       )
+        @(title)    text(either("$title","Thank you")),
+        @(author)     text(either("${documentAuthor}","")),
+        body
+    }
+}
