@@ -100,38 +100,6 @@ styles{
     text{
         text-wrap: wrap
     }
-
-    (.ul-item){
-        margin : (1.8, 0)
-        at: left,
-        font-size: 3.2%P
-        text-wrap: wrap
-    }
-    (.ul-bullet){
-        background-color: documentColors[1]
-        at: left,
-        size: 1.6%P
-    }
-    (.ol-bullet){
-        color: documentColors[1]
-        at: center,
-        font-bold
-    }
-    (.ol-item){
-        at: left,
-        margin: (1.8, 0)
-        font-size: 3.2%P
-        text-wrap: wrap
-    }
-    (.compact){
-        font-size: 2.3%P
-    }
-    (.compact-list){
-        font-size: 2.3%P
-    }
-    (.large){
-        font-size: 3.4%P
-    }
     ellipse{
         at: center,
     }
@@ -139,15 +107,52 @@ styles{
         at: center,
     }
 
-    (.image-fig){
+    class-ul-item{
+        margin : (1.8, 0)
+        at: left,
+        font-size: 3.2%P
+        text-wrap: wrap
+    }
+    class-ul-bullet{
+        background-color: documentColors[1]
+        at: left,
+        size: 1.6%P
+    }
+    class-ol-bullet{
+        color: documentColors[1]
+        at: center,
+        font-bold
+    }
+    class-ol-item{
+        at: left,
+        margin: (1.8, 0)
+        font-size: 3.2%P
+        text-wrap: wrap
+    }
+    class-compact{
+        font-size: 2.3%P
+    }
+    class-compact-list{
+        font-size: 2.3%P
+    }
+    class-large{
+        font-size: 3.4%P
+    }
+    class-image-fig{
         margin: 2
     }
-    (.image-fig-legend){
+    class-image-fig-legend{
         at: bottom
         font-size: 2.5%P
         color: "#64748b"
     }
-    (.image-fig-title){
+    class-image-fig-title{
+        at: top
+        font-size: 3.5%P
+        font-bold,
+        color: documentColors[1]
+    }
+    class-image-fig-title{
         at: top
         font-size: 3.5%P
         font-bold,
@@ -215,17 +220,17 @@ styles{
                 origin: top-left
                 font-size: 1.85%P
             }
-            (.ul-item){
+            class-ul-item{
                 font-size: 2.3%P
                 margin: (1.2, 0)
                 text-wrap: wrap
             }
-            (.ol-item){
+            class-ol-item{
                 font-size: 2.3%P
                 margin: (1.2, 0)
                 text-wrap: wrap
             }
-            (.ul-bullet){
+            class-ul-bullet{
                 size: 1.3%P
             }
         }
@@ -284,7 +289,7 @@ styles{
             text(either("${title}", ""), position: (0, 0), origin: top-left, font-bold, color: accentColor, font-size: 2.2%P)
             group(position: (0, 30), size: (100, 68), origin: top-left){
                 styles{
-                    (*){
+                    all{
                         font-size: 2.0%P
                     }
                 }
@@ -325,7 +330,7 @@ styles{
 @define cover-slide(){
     page{
         styles{
-            (.title){
+            class-title{
                 color: "#0f172a",
                 origin: center,
                 position: (50, 32),
@@ -333,7 +338,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            (.subtitle){
+            class-subtitle{
                 color: documentColors[1],
                 origin: center,
                 position: (50, 44),
@@ -341,33 +346,33 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            (.subsubtitle){
+            class-subsubtitle{
                 color: "#64748b",
                 origin: center,
                 position: (50, 53),
                 font-size: 3.5%P,
                 font-family: "SansSerif"
             }
-            (.author){
+            class-author{
                 color: "#0f172a",
                 origin: center,
                 position: (50, 72),
                 font-size: 3.8%P,
                 font-bold
             }
-            (.affiliation){
+            class-affiliation{
                 color: "#475569",
                 origin: center,
                 position: (50, 78),
                 font-size: 3.2%P
             }
-            (.email){
+            class-email{
                 color: documentColors[1],
                 origin: center,
                 position: (50, 84),
                 font-size: 3%P
             }
-            (.date){
+            class-date{
                 color: "#94a3b8",
                 origin: center,
                 position: (50, 92),
@@ -410,20 +415,20 @@ styles{
 @define agenda-slide(title){
     content-slide(title: either("${title}", "Agenda")){
         styles{
-            (.ul-item){
+            class-ul-item{
                 margin: (2.8, 0)
                 font-size: 3.4%P
                 text-wrap: wrap
             }
-            (.ol-item){
+            class-ol-item{
                 margin: (2.8, 0)
                 font-size: 3.4%P
                 text-wrap: wrap
             }
-            (.ul-bullet){
+            class-ul-bullet{
                 size: 1.8%P
             }
-            (.ol-bullet){
+            class-ol-bullet{
                 font-size: 3.4%P
             }
         }
@@ -501,17 +506,17 @@ styles{
                 color: "#1e293b"
             ){
                 styles{
-                    (.ul-item){
+                    class-ul-item{
                         font-size: 2.6%P
                         margin: (1.4, 0)
                         text-wrap: wrap
                     }
-                    (.ol-item){
+                    class-ol-item{
                         font-size: 2.6%P
                         margin: (1.4, 0)
                         text-wrap: wrap
                     }
-                    (.ul-bullet){
+                    class-ul-bullet{
                         size: 1.4%P
                     }
                 }
@@ -528,17 +533,17 @@ styles{
                 color: "#1e293b"
             ){
                 styles{
-                    (.ul-item){
+                    class-ul-item{
                         font-size: 2.6%P
                         margin: (1.4, 0)
                         text-wrap: wrap
                     }
-                    (.ol-item){
+                    class-ol-item{
                         font-size: 2.6%P
                         margin: (1.4, 0)
                         text-wrap: wrap
                     }
-                    (.ul-bullet){
+                    class-ul-bullet{
                         size: 1.4%P
                     }
                 }
@@ -555,17 +560,17 @@ styles{
                 color: "#1e293b"
             ){
                 styles{
-                    (.ul-item){
+                    class-ul-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    (.ol-item){
+                    class-ol-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    (.ul-bullet){
+                    class-ul-bullet{
                         size: 1.2%P
                     }
                 }
@@ -582,17 +587,17 @@ styles{
                 color: "#1e293b"
             ){
                 styles{
-                    (.ul-item){
+                    class-ul-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    (.ol-item){
+                    class-ol-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    (.ul-bullet){
+                    class-ul-bullet{
                         size: 1.2%P
                     }
                 }
@@ -609,17 +614,17 @@ styles{
                 color: "#1e293b"
             ){
                 styles{
-                    (.ul-item){
+                    class-ul-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    (.ol-item){
+                    class-ol-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    (.ul-bullet){
+                    class-ul-bullet{
                         size: 1.2%P
                     }
                 }
@@ -651,7 +656,7 @@ styles{
         rectangle(background-color: "#ffffff")
 
         styles{
-            (.thankyou-title){
+            class-thankyou-title{
                 color: "#0f172a",
                 origin: center,
                 position: (50, 42),
@@ -659,7 +664,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            (.thankyou-subtitle){
+            class-thankyou-subtitle{
                 color: documentColors[1],
                 origin: center,
                 position: (50, 55),
@@ -667,14 +672,14 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            (.thankyou-author){
+            class-thankyou-author{
                 color: "#64748b",
                 origin: center,
                 position: (50, 68),
                 font-size: 3.5%P,
                 font-family: "SansSerif"
             }
-            (.thankyou-email){
+            class-thankyou-email{
                 color: documentColors[1],
                 origin: center,
                 position: (50, 75),

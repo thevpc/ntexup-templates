@@ -39,7 +39,7 @@ documentColors:=arrayLeftRotate(["#FC4100","#00215E","#DE3163","#2C4E80","#FF8F0
 ////////////////////
 
 styles{
-    (*){
+    all{
         font-size : 5%P
         debug-color: red,
         font-family : "Serif",
@@ -59,20 +59,20 @@ styles{
 
     }
 
-    (.ul-item){
+    class-ul-item{
         margin : (5,0)
         at:left,
     }
-    (.ul-bullet){
+    class-ul-bullet{
         background-color: documentColors[1]
         at:left,
         size:3%P
     }
-    (.ol-bullet){
+    class-ol-bullet{
         color: documentColors[2]
         at:center,
     }
-    (.ol-item){
+    class-ol-item{
         at:left,
     }
     (ellipse){
@@ -82,14 +82,14 @@ styles{
         at:center,
     }
 
-    (.image-fig){
+    class-image-fig{
         margin: 1
     }
-    (.image-fig-legend){
+    class-image-fig-legend{
         at:bottom
         font-size:3%P
     }
-    (.image-fig-title){
+    class-image-fig-title{
         at:top
         font-size:4%P
         font-bold,
@@ -231,7 +231,7 @@ styles{
 @define cover-slide(title,subtitle:"",subsubtitle:"",author:"",email:"",date:"",version:"",affiliation:""){
         page{
             styles{
-           (.title){
+           class-title{
                color: documentColors[1],
                origin : center,
                position : (25,25),
@@ -240,7 +240,7 @@ styles{
                font-bold,
                shadow:(color:documentColors[2],shift:(0.3,0.5))
            }
-           (.subtitle){
+           class-subtitle{
                color: documentColors[3]
                origin : center,
                position : (27,41),
@@ -248,7 +248,7 @@ styles{
                font-bold,
                font-family:Serif,
            }
-           (.subsubtitle){
+           class-subsubtitle{
                color: documentColors[2]
                origin : center,
                position : (25,60),
@@ -256,42 +256,42 @@ styles{
                font-bold,
                font-family:Serif,
            }
-           (.author){
+           class-author{
                color: documentColors[5],
                origin : center,
                position : (70,40),
                font-size:5%P,
                font-bold,
            }
-           (.email){
+           class-email{
                color: documentColors[5],
                origin : center,
                position : (70,46),
                font-size:5%P,
                font-bold,
            }
-           (.affiliation){
+           class-affiliation{
                color: documentColors[5],
                origin : center,
                position : (70,52),
                font-size:5%P,
                font-bold,
            }
-           (.date){
+           class-date{
                color: documentColors[5],
                origin : center,
                position : (70,78),
                font-size:5%P,
                font-bold,
            }
-           (.version){
+           class-version{
                color: documentColors[5],
                origin : center,
                position : (70,86),
                font-size:5%P,
                font-bold,
            },
-           (.H1){
+           class-h1{
                font-size:20%P,
                color:documentColors[1],
                font-bold
@@ -305,7 +305,7 @@ styles{
             polygon(points:[(58,0),(63,0),(56,30),(51,30)],background-color:documentColors[1])
 
 
-            @(title)       text("${documentTitle}")
+        @(title)       text("${documentTitle}")
         @(subtitle)    text(value: either("${documentSubtitle}",""))
         @(subsubtitle) text(either("${documentSubsubtitle}",""))
         @(author)      text(either("${documentAuthor}",""))
@@ -533,7 +533,7 @@ styles{
 @define conclusion-slide(title:"",author:""){
     page{
         styles{
-           (.title){
+           class-title{
                color: "#dddddd",
                origin : center,
                position : (50,30),
@@ -542,28 +542,28 @@ styles{
                font-bold,
                background-color: documentColors[1],
            }
-           (.subtitle){
+           class-subtitle{
                color: "#2c779a"
                origin : center,
                position : (50,50),
                font-size: 10%P,
                font-bold,
            }
-           (.author){
+           class-author{
                color: "#112f3d",
                origin : center,
                position : (50,60),
                font-size: 5%P,
                font-bold,
            }
-           (.date){
+           class-date{
                color: "#112f3d",
                origin : center,
                position : (50,65),
                font-size: 10%P,
                font-bold
            }
-           (.version){
+           class-version{
                color: "#112f3d",
                origin : center,
                position : (50,69),
