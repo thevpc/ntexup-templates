@@ -7,14 +7,14 @@
 //---------------------------------------------
 // PREPARE ENV
 //---------------------------------------------
-documentTitle="My Document"
+documentTitle="New Document"
 documentSubtitle=""
 documentSubsubtitle=""
-documentAuthor="me"
-documentAuthorEmail="me@here.com"
-documentAuthorAffiliation="my institution"
+documentAuthor="Author"
+documentAuthorEmail="author@email.com"
+documentAuthorAffiliation="Author's Institution"
 documentChapter="Chapter 1"
-documentDate="2025-10-14"
+documentDate="2026-09-26"
 documentVersion="1.0"
 
 //---------------------------------------------
