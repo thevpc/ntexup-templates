@@ -265,7 +265,7 @@ styles{
                 size: 1.3%P
             }
         }
-        body
+        slot
     }
 }
 
@@ -291,7 +291,7 @@ styles{
     group(margin: 3){
         rectangle(background-color: documentColors[0], position: (0, 4), size: (0.35%P, 92))
         group(position: (5, 4), size: (93, 92)){
-            body
+            slot
             text(either("${author}", ""), position: (0, 92), font-size: 3%P, color: documentTextSecondary, font-bold)
         }
     }
@@ -312,7 +312,7 @@ styles{
             shadow: {distance: (0, 2), radius: 6, color: "#000000"}
         )
         group(position: (3, 3), size: (94, 94)){
-            body
+            slot
         }
     }
 }
@@ -329,7 +329,7 @@ styles{
                         font-size: 2.0%P
                     }
                 }
-                body
+                slot
             }
         }
     }
@@ -337,25 +337,25 @@ styles{
 
 @define hint-info(title){
     callout(title: either("${title}", "Information"), accentColor: semanticInfoColor, bgColor: semanticInfoBg){
-        body
+        slot
     }
 }
 
 @define hint-warning(title){
     callout(title: either("${title}", "Warning"), accentColor: semanticWarningColor, bgColor: semanticWarningBg){
-        body
+        slot
     }
 }
 
 @define hint-error(title){
     callout(title: either("${title}", "Important"), accentColor: semanticErrorColor, bgColor: semanticErrorBg){
-        body
+        slot
     }
 }
 
 @define hint-success(title){
     callout(title: either("${title}", "Note"), accentColor: semanticSuccessColor, bgColor: semanticSuccessBg){
-        body
+        slot
     }
 }
 
@@ -451,7 +451,7 @@ styles{
         @(email)       text(either("${documentAuthorEmail}", ""))
         @(date)        text(either("${documentDate}", ""))
         @(version)     text(either("${documentVersion}", ""))
-        body
+        slot
     }
 }
 
@@ -479,7 +479,7 @@ styles{
                 font-size: 3.4%P
             }
         }
-        body
+        slot
     }
 }
 
@@ -525,7 +525,7 @@ styles{
                     background-color: documentLine
                 )
 
-                body
+                slot
             }
         }
 
@@ -560,7 +560,7 @@ styles{
                 font-size: 3.2%P,
                 color: documentTextPrimary
             ){
-                body
+                slot
             }
         }
 
@@ -587,7 +587,7 @@ styles{
                         size: 1.4%P
                     }
                 }
-                body
+                slot
             }
         }
 
@@ -614,7 +614,7 @@ styles{
                         size: 1.4%P
                     }
                 }
-                body
+                slot
             }
         }
 
@@ -641,7 +641,7 @@ styles{
                         size: 1.2%P
                     }
                 }
-                body
+                slot
             }
         }
 
@@ -668,7 +668,7 @@ styles{
                         size: 1.2%P
                     }
                 }
-                body
+                slot
             }
         }
 
@@ -695,12 +695,12 @@ styles{
                         size: 1.2%P
                     }
                 }
-                body
+                slot
             }
         }
 
         header()
-        body
+        slot
         footer()
     }
 }
@@ -711,7 +711,7 @@ styles{
 
 @define conclusion-slide(title){
     content-slide(title: either("${title}", "Conclusion")){
-        body
+        slot
     }
 }
 
@@ -779,6 +779,6 @@ styles{
         @(thankyou-subtitle) text("Let's discuss")
         @(thankyou-author)   text(either("${documentAuthor}", ""))
         @(thankyou-email)    text(either("${documentAuthorEmail}", ""))
-        body
+        slot
     }
 }

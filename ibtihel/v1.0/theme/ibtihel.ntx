@@ -313,7 +313,7 @@ styles{
         @(affiliation) text(either("${documentAuthorAffiliation}",""))
         @(date)        text(either("${documentDate}",""))
         @(version)     text(either("${documentVersion}",""))
-           body
+           slot
 
         }
 
@@ -356,10 +356,10 @@ styles{
                         color:white
                     }
                 }
-                body
+                slot
             }
         }
-        body
+        slot
     }
 }
 
@@ -475,10 +475,10 @@ styles{
                           color: "#6b3a09",
                       }
                   }
-                  body
+                  slot
               }
           }
-          body
+          slot
     }
 }
 
@@ -519,10 +519,10 @@ styles{
                         color:white
                     }
                 }
-                body
+                slot
             }
         }
-        body
+        slot
     }
 }
 
@@ -576,6 +576,6 @@ styles{
        )
         @(title)    text(either("$title","Thank you")),
         @(author)     text(either("${documentAuthor}","")),
-        body
+        slot
     }
 }

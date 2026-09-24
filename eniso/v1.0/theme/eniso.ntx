@@ -229,7 +229,7 @@ styles{
                 size: 1.3%P
             }
         }
-        body
+        slot
     }
 }
 
@@ -255,7 +255,7 @@ styles{
     group(margin: 3){
         rectangle(background-color: documentColors[0], position: (0, 4), size: (0.35%P, 92))
         group(position: (5, 4), size: (93, 92)){
-            body
+            slot
             text(either("${author}", ""), position: (0, 92), font-size: 3%P, color: documentTextSecondary, font-bold)
         }
     }
@@ -271,7 +271,7 @@ styles{
             shadow: {distance: (0, 2), radius: 6, color: "#cbd5e1"}
         )
         group(position: (3, 3), size: (94, 94)){
-            body
+            slot
         }
     }
 }
@@ -282,32 +282,32 @@ styles{
         rectangle(background-color: accentColor, position: (0, 0), size: (1.5, 100))
         group(position: (3, 2), size: (95, 96)){
             text(either("$title", ""), font-bold, color: accentColor, font-size: 3.5%P)
-            body
+            slot
         }
     }
 }
 
 @define hint-info(title){
     callout(title: either("${title}", "Information"), accentColor: semanticInfoColor, bgColor: semanticInfoBg){
-        body
+        slot
     }
 }
 
 @define hint-warning(title){
     callout(title: either("${title}", "Warning"), accentColor: semanticWarningColor, bgColor: semanticWarningBg){
-        body
+        slot
     }
 }
 
 @define hint-error(title){
     callout(title: either("${title}", "Important"), accentColor: semanticErrorColor, bgColor: semanticErrorBg){
-        body
+        slot
     }
 }
 
 @define hint-success(title){
     callout(title: either("${title}", "Note"), accentColor: semanticSuccessColor, bgColor: semanticSuccessBg){
-        body
+        slot
     }
 }
 
@@ -315,43 +315,43 @@ styles{
 
 @define definition(title){
     callout(title: either("$title", "Définition"), accentColor: "#0284c7", bgColor: "#f0f9ff"){
-        body
+        slot
     }
 }
 
 @define theorem(title){
     callout(title: either("$title", "Théorème"), accentColor: "#003366", bgColor: "#f1f5f9"){
-        body
+        slot
     }
 }
 
 @define example(title){
     callout(title: either("$title", "Exemple"), accentColor: "#059669", bgColor: "#f0fdf4"){
-        body
+        slot
     }
 }
 
 @define remark(title){
     callout(title: either("$title", "Remarque"), accentColor: "#d97706", bgColor: "#fffbeb"){
-        body
+        slot
     }
 }
 
 @define hint-info(title){
     definition(title: either("$title", "Information")){
-        body
+        slot
     }
 }
 
 @define hint-warning(title){
     remark(title: either("$title", "Attention")){
-        body
+        slot
     }
 }
 
 @define hint-error(title){
     callout(title: either("$title", "Important"), accentColor: "#dc2626", bgColor: "#fef2f2"){
-        body
+        slot
     }
 }
 
@@ -474,7 +474,7 @@ styles{
         @(email)       text(either("${documentAuthorEmail}", ""))
         @(affiliation) text(either("${documentAuthorAffiliation}", ""))
         @(date)        text(either("${documentDate}", ""))
-        body
+        slot
     }
 }
 
@@ -502,7 +502,7 @@ styles{
                 font-size: 3.4%P
             }
         }
-        body
+        slot
     }
 }
 
@@ -573,7 +573,7 @@ styles{
                 // ENISo logo — 80% of header height, right-anchored
                 image("images/eniso.png", origin: right, position: (97, 50), size: (8, 80), preserve-aspect-ratio)
 
-                body
+                slot
             }
         }
 
@@ -586,7 +586,7 @@ styles{
                 font-size: 4.2%P,
                 color: "#1e293b"
             ){
-                body
+                slot
             }
         }
 
@@ -613,7 +613,7 @@ styles{
                         size: 1.4%P
                     }
                 }
-                body
+                slot
             }
         }
 
@@ -640,7 +640,7 @@ styles{
                         size: 1.4%P
                     }
                 }
-                body
+                slot
             }
         }
 
@@ -667,7 +667,7 @@ styles{
                         size: 1.2%P
                     }
                 }
-                body
+                slot
             }
         }
 
@@ -694,7 +694,7 @@ styles{
                         size: 1.2%P
                     }
                 }
-                body
+                slot
             }
         }
 
@@ -721,7 +721,7 @@ styles{
                         size: 1.2%P
                     }
                 }
-                body
+                slot
             }
         }
 
@@ -758,7 +758,7 @@ styles{
         )
 
         header()
-        body
+        slot
     }
 }
 
@@ -786,7 +786,7 @@ styles{
                 font-bold
             }
         }
-        body
+        slot
     }
 }
 
@@ -884,6 +884,6 @@ styles{
         @(subtitle) text("Questions & Discussion")
         @(author)   text(either("$author", either("${documentAuthor}", "")))
         @(email)    text(either("${documentAuthorEmail}", ""))
-        body
+        slot
     }
 }
