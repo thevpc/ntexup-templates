@@ -3,7 +3,10 @@
 ////////////////////
 
 import(
-    "common-functions"
+    "stdlib"
+    "layout"
+    "image"
+    "text"
     "plantuml"
     "animated-gif"
     "svg"
