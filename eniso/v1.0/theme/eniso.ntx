@@ -60,6 +60,11 @@ documentLine:="#e2e8f0"          // hairline dividers / borders
 documentTextPrimary:="#0f172a"   // primary text — dark slate
 documentTextSecondary:="#475569" // secondary text — muted slate
 documentTextMuted:="#94a3b8"     // muted / tertiary text
+documentPrimaryColor:="#003366"  // body headings (MTF ##text##) — ENISo navy
+
+// PlantUML layout engine: smetana (default) or elk. ELK gives more balanced
+// component/class diagrams, which matters in the narrow body columns.
+plantumlLayout:="elk"
 
 // Semantic colors
 semanticInfoColor:="#0284c7"
