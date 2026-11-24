@@ -13,6 +13,8 @@ import(
     "shapes2d"
     "shapes3d"
     "plot2d"
+    "scoreboard"
+    "table"
     "presenters"
     "latex"
 )
@@ -144,22 +146,80 @@ styles{
     @image-fig{
         margin: 2
     }
+    @image-fig-title{
+        at: top
+        font-size: 2.2%P
+        font-bold,
+        color: documentColors[1]
+    }
     @image-fig-legend{
         at: bottom
+        font-size: 1.6%P
+        color: documentTextSecondary
+    }
+    grid{
+        line-color: documentLine
+    }
+    eq{
+        color: documentTextPrimary
+    }
+    ntf{
+        color: documentTextPrimary
+    }
+
+    table{
+        font-size: 2.8%P
+        color: documentTextPrimary
+        background-color: documentBg
+        draw-grid
+        line-color: documentLine
+        padding: (0.8%P, 0.3%P)
+    }
+    table-header{
+        font-size: 2.8%P
+        font-bold
+        color: "#ffffff"
+        background-color: documentColors[0]
+    }
+    table-footer{
         font-size: 2.5%P
-        color: "#64748b"
+        font-bold
+        color: documentTextSecondary
+        background-color: documentSurfaceAlt
     }
-    @image-fig-title{
-        at: top
-        font-size: 3.5%P
-        font-bold,
-        color: documentColors[1]
+    table-row(row: even): {
+        background-color: documentSurface
     }
-    @image-fig-title{
-        at: top
-        font-size: 3.5%P
-        font-bold,
-        color: documentColors[1]
+    table-cell{
+        padding: (0.8%P, 0.3%P)
+    }
+
+    @table-striped{
+        background-color: documentBg
+        row(row: even){
+            background-color: documentSurfaceAlt
+        }
+        table-header{
+            font-bold
+            color: "#ffffff"
+            background-color: documentColors[0]
+        }
+        cell{ padding: (0.8%P, 0.3%P) }
+    }
+
+    @table-bordered{
+        background-color: documentBg
+        draw-grid
+        line-color: documentLine
+        row{
+            background-color: documentBg
+            color: documentTextPrimary
+        }
+        table-header{
+            font-bold
+            background-color: documentSurfaceAlt
+        }
+        cell{ padding: (0.8%P, 0.3%P) }
     }
 }
 
@@ -269,28 +329,38 @@ styles{
     }
 }
 
-@define panel(background: ""){
+@define panel(background: "", title:"", accentColor){
     group(margin: 2){
         rectangle(
-            background-color: either(background, "#f8fafc"),
+            background-color: either(background, documentSurface),
             color: documentLine,
             draw-contour: true,
             round-corner: 6,
             shadow: {distance: (0, 2), radius: 6, color: "#cbd5e1"}
         )
-        group(position: (3, 3), size: (94, 94)){
-            slot
+        group(position: (3, 12), size: (94, 85)){
+            text(
+                either("${title}", ""),
+                font-size: 3%P,
+                font-bold,
+                position: (0, 0),
+                origin: top-left,
+                color: either(accentColor, documentColors[0])
+            )
+            group(position: (0, 14), size: (100, 86)){
+                slot
+            }
         }
     }
 }
 
-@define callout(title, accentColor, bgColor){
+@define callout(title: "", accentColor, bgColor){
     group(margin: 1, row-weight: 30){
         rectangle(background-color: bgColor, color: documentLine, draw-contour: true, round-corner: 4)
         rectangle(background-color: accentColor, position: (0, 0), size: (1.5, 100))
         group(position: (4, 4), size: (92, 92), origin: top-left){
             text(either("${title}", ""), position: (0, 0), origin: top-left, font-bold, color: accentColor, font-size: 2.2%P)
-            group(position: (0, 30), size: (100, 68), origin: top-left){
+            group(position: (0, 18), size: (100, 80), origin: top-left){
                 styles{
                     all{
                         font-size: 2.0%P
@@ -322,6 +392,30 @@ styles{
 
 @define hint-success(title){
     callout(title: either("${title}", "Note"), accentColor: semanticSuccessColor, bgColor: semanticSuccessBg){
+        slot
+    }
+}
+
+@define definition(title){
+    callout(title: either("${title}", "Definition"), accentColor: semanticInfoColor, bgColor: semanticInfoBg){
+        slot
+    }
+}
+
+@define theorem(title){
+    callout(title: either("${title}", "Theorem"), accentColor: documentColors[0], bgColor: documentSurfaceAlt){
+        slot
+    }
+}
+
+@define example(title){
+    callout(title: either("${title}", "Example"), accentColor: semanticSuccessColor, bgColor: semanticSuccessBg){
+        slot
+    }
+}
+
+@define remark(title){
+    callout(title: either("${title}", "Remark"), accentColor: semanticWarningColor, bgColor: semanticWarningBg){
         slot
     }
 }
@@ -407,6 +501,9 @@ styles{
         @(affiliation) text(either("${documentAuthorAffiliation}", ""))
         @(email)       text(either("${documentAuthorEmail}", ""))
         @(date)        text(either("${documentDate}", ""))
+        if(either("${documentVersion}", "") != ""){
+            text(either("${documentVersion}", ""), position: (50, 96), origin: center, font-size: 2.2%P, color: documentTextMuted)
+        }
         slot
     }
 }
@@ -414,7 +511,6 @@ styles{
 ////////////////////
 // AGENDA SLIDE
 ////////////////////
-
 @define agenda-slide(title){
     content-slide(title: either("${title}", "Agenda")){
         styles{
@@ -645,8 +741,8 @@ styles{
 // CONCLUSION SLIDE
 ////////////////////
 
-@define conclusion-slide(title){
-    content-slide(title: either("$title", "Conclusion")){
+@define conclusion-slide(title:""){
+    content-slide(title: either("${title}", "Conclusion")){
         slot
     }
 }

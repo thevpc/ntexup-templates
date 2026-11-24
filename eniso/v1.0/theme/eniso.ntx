@@ -1,5 +1,5 @@
 ////////////////////
-// classic theme (single file to simplify AI edition)
+// eniso theme (single file to simplify AI edition)
 ////////////////////
 
 import(
@@ -13,6 +13,8 @@ import(
     "shapes2d"
     "shapes3d"
     "plot2d"
+    "scoreboard"
+    "table"
     "presenters"
     "latex"
 )
@@ -54,7 +56,7 @@ documentColors:=arrayLeftRotate([
 
 // Neutral surface & text variables (harmonized with meridian)
 documentBg:="#ffffff"            // page background — pure white
-documentSurface:="#d9e2ec"       // raised panel / card surface
+documentSurface:="#f8fafc"       // raised panel / card surface
 documentSurfaceAlt:="#f1f5f9"    // secondary panel surface
 documentLine:="#e2e8f0"          // hairline dividers / borders
 documentTextPrimary:="#0f172a"   // primary text — dark slate
@@ -161,9 +163,74 @@ styles{
         color: "#64748b"
         margin: (1, 1, 1, 2)
     }
+    grid{
+        line-color: documentLine
+    }
+    eq{
+        color: documentTextPrimary
+    }
+    ntf{
+        color: documentTextPrimary
+    }
+
+    table{
+        font-size: 2.8%P
+        color: documentTextPrimary
+        background-color: documentBg
+        draw-grid
+        line-color: documentLine
+        padding: (0.8%P, 0.3%P)
+    }
+    table-header{
+        font-size: 2.8%P
+        font-bold
+        color: "#ffffff"
+        background-color: documentColors[0]
+    }
+    table-footer{
+        font-size: 2.5%P
+        font-bold
+        color: documentTextSecondary
+        background-color: documentSurfaceAlt
+    }
+    table-row(row: even): {
+        background-color: documentSurface
+    }
+    table-cell{
+        padding: (0.8%P, 0.3%P)
+    }
+
+    @table-striped{
+        background-color: documentBg
+        row(row: even){
+            background-color: documentSurfaceAlt
+        }
+        table-header{
+            font-bold
+            color: "#ffffff"
+            background-color: documentColors[0]
+        }
+        cell{ padding: (0.8%P, 0.3%P) }
+    }
+
+    @table-bordered{
+        background-color: documentBg
+        draw-grid
+        line-color: documentLine
+        row{
+            background-color: documentBg
+            color: documentTextPrimary
+        }
+        table-header{
+            font-bold
+            background-color: documentSurfaceAlt
+        }
+        cell{ padding: (0.8%P, 0.3%P) }
+    }
+
     @image-fig-title{
         at: top
-        font-size: 3.5%P
+        font-size: 2.2%P
         font-bold,
         color: documentColors[0]
     }
@@ -173,12 +240,12 @@ styles{
 // COMPONENTS
 ////////////////////
 
-@define image-fig(src, title:"", legend:"", at:center, size:100){
+@define image-fig(src, title:"", legend:"", at:center, size:30){
     @(img) group(at: at, size: size){
         rectangle(color: "#cbd5e1", stroke: dashed, size: 98, round-corner: 4)
         @(image-fig) image(src, size: (95, 85), at: center, preserve-aspect-ratio)
-        @(image-fig-title) text("$title")
-        @(image-fig-legend) text("$legend")
+        @(image-fig-title) text("${title}")
+        @(image-fig-legend) text("${legend}")
     }
 }
 
@@ -186,59 +253,6 @@ styles{
     group(margin: 1, row-weight: 70){
         rectangle(background-color: documentSurface, color: documentLine, draw-contour: true, round-corner: 4)
         rectangle(background-color: either(accentColor, documentColors[0]), origin:(0,50) position: (0, 50), size: (0.45%P, 70), round-corner: 0.6)
-        @define kicker(text, color: ""){
-            group(position: (4, 3), size: (92, 8), origin: top-left){
-                rectangle(position: (0, 50), size: (1.2%P, 0.35%P), origin: left, background-color: either(color, either(accentColor, documentColors[0])))
-                text("${text}", position: (1.8%P, 50), origin: left, font-size: 2.2%P, font-bold, color: either(color, either(accentColor, documentColors[0])))
-            }
-        }
-        styles{
-            ul{
-                position: (4, 12)
-                size: (92, 86)
-                origin: top-left
-            }
-            ol{
-                position: (4, 12)
-                size: (92, 86)
-                origin: top-left
-            }
-            column{
-                position: (4, 12)
-                size: (92, 86)
-                origin: top-left
-            }
-            col{
-                position: (4, 12)
-                size: (92, 86)
-                origin: top-left
-            }
-            source{
-                position: (4, 12)
-                size: (92, 86)
-                origin: top-left
-                font-size: 1.85%P
-            }
-            @ul-item{
-                font-size: 2.3%P
-                margin: (1.2, 0)
-                text-wrap: wrap
-            }
-            @ol-item{
-                font-size: 2.3%P
-                margin: (1.2, 0)
-                text-wrap: wrap
-            }
-        }
-        group(margin: 4, row-weight: 70){
-            slot
-        }
-    }
-}
-
-@define card2(accentColor: ""){
-    group(margin: 1, row-weight: 70){
-        rectangle(background-color: documentSurface, color: documentLine, draw-contour: true, round-corner: 4)
         @define kicker(text, color: ""){
             group(position: (4, 3), size: (92, 8), origin: top-left){
                 rectangle(position: (0, 50), size: (1.2%P, 0.35%P), origin: left, background-color: either(color, either(accentColor, documentColors[0])))
@@ -320,26 +334,30 @@ styles{
 @define panel(background: "", title:"", accentColor){
     group(margin: 2){
         rectangle(
-            background-color: either(background, "#f8fafc"),
+            background-color: either(background, documentSurface),
             color: documentLine,
             draw-contour: true,
             round-corner: 6,
             shadow: {distance: (0, 2), radius: 6, color: "#cbd5e1"}
         )
-        text("$title", font-size: 3%P, font-bold , position: (50,0),origin:50,color:either(accentColor,documentColors[3]))
-        group(position: (3, 3), size: (94, 94)){
-            slot
+        group(position: (3, 12), size: (94, 85)){
+            text(either("${title}", ""), font-size: 3%P, font-bold, position: (0, 0), origin: top-left, color: either(accentColor, documentColors[0]))
+            group(position: (0, 14), size: (100, 86)){
+                slot
+            }
         }
     }
 }
 
-@define callout(title, accentColor, bgColor){
+@define callout(title: "", accentColor, bgColor){
     group(margin: 2){
         rectangle(background-color: bgColor, color: accentColor, draw-contour: true, round-corner: 6)
         rectangle(background-color: accentColor, position: (0, 0), size: (1.5, 100))
-        group(position: (3, 2), size: (95, 96)){
-            text(either("$title", ""), font-bold, color: accentColor, font-size: 3.5%P)
-            slot
+        group(position: (4, 4), size: (92, 86), origin: top-left){
+            text(either("${title}", ""), font-bold, color: accentColor, font-size: 2.2%P, position: (0, 0), origin: top-left)
+            group(position: (0, 18), size: (100, 78), origin: top-left){
+                slot
+            }
         }
     }
 }
@@ -371,43 +389,25 @@ styles{
 
 
 @define definition(title){
-    callout(title: either("$title", "Définition"), accentColor: "#0284c7", bgColor: "#f0f9ff"){
+    callout(title: either("${title}", "Définition"), accentColor: semanticInfoColor, bgColor: semanticInfoBg){
         slot
     }
 }
 
 @define theorem(title){
-    callout(title: either("$title", "Théorème"), accentColor: "#003366", bgColor: "#f1f5f9"){
+    callout(title: either("${title}", "Théorème"), accentColor: documentColors[0], bgColor: documentSurfaceAlt){
         slot
     }
 }
 
 @define example(title){
-    callout(title: either("$title", "Exemple"), accentColor: "#059669", bgColor: "#f0fdf4"){
+    callout(title: either("${title}", "Exemple"), accentColor: semanticSuccessColor, bgColor: semanticSuccessBg){
         slot
     }
 }
 
 @define remark(title){
-    callout(title: either("$title", "Remarque"), accentColor: "#d97706", bgColor: "#fffbeb"){
-        slot
-    }
-}
-
-@define hint-info(title){
-    definition(title: either("$title", "Information")){
-        slot
-    }
-}
-
-@define hint-warning(title){
-    remark(title: either("$title", "Attention")){
-        slot
-    }
-}
-
-@define hint-error(title){
-    callout(title: either("$title", "Important"), accentColor: "#dc2626", bgColor: "#fef2f2"){
+    callout(title: either("${title}", "Remarque"), accentColor: semanticWarningColor, bgColor: semanticWarningBg){
         slot
     }
 }
@@ -531,6 +531,9 @@ styles{
         @(email)       text(either("${documentAuthorEmail}", ""))
         @(affiliation) text(either("${documentAuthorAffiliation}", ""))
         @(date)        text(either("${documentDate}", ""))
+        if(either("${documentVersion}", "") != ""){
+            text(either("${documentVersion}", ""), position: (52, 98), origin: center, font-size: 2%P, color: documentTextMuted)
+        }
         slot
     }
 }
@@ -836,25 +839,7 @@ styles{
 ////////////////////
 
 @define conclusion-slide(title:""){
-    content-slide(title: either("$title", "Conclusion")){
-        styles{
-            @title{
-                color: "#003366",
-                origin: center,
-                position: (50, 40),
-                font-size: 8%P,
-                font-family: "SansSerif",
-                font-bold
-            }
-            @author{
-                color: "#0284c7",
-                origin: center,
-                position: (50, 56),
-                font-size: 4%P,
-                font-family: "SansSerif",
-                font-bold
-            }
-        }
+    content-slide(title: either("${title}", "Conclusion")){
         slot
     }
 }
@@ -925,7 +910,6 @@ styles{
             background-color: "#e2e8f0"
         )
 
-        // Institutional header
         text("École Nationale d'Ingénieurs de Sousse · Université de Sousse",
             position: (5, 7),
             origin: left,

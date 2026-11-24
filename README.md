@@ -27,28 +27,21 @@ In your `main.ntx` file, just add the following line to include a theme:
 include("github://thevpc/ntexup-templates/classic/v1.0/theme")
 ```
 
-You can change the themeName (here classic) to one of the available themes:
+You can change the theme name (here classic) to one of the available themes:
 
 - classic
-- ibtihel
+- eniso
+- meridian
 
-(More themes coming soon)
-
-You can customize the theme by setting some variables in your main.ntx, for example:
+You can customize the theme by setting variables in your `main.ntx`, for example:
 
 ```tson
-// Set your preferred theme name
-themeName = "classic"
-
-// Use an accent color number from 1 to 12
-documentColorAccent = 1
-
-// Show palette colors
+documentColorAccent = 0
 themeShowPalette = true
-
-// Finally load the theme
-include("github://thevpc/ntexup-templates/${themeName}/v1.0/theme")
+include("github://thevpc/ntexup-templates/classic/v1.0/theme")
 ```
+
+Replace `classic` in the include path with `eniso` or `meridian` to switch themes. `documentColorAccent` accepts an index from 0 to 11.
 
 ## Creating New Projects from Scratch
 You can create a new project from scratch using the ntexup command-line tool.
