@@ -107,35 +107,35 @@ styles{
         text-wrap: wrap
     }
 
-    class-ul-item{
+    @ul-item{
         margin : (1.8, 0)
         at: left,
         font-size: 3.2%P
         text-wrap: wrap
     }
-    class-ul-bullet{
+    @ul-bullet{
         background-color: documentColors[0]
         at: left,
         size: 1.6%P
     }
-    class-ol-bullet{
+    @ol-bullet{
         color: documentColors[0]
         at: center,
         font-bold
     }
-    class-ol-item{
+    @ol-item{
         at: left,
         margin: (1.8, 0)
         font-size: 3.2%P
         text-wrap: wrap
     }
-    class-compact{
+    @compact{
         font-size: 2.3%P
     }
-    class-compact-list{
+    @compact-list{
         font-size: 2.3%P
     }
-    class-large{
+    @large{
         font-size: 3.4%P
     }
     ellipse{
@@ -145,15 +145,15 @@ styles{
         at: center,
     }
 
-    class-image-fig{
+    @image-fig{
         margin: 2
     }
-    class-image-fig-legend{
+    @image-fig-legend{
         at: bottom
         font-size: 2.5%P
         color: documentTextMuted
     }
-    class-image-fig-title{
+    @image-fig-title{
         at: top
         font-size: 3.2%P
         font-bold,
@@ -254,17 +254,17 @@ styles{
                 origin: top-left
                 font-size: 1.85%P
             }
-            class-ul-item{
+            @ul-item{
                 font-size: 2.3%P
                 margin: (1.2, 0)
                 text-wrap: wrap
             }
-            class-ol-item{
+            @ol-item{
                 font-size: 2.3%P
                 margin: (1.2, 0)
                 text-wrap: wrap
             }
-            class-ul-bullet{
+            @ul-bullet{
                 size: 1.3%P
             }
         }
@@ -369,7 +369,7 @@ styles{
 @define cover-slide(){
     page{
         styles{
-            class-kicker{
+            @kicker{
                 color: documentColors[0],
                 origin: left,
                 position: (8, 18),
@@ -377,7 +377,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-title{
+            @title{
                 color: documentTextPrimary,
                 origin: left,
                 position: (8, 32),
@@ -385,7 +385,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-subtitle{
+            @subtitle{
                 color: documentColors[0],
                 origin: left,
                 position: (8, 44),
@@ -393,39 +393,39 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-subsubtitle{
+            @subsubtitle{
                 color: documentTextSecondary,
                 origin: left,
                 position: (8, 50),
                 font-size: 3%P,
                 font-family: "SansSerif"
             }
-            class-author{
+            @author{
                 color: documentTextPrimary,
                 origin: left,
                 position: (8, 84),
                 font-size: 3.4%P,
                 font-bold
             }
-            class-affiliation{
+            @affiliation{
                 color: documentTextSecondary,
                 origin: left,
                 position: (8, 88.5),
                 font-size: 2.8%P
             }
-            class-email{
+            @email{
                 color: documentColors[0],
                 origin: left,
                 position: (8, 92.5),
                 font-size: 2.6%P
             }
-            class-date{
+            @date{
                 color: documentTextMuted,
                 origin: right,
                 position: (92, 8),
                 font-size: 2.4%P
             }
-            class-version{
+            @version{
                 color: documentTextMuted,
                 origin: right,
                 position: (92, 92.5),
@@ -465,20 +465,20 @@ styles{
 @define agenda-slide(title){
     content-slide(title: either("${title}", "Agenda")){
         styles{
-            class-ul-item{
+            @ul-item{
                 margin: (2.8, 0)
                 font-size: 3.4%P
                 text-wrap: wrap
             }
-            class-ol-item{
+            @ol-item{
                 margin: (2.8, 0)
                 font-size: 3.4%P
                 text-wrap: wrap
             }
-            class-ul-bullet{
+            @ul-bullet{
                 size: 1.8%P
             }
-            class-ol-bullet{
+            @ol-bullet{
                 font-size: 3.4%P
             }
         }
@@ -490,6 +490,7 @@ styles{
 // CONTENT SLIDE
 ////////////////////
 
+@default-body(body, body2a, body2b, body3a, body3b, body3c)
 @define content-slide(title){
     page{
         rectangle(background-color: documentBg)
@@ -576,17 +577,17 @@ styles{
                 color: documentTextPrimary
             ){
                 styles{
-                    class-ul-item{
+                    @ul-item{
                         font-size: 2.6%P
                         margin: (1.4, 0)
                         text-wrap: wrap
                     }
-                    class-ol-item{
+                    @ol-item{
                         font-size: 2.6%P
                         margin: (1.4, 0)
                         text-wrap: wrap
                     }
-                    class-ul-bullet{
+                    @ul-bullet{
                         size: 1.4%P
                     }
                 }
@@ -603,17 +604,17 @@ styles{
                 color: documentTextPrimary
             ){
                 styles{
-                    class-ul-item{
+                    @ul-item{
                         font-size: 2.6%P
                         margin: (1.4, 0)
                         text-wrap: wrap
                     }
-                    class-ol-item{
+                    @ol-item{
                         font-size: 2.6%P
                         margin: (1.4, 0)
                         text-wrap: wrap
                     }
-                    class-ul-bullet{
+                    @ul-bullet{
                         size: 1.4%P
                     }
                 }
@@ -630,17 +631,17 @@ styles{
                 color: documentTextPrimary
             ){
                 styles{
-                    class-ul-item{
+                    @ul-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    class-ol-item{
+                    @ol-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    class-ul-bullet{
+                    @ul-bullet{
                         size: 1.2%P
                     }
                 }
@@ -657,17 +658,17 @@ styles{
                 color: documentTextPrimary
             ){
                 styles{
-                    class-ul-item{
+                    @ul-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    class-ol-item{
+                    @ol-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    class-ul-bullet{
+                    @ul-bullet{
                         size: 1.2%P
                     }
                 }
@@ -684,17 +685,17 @@ styles{
                 color: documentTextPrimary
             ){
                 styles{
-                    class-ul-item{
+                    @ul-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    class-ol-item{
+                    @ol-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    class-ul-bullet{
+                    @ul-bullet{
                         size: 1.2%P
                     }
                 }
@@ -727,7 +728,7 @@ styles{
         rectangle(background-color: documentBg)
 
         styles{
-            class-kicker{
+            @kicker{
                 color: documentColors[0],
                 origin: left,
                 position: (8, 26),
@@ -735,7 +736,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-thankyou-title{
+            @thankyou-title{
                 color: documentTextPrimary,
                 origin: left,
                 position: (8, 40),
@@ -743,7 +744,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-thankyou-subtitle{
+            @thankyou-subtitle{
                 color: documentColors[0],
                 origin: left,
                 position: (8, 52),
@@ -751,7 +752,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-thankyou-author{
+            @thankyou-author{
                 color: documentTextPrimary,
                 origin: left,
                 position: (8, 74),
@@ -759,7 +760,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-thankyou-email{
+            @thankyou-email{
                 color: documentColors[0],
                 origin: left,
                 position: (8, 78.5),

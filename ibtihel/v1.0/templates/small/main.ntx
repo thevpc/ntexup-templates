@@ -35,18 +35,16 @@ agenda-slide(title:"Plan"){
 }
 
 content-slide(title:"My Slide"){
-    body {
-        row{
-            ul{
-                ¶ First Idea
-                ¶ My Second Idea
-                ¶ My Third Idea
-            }
-            ul{
-                ¶ First Idea
-                ¶ My Second Idea
-                ¶ My Third Idea
-            }
+    row{
+        ul{
+            ¶ First Idea
+            ¶ My Second Idea
+            ¶ My Third Idea
+        }
+        ul{
+            ¶ First Idea
+            ¶ My Second Idea
+            ¶ My Third Idea
         }
     }
 }

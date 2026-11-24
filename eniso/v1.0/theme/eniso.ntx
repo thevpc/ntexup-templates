@@ -111,38 +111,38 @@ styles{
         text-wrap: wrap
     }
 
-    class-ul-item{
+    @ul-item{
         margin: (4, 0)
         at: left,
     }
-    class-ul-bullet{
+    @ul-bullet{
         background-color: documentColors[1]
         at: left,
         size: 1%P,
         bullet-align: center
     }
-    class-ul-bullet-2{
+    @ul-bullet-2{
         background-color: lighterColor(documentColors[1])
         at: left,
         size: 0.8%P,
         bullet-align: center
     }
-    class-ol-bullet{
+    @ol-bullet{
         color: documentColors[0]
         at: center,
         font-bold
     }
-    class-ol-item{
+    @ol-item{
         at: left,
         margin: (3, 0)
     }
-    class-compact{
+    @compact{
         font-size: 2.3%P
     }
-    class-compact-list{
+    @compact-list{
         font-size: 2.3%P
     }
-    class-large{
+    @large{
         font-size: 3.4%P
     }
     ellipse{
@@ -152,16 +152,16 @@ styles{
         at: center,
     }
 
-    class-image-fig{
+    @image-fig{
         margin: 2
     }
-    class-image-fig-legend{
+    @image-fig-legend{
         at: bottom
         font-size: 1.5%P
         color: "#64748b"
         margin: (1, 1, 1, 2)
     }
-    class-image-fig-title{
+    @image-fig-title{
         at: top
         font-size: 3.5%P
         font-bold,
@@ -219,12 +219,12 @@ styles{
                 origin: top-left
                 font-size: 1.85%P
             }
-            class-ul-item{
+            @ul-item{
                 font-size: 2.3%P
                 margin: (1.2, 0)
                 text-wrap: wrap
             }
-            class-ol-item{
+            @ol-item{
                 font-size: 2.3%P
                 margin: (1.2, 0)
                 text-wrap: wrap
@@ -272,12 +272,12 @@ styles{
                 origin: top-left
                 font-size: 1.85%P
             }
-            class-ul-item{
+            @ul-item{
                 font-size: 2.3%P
                 margin: (1.2, 0)
                 text-wrap: wrap
             }
-            class-ol-item{
+            @ol-item{
                 font-size: 2.3%P
                 margin: (1.2, 0)
                 text-wrap: wrap
@@ -419,14 +419,14 @@ styles{
 @define cover-slide(){
     page{
         styles{
-            class-institution{
+            @institution{
                 color: "#003366",
                 origin: left,
                 position: (5, 7),
                 font-size: 2.8%P,
                 font-bold
             }
-            class-title{
+            @title{
                 color: "#003366",
                 origin: center,
                 position: (52, 42),
@@ -434,7 +434,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-subtitle{
+            @subtitle{
                 color: "#0284c7",
                 origin: center,
                 position: (52, 53),
@@ -442,33 +442,33 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-subsubtitle{
+            @subsubtitle{
                 color: "#64748b",
                 origin: center,
                 position: (52, 61),
                 font-size: 3.5%P,
                 font-family: "SansSerif"
             }
-            class-author{
+            @author{
                 color: "#0f172a",
                 origin: center,
                 position: (52, 76),
                 font-size: 3.8%P,
                 font-bold
             }
-            class-email{
+            @email{
                 color: "#0284c7",
                 origin: center,
                 position: (52, 82),
                 font-size: 3%P
             }
-            class-affiliation{
+            @affiliation{
                 color: "#64748b",
                 origin: center,
                 position: (52, 88),
                 font-size: 3%P
             }
-            class-date{
+            @date{
                 color: "#94a3b8",
                 origin: center,
                 position: (52, 94),
@@ -542,22 +542,22 @@ styles{
 @define agenda-slide(title:""){
     content-slide(title: either("$title", "Plan")){
         styles{
-            class-ul-item{
+            @ul-item{
                 margin: (2.8, 0)
                 font-size: 3.4%P
                 text-wrap: wrap
             }
-            class-ol-item{
+            @ol-item{
                 margin: (2.8, 0)
                 font-size: 3.4%P
                 text-wrap: wrap
             }
-//            class-ul-bullet{
+//            @ul-bullet{
 //                background-color: documentColors[1]
 //                size: 1%P
 //                bullet-align:center
 //            }
-            class-ol-bullet{
+            @ol-bullet{
                 font-size: 3.4%P
             }
         }
@@ -569,6 +569,7 @@ styles{
 // CONTENT SLIDE
 ////////////////////
 
+@default-body(body, body2a, body2b, body3a, body3b, body3c)
 @define content-slide(title:""){
     page{
         rectangle(background-color: "#f8fafc")
@@ -658,17 +659,17 @@ styles{
                 color: "#1e293b"
             ){
                 styles{
-                    class-ul-item{
+                    @ul-item{
                         font-size: 2.6%P
                         margin: (1.4, 0)
                         text-wrap: wrap
                     }
-                    class-ol-item{
+                    @ol-item{
                         font-size: 2.6%P
                         margin: (1.4, 0)
                         text-wrap: wrap
                     }
-//                    class-ul-bullet{
+//                    @ul-bullet{
 //                        background-color: documentColors[1]
 //                        size: 1%P
 //                        bullet-align:center
@@ -687,17 +688,17 @@ styles{
                 color: "#1e293b"
             ){
                 styles{
-                    class-ul-item{
+                    @ul-item{
                         font-size: 2.6%P
                         margin: (1.4, 0)
                         text-wrap: wrap
                     }
-                    class-ol-item{
+                    @ol-item{
                         font-size: 2.6%P
                         margin: (1.4, 0)
                         text-wrap: wrap
                     }
-//                    class-ul-bullet{
+//                    @ul-bullet{
 //                        background-color: documentColors[1]
 //                        size: 1%P
 //                        bullet-align:center
@@ -716,17 +717,17 @@ styles{
                 color: "#1e293b"
             ){
                 styles{
-                    class-ul-item{
+                    @ul-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    class-ol-item{
+                    @ol-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-//                    class-ul-bullet{
+//                    @ul-bullet{
 //                        background-color: documentColors[1]
 //                        size: 1%P
 //                        bullet-align:center
@@ -745,17 +746,17 @@ styles{
                 color: "#1e293b"
             ){
                 styles{
-                    class-ul-item{
+                    @ul-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    class-ol-item{
+                    @ol-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-//                    class-ul-bullet{
+//                    @ul-bullet{
 //                        background-color: documentColors[1]
 //                        size: 1%P
 //                        bullet-align:center
@@ -774,17 +775,17 @@ styles{
                 color: "#1e293b"
             ){
                 styles{
-                    class-ul-item{
+                    @ul-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-                    class-ol-item{
+                    @ol-item{
                         font-size: 2.2%P
                         margin: (1.2, 0)
                         text-wrap: wrap
                     }
-//                    class-ul-bullet{
+//                    @ul-bullet{
 //                        size: 1%P
 //                        bullet-align:center
 //                    }
@@ -837,7 +838,7 @@ styles{
 @define conclusion-slide(title:""){
     content-slide(title: either("$title", "Conclusion")){
         styles{
-            class-title{
+            @title{
                 color: "#003366",
                 origin: center,
                 position: (50, 40),
@@ -845,7 +846,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-author{
+            @author{
                 color: "#0284c7",
                 origin: center,
                 position: (50, 56),
@@ -867,7 +868,7 @@ styles{
         rectangle(background-color: "#ffffff")
 
         styles{
-            class-title{
+            @title{
                 color: "#003366",
                 origin: center,
                 position: (52, 43),
@@ -875,7 +876,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-subtitle{
+            @subtitle{
                 color: "#0284c7",
                 origin: center,
                 position: (52, 55),
@@ -883,7 +884,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-author{
+            @author{
                 color: "#0f172a",
                 origin: center,
                 position: (52, 70),
@@ -891,7 +892,7 @@ styles{
                 font-family: "SansSerif",
                 font-bold
             }
-            class-email{
+            @email{
                 color: "#0284c7",
                 origin: center,
                 position: (52, 77),
