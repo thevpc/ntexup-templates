@@ -90,10 +90,23 @@ styles{
         font-family : "monospaced",
         source-primary-color: documentTextPrimary
         source-keyword-color: documentColors[0]
+        source-entity-color: "#8ecae6"
+        source-action-color: "#a5b4fc"
+        source-annotation-color: "#fca5a5"
+        source-variable-color: "#f0a6ca"
+        source-operator-color: documentTextPrimary
         source-separator-color: documentTextSecondary
-        source-string-color: "#a8c98a"
         source-comments-color: documentTextMuted
+        source-string-color: "#a8c98a"
+        source-input-color: "#e9c46a"
+        source-path-color: "#8ecae6"
+        source-version-color: documentColors[5]
         source-number-color: documentColors[5]
+        source-date-color: documentColors[5]
+        source-boolean-color: documentColors[5]
+        source-option-color: "#c3a6e8"
+        source-title-color: documentTextPrimary
+        source-error-color: "#f87171"
         source-keyword-font-bold
         background-color: "#0a0c10"
         color: documentTextPrimary
@@ -107,6 +120,28 @@ styles{
 
     text{
         text-wrap: wrap
+
+        // fenced code inside `text` keeps the dark theme's code palette
+        source-code-font-family: "monospaced"
+        source-primary-color: documentTextPrimary
+        source-keyword-color: documentColors[0]
+        source-entity-color: "#8ecae6"
+        source-action-color: "#a5b4fc"
+        source-annotation-color: "#fca5a5"
+        source-variable-color: "#f0a6ca"
+        source-operator-color: documentTextPrimary
+        source-separator-color: documentTextSecondary
+        source-comments-color: documentTextMuted
+        source-string-color: "#a8c98a"
+        source-input-color: "#e9c46a"
+        source-path-color: "#8ecae6"
+        source-version-color: documentColors[5]
+        source-number-color: documentColors[5]
+        source-date-color: documentColors[5]
+        source-boolean-color: documentColors[5]
+        source-option-color: "#c3a6e8"
+        source-title-color: documentTextPrimary
+        source-error-color: "#f87171"
     }
 
     @ul-item{

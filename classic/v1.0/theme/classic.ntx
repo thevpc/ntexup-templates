@@ -87,10 +87,23 @@ styles{
         font-family : "monospaced",
         source-primary-color: "#f8fafc"
         source-keyword-color: "#38bdf8"
+        source-entity-color: "#7dd3fc"
+        source-action-color: "#93c5fd"
+        source-annotation-color: "#fda4af"
+        source-variable-color: "#f472b6"
+        source-operator-color: "#e2e8f0"
         source-separator-color: "#94a3b8"
-        source-string-color: "#a3e635"
         source-comments-color: "#64748b"
+        source-string-color: "#a3e635"
+        source-input-color: "#fde68a"
+        source-path-color: "#7dd3fc"
+        source-version-color: "#f59e0b"
         source-number-color: "#f59e0b"
+        source-date-color: "#f59e0b"
+        source-boolean-color: "#f59e0b"
+        source-option-color: "#c4b5fd"
+        source-title-color: "#f8fafc"
+        source-error-color: "#f87171"
         source-keyword-font-bold
         background-color: "#0f172a"
         color: "#f8fafc"
@@ -104,6 +117,28 @@ styles{
 
     text{
         text-wrap: wrap
+
+        // fenced code inside `text` has no dark backdrop: light-background palette
+        source-code-font-family: "monospaced"
+        source-primary-color: "#0f172a"
+        source-keyword-color: "#0369a1"
+        source-entity-color: "#4338ca"
+        source-action-color: "#0284c7"
+        source-annotation-color: "#be123c"
+        source-variable-color: "#b91c1c"
+        source-operator-color: "#0f172a"
+        source-separator-color: "#64748b"
+        source-comments-color: "#64748b"
+        source-string-color: "#15803d"
+        source-input-color: "#a16207"
+        source-path-color: "#0369a1"
+        source-version-color: "#b45309"
+        source-number-color: "#b45309"
+        source-date-color: "#b45309"
+        source-boolean-color: "#7e22ce"
+        source-option-color: "#4338ca"
+        source-title-color: "#003366"
+        source-error-color: "#dc2626"
     }
     ellipse{
         at: center,
