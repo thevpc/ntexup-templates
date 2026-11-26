@@ -1,0 +1,3 @@
+@name("classic")@binaries("1.2.0.0")"small"
+@name("classic")@binaries("1.2.0.0")"large"
+@name("classic")@recommended()@binaries("1.2.0.0")"medium"

@@ -40,15 +40,15 @@ import(
  documentColors:=arrayLeftRotate([
      "#2563eb", // 0: Sapphire blue primary accent
      "#7c3aed", // 1: Violet accent
-     "#059669", // 2: Emerald green accent
-     "#d97706", // 3: Amber accent
+     "#047857", // 2: Emerald green accent
+     "#b45309", // 3: Amber accent
      "#dc2626", // 4: Crimson red accent
-     "#0284c7", // 5: Ocean sky blue accent
+     "#0369a1", // 5: Ocean sky blue accent
      "#4f46e5", // 6: Royal indigo accent
-     "#0d9488", // 7: Deep teal accent
+     "#0f766e", // 7: Deep teal accent
      "#9333ea", // 8: Purple accent
      "#c026d3", // 9: Fuchsia magenta accent
-     "#ea580c", // 10: Burnt orange accent
+     "#c2410c", // 10: Burnt orange accent
      "#1e293b"  // 11: Dark slate accent
  ], either(documentColorAccent, 0))
 
@@ -59,16 +59,16 @@ import(
  documentLine:="#e2e8f0"          // hairline dividers / borders
  documentTextPrimary:="#0f172a"   // primary text — dark slate
  documentTextSecondary:="#475569" // secondary text — muted slate
- documentTextMuted:="#94a3b8"     // muted / tertiary text
+ documentTextMuted:="#64748b"     // tertiary text — 4.76:1 on white
 
- // Semantic colors
- semanticInfoColor:="#0284c7"
+ // Semantic colors — darkened for at least 4.5:1 on their callout surfaces
+ semanticInfoColor:="#0369a1"
  semanticInfoBg:="#f0f9ff"
- semanticWarningColor:="#d97706"
+ semanticWarningColor:="#92400e"
  semanticWarningBg:="#fffbeb"
- semanticErrorColor:="#dc2626"
+ semanticErrorColor:="#b91c1c"
  semanticErrorBg:="#fef2f2"
- semanticSuccessColor:="#16a34a"
+ semanticSuccessColor:="#15803d"
  semanticSuccessBg:="#f0fdf4"
 
 ////////////////////
@@ -79,7 +79,7 @@ styles{
     (*){
         font-size : 4.5%P
         font-family : "SansSerif",
-        color: "#111827"
+        color: documentTextPrimary
     }
 
     source{
@@ -112,7 +112,7 @@ styles{
     }
 
     page{
-        background-color: "#ffffff"
+        background-color: documentBg
     }
 
     text{
@@ -455,6 +455,15 @@ styles{
     }
 }
 
+// Shared editorial footer: hairline, document identity, and date.
+@define classic-footer(){
+    group(position: (0, 96), size: (100, 4), origin: top-left){
+        rectangle(position: (8, 0), size: (84, 0.12), background-color: documentLine)
+        text("${documentTitle}", position: (8, 48), origin: left, font-size: 2%P, color: documentTextMuted)
+        text(either("${documentDate}", ""), position: (92, 48), origin: right, font-size: 2%P, color: documentTextMuted)
+    }
+}
+
 ////////////////////
 // COVER SLIDE
 ////////////////////
@@ -462,84 +471,89 @@ styles{
 @define cover-slide(){
     page{
         styles{
+            @cover-kicker{
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 15),
+                font-size: 2.4%P,
+                font-family: "SansSerif",
+                font-bold
+            }
             @title{
-                color: "#0f172a",
-                origin: center,
-                position: (50, 32),
+                color: documentTextPrimary,
+                origin: left,
+                position: (8, 29),
                 font-size: 8%P,
                 font-family: "SansSerif",
                 font-bold
             }
             @subtitle{
-                color: documentColors[1],
-                origin: center,
-                position: (50, 44),
-                font-size: 4.5%P,
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 45),
+                font-size: 4.2%P,
                 font-family: "SansSerif",
                 font-bold
             }
             @subsubtitle{
-                color: "#64748b",
-                origin: center,
-                position: (50, 53),
-                font-size: 3.5%P,
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 53),
+                font-size: 3.2%P,
                 font-family: "SansSerif"
             }
             @author{
-                color: "#0f172a",
-                origin: center,
-                position: (50, 72),
-                font-size: 3.8%P,
+                color: documentTextPrimary,
+                origin: left,
+                position: (8, 76),
+                font-size: 3.4%P,
                 font-bold
             }
             @affiliation{
-                color: "#475569",
-                origin: center,
-                position: (50, 78),
-                font-size: 3.2%P
-            }
-            @email{
-                color: documentColors[1],
-                origin: center,
-                position: (50, 84),
-                font-size: 3%P
-            }
-            @date{
-                color: "#94a3b8",
-                origin: center,
-                position: (50, 92),
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 81),
                 font-size: 2.8%P
             }
+            @email{
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 86),
+                font-size: 2.6%P
+            }
+            @date{
+                color: documentTextMuted,
+                origin: right,
+                position: (92, 15),
+                font-size: 2.2%P
+            }
+            @version{
+                color: documentTextMuted,
+                origin: right,
+                position: (92, 86),
+                font-size: 2.2%P
+            }
         }
 
-        // Clean white background
-        rectangle(background-color: "#ffffff")
+        rectangle(background-color: documentBg)
 
-        // Top accent line
-        rectangle(
-            position: (0, 0),
-            size: (100, 1.2),
-            background-color: documentColors[1]
-        )
+        // Restrained technical frame and section marker.
+        rectangle(position: (8, 9), size: (84, 0.12), background-color: documentLine)
+        rectangle(position: (8, 13), size: (1.4, 0.35), background-color: documentColors[0])
+        rectangle(position: (8, 22), size: (8, 0.4), background-color: documentColors[0])
+        rectangle(position: (8, 64), size: (84, 0.12), background-color: documentLine)
 
-        // Middle accent divider
-        rectangle(
-            position: (35, 62),
-            size: (30, 0.4),
-            background-color: documentColors[1]
-        )
-
-        @(title)       text("${documentTitle}")
-        @(subtitle)    text(value: either("${documentSubtitle}", ""))
-        @(subsubtitle) text(either("${documentSubsubtitle}", ""))
-        @(author)      text(either("${documentAuthor}", ""))
-        @(affiliation) text(either("${documentAuthorAffiliation}", ""))
-        @(email)       text(either("${documentAuthorEmail}", ""))
-        @(date)        text(either("${documentDate}", ""))
-        if(either("${documentVersion}", "") != ""){
-            text(either("${documentVersion}", ""), position: (50, 96), origin: center, font-size: 2.2%P, color: documentTextMuted)
-        }
+        @(cover-kicker) text(either("${documentChapter}", "Presentation"))
+        @(title)        text("${documentTitle}")
+        @(subtitle)     text(either("${documentSubtitle}", ""))
+        @(subsubtitle)  text(either("${documentSubsubtitle}", ""))
+        @(author)       text(either("${documentAuthor}", ""))
+        @(affiliation)  text(either("${documentAuthorAffiliation}", ""))
+        @(email)        text(either("${documentAuthorEmail}", ""))
+        @(date)         text(either("${documentDate}", ""))
+        @(version)      text(either("${documentVersion}", ""))
         slot
+        classic-footer()
     }
 }
 
@@ -575,46 +589,38 @@ styles{
 ////////////////////
 
 @default-body(body, body2a, body2b, body3a, body3b, body3c)
-@define content-slide(title){
+@define content-slide(title, section:""){
     page{
-        rectangle(background-color: "#ffffff")
+        rectangle(background-color: documentBg)
 
         @define header{
             group(
                 position: (0, 0),
-                size: (100, 11),
+                size: (100, 12),
                 origin: top-left
             ){
-                // Header accent bar
-                rectangle(
-                    position: (0, 98),
-                    size: (100, 2),
-                    background-color: "#e2e8f0"
-                )
-                rectangle(
-                    position: (0, 96),
-                    size: (12, 4),
-                    background-color: documentColors[1]
+                // Optional section kicker, with the document chapter as fallback.
+                rectangle(position: (8, 8), size: (1.4, 0.35), background-color: documentColors[0])
+                text(
+                    either("${section}", either("${documentChapter}", "${documentTitle}")),
+                    position: (10.2, 8),
+                    origin: left,
+                    font-size: 2.1%P,
+                    font-bold,
+                    color: documentTextSecondary
                 )
 
-                // Slide Title
+                // Slide title and quiet technical rule.
                 text(
                     "${title}",
-                    position: (3, 55),
+                    position: (8, 36),
                     origin: left,
-                    font-size: 4.8%P,
+                    font-size: 4.6%P,
                     font-bold,
-                    color: "#0f172a"
+                    color: documentTextPrimary
                 )
-
-                // Chapter breadcrumb (right)
-                text(
-                    either("${documentChapter}", "${documentTitle}"),
-                    position: (97, 55),
-                    origin: right,
-                    font-size: 2.8%P,
-                    color: "#64748b"
-                )
+                rectangle(position: (8, 88), size: (84, 0.12), background-color: documentLine)
+                rectangle(position: (8, 86), size: (10, 0.4), background-color: documentColors[0])
 
                 slot
             }
@@ -622,11 +628,11 @@ styles{
 
         @define body{
             group(
-                position: (3, 14),
-                size: (94, 82),
+                position: (8, 14),
+                size: (84, 82),
                 origin: top-left,
                 font-size: 3.4%P,
-                color: "#1e293b"
+                color: documentTextPrimary
             ){
                 slot
             }
@@ -634,11 +640,11 @@ styles{
 
         @define body2a{
             col(
-                position: (3, 14),
-                size: (45, 82),
+                position: (8, 14),
+                size: (40, 82),
                 origin: top-left,
                 font-size: 2.8%P,
-                color: "#1e293b"
+                color: documentTextPrimary
             ){
                 styles{
                     @ul-item{
@@ -662,10 +668,10 @@ styles{
         @define body2b{
             col(
                 position: (52, 14),
-                size: (45, 82),
+                size: (40, 82),
                 origin: top-left,
                 font-size: 2.8%P,
-                color: "#1e293b"
+                color: documentTextPrimary
             ){
                 styles{
                     @ul-item{
@@ -688,11 +694,11 @@ styles{
 
         @define body3a{
             col(
-                position: (3, 14),
-                size: (29, 82),
+                position: (8, 14),
+                size: (26, 82),
                 origin: top-left,
                 font-size: 2.4%P,
-                color: "#1e293b"
+                color: documentTextPrimary
             ){
                 styles{
                     @ul-item{
@@ -715,11 +721,11 @@ styles{
 
         @define body3b{
             col(
-                position: (35, 14),
-                size: (29, 82),
+                position: (37, 14),
+                size: (26, 82),
                 origin: top-left,
                 font-size: 2.4%P,
-                color: "#1e293b"
+                color: documentTextPrimary
             ){
                 styles{
                     @ul-item{
@@ -742,11 +748,11 @@ styles{
 
         @define body3c{
             col(
-                position: (67, 14),
-                size: (29, 82),
+                position: (66, 14),
+                size: (26, 82),
                 origin: top-left,
                 font-size: 2.4%P,
-                color: "#1e293b"
+                color: documentTextPrimary
             ){
                 styles{
                     @ul-item{
@@ -769,6 +775,7 @@ styles{
 
         header()
         slot
+        classic-footer()
     }
 }
 
@@ -777,7 +784,7 @@ styles{
 ////////////////////
 
 @define conclusion-slide(title:""){
-    content-slide(title: either("${title}", "Conclusion")){
+    content-slide(title: either("${title}", "Conclusion"), section: "Closing remarks"){
         slot
     }
 }
@@ -786,54 +793,79 @@ styles{
 // THANK YOU SLIDE
 ////////////////////
 
-@define thankyou-slide(title:""){
+@define thankyou-slide(title:"", subtitle:"Questions & Discussion"){
     page{
-        rectangle(background-color: "#ffffff")
-
         styles{
+            @thankyou-kicker{
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 25),
+                font-size: 2.4%P,
+                font-family: "SansSerif",
+                font-bold
+            }
             @thankyou-title{
-                color: "#0f172a",
-                origin: center,
-                position: (50, 42),
-                font-size: 9%P,
+                color: documentTextPrimary,
+                origin: left,
+                position: (8, 38),
+                font-size: 8.5%P,
                 font-family: "SansSerif",
                 font-bold
             }
             @thankyou-subtitle{
-                color: documentColors[1],
-                origin: center,
-                position: (50, 55),
-                font-size: 4.5%P,
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 51),
+                font-size: 4%P,
                 font-family: "SansSerif",
                 font-bold
             }
             @thankyou-author{
-                color: "#64748b",
-                origin: center,
-                position: (50, 68),
-                font-size: 3.5%P,
-                font-family: "SansSerif"
+                color: documentTextPrimary,
+                origin: left,
+                position: (8, 74),
+                font-size: 3.4%P,
+                font-family: "SansSerif",
+                font-bold
             }
             @thankyou-email{
-                color: documentColors[1],
-                origin: center,
-                position: (50, 75),
-                font-size: 3.2%P,
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 79),
+                font-size: 2.8%P,
                 font-family: "SansSerif"
+            }
+            @thankyou-date{
+                color: documentTextMuted,
+                origin: right,
+                position: (92, 15),
+                font-size: 2.2%P
+            }
+            @thankyou-version{
+                color: documentTextMuted,
+                origin: right,
+                position: (92, 79),
+                font-size: 2.2%P
             }
         }
 
-        // Center accent line
-        rectangle(
-            position: (40, 62),
-            size: (20, 0.4),
-            background-color: documentColors[1]
-        )
+        rectangle(background-color: documentBg)
 
-        @(thankyou-title)    text(either("$title", "Thank You!"))
-        @(thankyou-subtitle) text("Questions & Discussion")
+        // Mirrored cover framing keeps the closing slide in the same system.
+        rectangle(position: (8, 9), size: (84, 0.12), background-color: documentLine)
+        rectangle(position: (8, 13), size: (1.4, 0.35), background-color: documentColors[0])
+        rectangle(position: (8, 22), size: (8, 0.4), background-color: documentColors[0])
+        rectangle(position: (8, 61), size: (12, 0.35), background-color: documentColors[0])
+        rectangle(position: (8, 65), size: (84, 0.12), background-color: documentLine)
+
+        @(thankyou-kicker)  text(either("${documentChapter}", "Discussion"))
+        @(thankyou-title)    text(either("${title}", "Thank You!"))
+        @(thankyou-subtitle) text("${subtitle}")
         @(thankyou-author)   text(either("${documentAuthor}", ""))
         @(thankyou-email)    text(either("${documentAuthorEmail}", ""))
+        @(thankyou-date)     text(either("${documentDate}", ""))
+        @(thankyou-version)  text(either("${documentVersion}", ""))
         slot
+        classic-footer()
     }
 }

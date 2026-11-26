@@ -1,0 +1,3 @@
+@name("ibtihel")@binaries("1.2.0.0")"small"
+@name("ibtihel")@binaries("1.2.0.0")"large"
+@name("ibtihel")@recommended()@binaries("1.2.0.0")"medium"

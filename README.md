@@ -31,6 +31,7 @@ You can change the theme name (here classic) to one of the available themes:
 
 - classic
 - eniso
+- ibtihel
 - meridian
 
 You can customize the theme by setting variables in your `main.ntx`, for example:
@@ -41,7 +42,7 @@ themeShowPalette = true
 include("github://thevpc/ntexup-templates/classic/v1.0/theme")
 ```
 
-Replace `classic` in the include path with `eniso` or `meridian` to switch themes. `documentColorAccent` accepts an index from 0 to 11.
+Replace `classic` in the include path with `eniso`, `ibtihel`, or `meridian` to switch themes. `documentColorAccent` accepts an index from 0 to 11.
 
 ## Creating New Projects from Scratch
 You can create a new project from scratch using the ntexup command-line tool.

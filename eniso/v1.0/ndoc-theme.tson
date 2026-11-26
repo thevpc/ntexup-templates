@@ -1,0 +1,3 @@
+@name("eniso")@binaries("1.2.0.0")"small"
+@name("eniso")@binaries("1.2.0.0")"large"
+@name("eniso")@recommended()@binaries("1.2.0.0")"medium"

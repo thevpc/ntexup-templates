@@ -53,7 +53,7 @@ styles{
         source-keyword-color: documentColors[1]
         source-separator-color: documentColors[6]
         source-string-color: documentColors[4]
-        source-comments-color: documentColors[12]
+        source-comments-color: documentColors[11]
         source-number-color: documentColors[3]
         source-keyword-font-bold,
         //draw-contour,
@@ -207,7 +207,7 @@ styles{
            origin : top-left,
            position : (1.5,11.5),
            size : (1,2),
-           background-color: documentColors[12],
+           background-color: documentColors[11],
            rotate:0
            color:gray
            draw-contour
@@ -234,11 +234,13 @@ styles{
             styles{
            @title{
                color: documentColors[1],
-               origin : center,
-               position : (25,25),
-               font-size:16%P,
+               origin : top-left,
+               position : (8,25),
+               size : (45,18),
+               font-size:13%P,
                font-family:Monospaced,
                font-bold,
+               text-wrap:wrap,
                shadow:(color:documentColors[2],shift:(0.3,0.5))
            }
            @subtitle{
@@ -532,7 +534,7 @@ styles{
 // THANK YOU SLIDE
 ////////////////////
 
-@define conclusion-slide(title:"",author:""){
+@define thankyou-slide(title:"",author:""){
     page{
         styles{
            @title{
