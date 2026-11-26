@@ -1,0 +1,14 @@
+content-slide(title:"My Slide"){
+    row{
+        ul{
+            ¶ First Idea
+            ¶ My Second Idea
+            ¶ My Third Idea
+        }
+        ul{
+            ¶ First Idea
+            ¶ My Second Idea
+            ¶ My Third Idea
+        }
+    }
+}

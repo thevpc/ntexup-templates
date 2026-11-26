@@ -1,0 +1,864 @@
+////////////////////
+// lucid theme — clean, minimalist, editorial (single file to simplify AI edition)
+////////////////////
+
+import(
+    "stdlib"
+    "layout"
+    "image"
+    "text"
+    "plantuml"
+    "animated-gif"
+    "svg"
+    "shapes2d"
+    "shapes3d"
+    "plot2d"
+    "scoreboard"
+    "table"
+    "presenters"
+    "latex"
+)
+
+
+////////////////////
+// VARS
+////////////////////
+
+ documentTitle:="My Document"
+ documentSubtitle:=""
+ documentSubsubtitle:=""
+ documentAuthor:="Author"
+ documentAuthorEmail:="author@example.com"
+ documentAuthorAffiliation:=""
+ documentChapter:=""
+ documentDate:=""
+ documentVersion:="1.0"
+
+ themeShowPalette:=false
+ documentColorAccent:=0
+ // Modern harmonious presentation palette (Slate, Sapphire, Indigo, Sky, Emerald, Amber, Crimson)
+ documentColors:=arrayLeftRotate([
+     "#2563eb", // 0: Sapphire blue primary accent
+     "#7c3aed", // 1: Violet accent
+     "#047857", // 2: Emerald green accent
+     "#b45309", // 3: Amber accent
+     "#dc2626", // 4: Crimson red accent
+     "#0369a1", // 5: Ocean sky blue accent
+     "#4f46e5", // 6: Royal indigo accent
+     "#0f766e", // 7: Deep teal accent
+     "#9333ea", // 8: Purple accent
+     "#c026d3", // 9: Fuchsia magenta accent
+     "#c2410c", // 10: Burnt orange accent
+     "#1e293b"  // 11: Dark slate accent
+ ], either(documentColorAccent, 0))
+
+ // Neutral surface & text variables (harmonized with meridian)
+ documentBg:="#ffffff"            // page background — pure white
+ documentSurface:="#f8fafc"       // raised panel / card surface
+ documentSurfaceAlt:="#f1f5f9"    // secondary panel surface
+ documentLine:="#e2e8f0"          // hairline dividers / borders
+ documentTextPrimary:="#0f172a"   // primary text — dark slate
+ documentTextSecondary:="#475569" // secondary text — muted slate
+ documentTextMuted:="#64748b"     // tertiary text — 4.76:1 on white
+
+ // Semantic colors — darkened for at least 4.5:1 on their callout surfaces
+ semanticInfoColor:="#0369a1"
+ semanticInfoBg:="#f0f9ff"
+ semanticWarningColor:="#92400e"
+ semanticWarningBg:="#fffbeb"
+ semanticErrorColor:="#b91c1c"
+ semanticErrorBg:="#fef2f2"
+ semanticSuccessColor:="#15803d"
+ semanticSuccessBg:="#f0fdf4"
+
+////////////////////
+// STYLES
+////////////////////
+
+styles{
+    (*){
+        font-size : 4.5%P
+        font-family : "SansSerif",
+        color: documentTextPrimary
+    }
+
+    source{
+        font-size : 3.2%P,
+        font-family : "monospaced",
+        source-primary-color: "#f8fafc"
+        source-keyword-color: "#38bdf8"
+        source-entity-color: "#7dd3fc"
+        source-action-color: "#93c5fd"
+        source-annotation-color: "#fda4af"
+        source-variable-color: "#f472b6"
+        source-operator-color: "#e2e8f0"
+        source-separator-color: "#94a3b8"
+        source-comments-color: "#64748b"
+        source-string-color: "#a3e635"
+        source-input-color: "#fde68a"
+        source-path-color: "#7dd3fc"
+        source-version-color: "#f59e0b"
+        source-number-color: "#f59e0b"
+        source-date-color: "#f59e0b"
+        source-boolean-color: "#f59e0b"
+        source-option-color: "#c4b5fd"
+        source-title-color: "#f8fafc"
+        source-error-color: "#f87171"
+        source-keyword-font-bold
+        background-color: "#0f172a"
+        color: "#f8fafc"
+        draw-contour: true
+        padding: (1%P, 0.5%P)
+    }
+
+    page{
+        background-color: documentBg
+    }
+
+    text{
+        text-wrap: wrap
+
+        // fenced code inside `text` has no dark backdrop: light-background palette
+        source-code-font-family: "monospaced"
+        source-primary-color: "#0f172a"
+        source-keyword-color: "#0369a1"
+        source-entity-color: "#4338ca"
+        source-action-color: "#0284c7"
+        source-annotation-color: "#be123c"
+        source-variable-color: "#b91c1c"
+        source-operator-color: "#0f172a"
+        source-separator-color: "#64748b"
+        source-comments-color: "#64748b"
+        source-string-color: "#15803d"
+        source-input-color: "#a16207"
+        source-path-color: "#0369a1"
+        source-version-color: "#b45309"
+        source-number-color: "#b45309"
+        source-date-color: "#b45309"
+        source-boolean-color: "#7e22ce"
+        source-option-color: "#4338ca"
+        source-title-color: "#003366"
+        source-error-color: "#dc2626"
+    }
+    ellipse{
+        at: center,
+    }
+    arc{
+        at: center,
+    }
+
+    @ul-item{
+        margin : (1.8, 0)
+        at: left,
+        font-size: 3.2%P
+        text-wrap: wrap
+    }
+    @ul-bullet{
+        background-color: documentColors[1]
+        at: left,
+        size: 1.6%P
+    }
+    @ol-bullet{
+        color: documentColors[1]
+        at: center,
+        font-bold
+    }
+    @ol-item{
+        at: left,
+        margin: (1.8, 0)
+        font-size: 3.2%P
+        text-wrap: wrap
+    }
+    @compact{
+        font-size: 2.3%P
+    }
+    @compact-list{
+        font-size: 2.3%P
+    }
+    @large{
+        font-size: 3.4%P
+    }
+    @image-fig{
+        margin: 2
+    }
+    @image-fig-title{
+        at: top
+        font-size: 2.2%P
+        font-bold,
+        color: documentColors[1]
+    }
+    @image-fig-legend{
+        at: bottom
+        font-size: 1.6%P
+        color: documentTextSecondary
+    }
+    grid{
+        line-color: documentLine
+    }
+    eq{
+        color: documentTextPrimary
+    }
+    ntf{
+        color: documentTextPrimary
+    }
+
+    table{
+        font-size: 2.8%P
+        color: documentTextPrimary
+        background-color: documentBg
+        draw-grid
+        line-color: documentLine
+        padding: (0.8%P, 0.3%P)
+    }
+    table-header{
+        font-size: 2.8%P
+        font-bold
+        color: "#ffffff"
+        background-color: documentColors[0]
+    }
+    table-footer{
+        font-size: 2.5%P
+        font-bold
+        color: documentTextSecondary
+        background-color: documentSurfaceAlt
+    }
+    table-row(row: even): {
+        background-color: documentSurface
+    }
+    table-cell{
+        padding: (0.8%P, 0.3%P)
+    }
+
+    @table-striped{
+        background-color: documentBg
+        row(row: even){
+            background-color: documentSurfaceAlt
+        }
+        table-header{
+            font-bold
+            color: "#ffffff"
+            background-color: documentColors[0]
+        }
+        cell{ padding: (0.8%P, 0.3%P) }
+    }
+
+    @table-bordered{
+        background-color: documentBg
+        draw-grid
+        line-color: documentLine
+        row{
+            background-color: documentBg
+            color: documentTextPrimary
+        }
+        table-header{
+            font-bold
+            background-color: documentSurfaceAlt
+        }
+        cell{ padding: (0.8%P, 0.3%P) }
+    }
+}
+
+////////////////////
+// COMPONENTS
+////////////////////
+
+@define image-fig(src, title:"", legend:"", at:center, size:30){
+    @(img) group(at: at, size: size){
+        rectangle(color: "#cbd5e1", stroke: dashed, size: 98, round-corner: 4)
+        @(image-fig) image(src, size: (95, 85), at: center, preserve-aspect-ratio)
+        @(image-fig-title) text("${title}")
+        @(image-fig-legend) text("${legend}")
+    }
+}
+
+@define card(accentColor: ""){
+    group(margin: 1, row-weight: 70){
+        rectangle(background-color: documentSurface, color: documentLine, draw-contour: true, round-corner: 4)
+        rectangle(background-color: either(accentColor, documentColors[0]), position: (1.2, 50), origin: left, size: (0.35%P, 90))
+        @define kicker(text, color: ""){
+            group(position: (4, 3), size: (92, 8), origin: top-left){
+                rectangle(position: (0, 50), size: (1.2%P, 0.35%P), origin: left, background-color: either(color, either(accentColor, documentColors[0])))
+                text("${text}", position: (1.8%P, 50), origin: left, font-size: 1.8%P, font-bold, color: either(color, either(accentColor, documentColors[0])))
+            }
+        }
+        styles{
+            unordered-list{
+                position: (4, 12)
+                size: (92, 86)
+                origin: top-left
+            }
+            ul{
+                position: (4, 12)
+                size: (92, 86)
+                origin: top-left
+            }
+            ordered-list{
+                position: (4, 12)
+                size: (92, 86)
+                origin: top-left
+            }
+            ol{
+                position: (4, 12)
+                size: (92, 86)
+                origin: top-left
+            }
+            column{
+                position: (4, 12)
+                size: (92, 86)
+                origin: top-left
+            }
+            col{
+                position: (4, 12)
+                size: (92, 86)
+                origin: top-left
+            }
+            source{
+                position: (4, 12)
+                size: (92, 86)
+                origin: top-left
+                font-size: 1.85%P
+            }
+            @ul-item{
+                font-size: 1.75%P
+                margin: (0.6, 0)
+                text-wrap: wrap
+            }
+            @ol-item{
+                font-size: 1.75%P
+                margin: (0.6, 0)
+                text-wrap: wrap
+            }
+            @ul-bullet{
+                size: 1.0%P
+            }
+        }
+        slot
+    }
+}
+
+@define kicker(text, color: ""){
+    group(size: (100, 6)){
+        rectangle(position: (0, 50), size: (1.2%P, 0.35%P), origin: left, background-color: either(color, documentColors[0]))
+        text("${text}", position: (1.8%P, 50), origin: left, font-size: 1.8%P, font-bold, color: either(color, documentColors[0]))
+    }
+}
+
+@define divider(width: 40, thickness: 0.3){
+    rectangle(size: (width, thickness), background-color: documentColors[0])
+}
+
+@define stat(value, label, accentColor: ""){
+    group(margin: 1){
+        text("${value}", position: (50, 38), origin: center, font-size: 5.5%P, font-bold, color: either(accentColor, documentColors[0]))
+        text("${label}", position: (50, 68), origin: center, font-size: 1.8%P, color: documentTextSecondary)
+    }
+}
+
+@define quote(author: ""){
+    group(margin: 3){
+        rectangle(background-color: documentColors[0], position: (1.2, 50), origin: left, size: (0.35%P, 90))
+        group(position: (5, 4), size: (93, 92)){
+            slot
+            text(either("${author}", ""), position: (0, 92), font-size: 1.8%P, color: documentTextSecondary, font-bold)
+        }
+    }
+}
+
+@define panel(background: "", title:"", accentColor){
+    group(margin: 2){
+        rectangle(
+            background-color: either(background, documentSurface),
+            color: documentLine,
+            draw-contour: true,
+            round-corner: 6,
+            shadow: {distance: (0, 2), radius: 6, color: "#cbd5e1"}
+        )
+        group(position: (3, 12), size: (94, 85)){
+            text(
+                either("${title}", ""),
+                font-size: 3%P,
+                font-bold,
+                position: (0, 0),
+                origin: top-left,
+                color: either(accentColor, documentColors[0])
+            )
+            group(position: (0, 14), size: (100, 86)){
+                slot
+            }
+        }
+    }
+}
+
+@define callout(title: "", accentColor, bgColor){
+    group(margin: 1, row-weight: 30){
+        rectangle(background-color: bgColor, color: documentLine, draw-contour: true, round-corner: 4)
+        rectangle(background-color: accentColor, position: (1.2, 50), origin: left, size: (1.2, 90))
+        group(position: (4, 4), size: (92, 92), origin: top-left){
+            text(either("${title}", ""), position: (0, 0), origin: top-left, font-bold, color: accentColor, font-size: 2.2%P)
+            group(position: (0, 18), size: (100, 80), origin: top-left){
+                styles{
+                    all{
+                        font-size: 1.75%P
+                    }
+                }
+                slot
+            }
+        }
+    }
+}
+
+@define hint-info(title){
+    callout(title: either("${title}", "Information"), accentColor: semanticInfoColor, bgColor: semanticInfoBg){
+        slot
+    }
+}
+
+@define hint-warning(title){
+    callout(title: either("${title}", "Warning"), accentColor: semanticWarningColor, bgColor: semanticWarningBg){
+        slot
+    }
+}
+
+@define hint-error(title){
+    callout(title: either("${title}", "Important"), accentColor: semanticErrorColor, bgColor: semanticErrorBg){
+        slot
+    }
+}
+
+@define hint-success(title){
+    callout(title: either("${title}", "Note"), accentColor: semanticSuccessColor, bgColor: semanticSuccessBg){
+        slot
+    }
+}
+
+@define definition(title){
+    callout(title: either("${title}", "Definition"), accentColor: semanticInfoColor, bgColor: semanticInfoBg){
+        slot
+    }
+}
+
+@define theorem(title){
+    callout(title: either("${title}", "Theorem"), accentColor: documentColors[0], bgColor: documentSurfaceAlt){
+        slot
+    }
+}
+
+@define example(title){
+    callout(title: either("${title}", "Example"), accentColor: semanticSuccessColor, bgColor: semanticSuccessBg){
+        slot
+    }
+}
+
+@define remark(title){
+    callout(title: either("${title}", "Remark"), accentColor: semanticWarningColor, bgColor: semanticWarningBg){
+        slot
+    }
+}
+
+// Shared editorial footer: hairline, document identity, and date.
+@define lucid-footer(){
+    group(position: (0, 96), size: (100, 4), origin: top-left){
+        rectangle(position: (8, 0), size: (84, 0.12), background-color: documentLine)
+        text("${documentTitle}", position: (8, 48), origin: left, font-size: 2%P, color: documentTextMuted)
+        text(either("${documentDate}", ""), position: (92, 48), origin: right, font-size: 2%P, color: documentTextMuted)
+    }
+}
+
+////////////////////
+// COVER SLIDE
+////////////////////
+
+@define cover-slide(){
+    page{
+        styles{
+            @cover-kicker{
+                color: documentTextMuted,
+                origin: left,
+                position: (8, 15),
+                font-size: 2.3%P,
+                font-family: "SansSerif"
+            }
+            @title{
+                color: documentTextPrimary,
+                origin: left,
+                position: (8, 29),
+                font-size: 8%P,
+                font-family: "SansSerif",
+                font-bold
+            }
+            @subtitle{
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 45),
+                font-size: 4.2%P,
+                font-family: "SansSerif",
+                font-bold
+            }
+            @subsubtitle{
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 53),
+                font-size: 3.2%P,
+                font-family: "SansSerif"
+            }
+            @author{
+                color: documentTextPrimary,
+                origin: left,
+                position: (8, 76),
+                font-size: 3.4%P,
+                font-bold
+            }
+            @affiliation{
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 81),
+                font-size: 2.8%P
+            }
+            @email{
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 86),
+                font-size: 2.6%P
+            }
+            @date{
+                color: documentTextMuted,
+                origin: right,
+                position: (92, 15),
+                font-size: 2.2%P
+            }
+            @version{
+                color: documentTextMuted,
+                origin: right,
+                position: (92, 86),
+                font-size: 2.2%P
+            }
+        }
+
+        rectangle(background-color: documentBg)
+
+        // Restrained technical frame and section marker.
+        rectangle(position: (8, 9), size: (84, 0.12), background-color: documentLine)
+        rectangle(position: (8, 22), size: (8, 0.4), background-color: documentColors[0])
+        rectangle(position: (8, 64), size: (84, 0.12), background-color: documentLine)
+
+        @(cover-kicker) text(either("${documentChapter}", "Presentation"))
+        @(title)        text("${documentTitle}")
+        @(subtitle)     text(either("${documentSubtitle}", ""))
+        @(subsubtitle)  text(either("${documentSubsubtitle}", ""))
+        @(author)       text(either("${documentAuthor}", ""))
+        @(affiliation)  text(either("${documentAuthorAffiliation}", ""))
+        @(email)        text(either("${documentAuthorEmail}", ""))
+        @(date)         text(either("${documentDate}", ""))
+        @(version)      text(either("${documentVersion}", ""))
+        slot
+        lucid-footer()
+    }
+}
+
+////////////////////
+// AGENDA SLIDE
+////////////////////
+@define agenda-slide(title){
+    content-slide(title: either("${title}", "Agenda")){
+        styles{
+            @ul-item{
+                margin: (2.8, 0)
+                font-size: 3.4%P
+                text-wrap: wrap
+            }
+            @ol-item{
+                margin: (2.8, 0)
+                font-size: 3.4%P
+                text-wrap: wrap
+            }
+            @ul-bullet{
+                size: 1.8%P
+            }
+            @ol-bullet{
+                font-size: 3.4%P
+            }
+        }
+        slot
+    }
+}
+
+////////////////////
+// CONTENT SLIDE
+////////////////////
+
+@default-body(body, body2a, body2b, body3a, body3b, body3c)
+@define content-slide(title, section:""){
+    page{
+        rectangle(background-color: documentBg)
+
+        @define header{
+            group(
+                position: (0, 0),
+                size: (100, 100),
+                origin: top-left
+            ){
+                // One quiet header line: title left, chapter right on the same
+                // baseline, then a single hairline with a short accent segment.
+                text(
+                    "${title}",
+                    position: (8, 9),
+                    origin: left,
+                    font-size: 4.6%P,
+                    font-bold,
+                    color: documentTextPrimary
+                )
+                text(
+                    either("${section}", either("${documentChapter}", "${documentTitle}")),
+                    position: (92, 9.6),
+                    origin: right,
+                    font-size: 2%P,
+                    color: documentTextMuted
+                )
+                rectangle(position: (8, 14), size: (84, 0.12), background-color: documentLine)
+                rectangle(position: (8, 13.85), size: (6, 0.4), background-color: documentColors[0])
+
+                slot
+            }
+        }
+
+        @define body{
+            group(
+                position: (8, 17),
+                size: (84, 78),
+                origin: top-left,
+                font-size: 3.4%P,
+                color: documentTextPrimary
+            ){
+                slot
+            }
+        }
+
+        @define body2a{
+            col(
+                position: (8, 17),
+                size: (40, 78),
+                origin: top-left,
+                font-size: 2.8%P,
+                color: documentTextPrimary
+            ){
+                styles{
+                    @ul-item{
+                        font-size: 2.6%P
+                        margin: (1.4, 0)
+                        text-wrap: wrap
+                    }
+                    @ol-item{
+                        font-size: 2.6%P
+                        margin: (1.4, 0)
+                        text-wrap: wrap
+                    }
+                    @ul-bullet{
+                        size: 1.4%P
+                    }
+                }
+                slot
+            }
+        }
+
+        @define body2b{
+            col(
+                position: (52, 17),
+                size: (40, 78),
+                origin: top-left,
+                font-size: 2.8%P,
+                color: documentTextPrimary
+            ){
+                styles{
+                    @ul-item{
+                        font-size: 2.6%P
+                        margin: (1.4, 0)
+                        text-wrap: wrap
+                    }
+                    @ol-item{
+                        font-size: 2.6%P
+                        margin: (1.4, 0)
+                        text-wrap: wrap
+                    }
+                    @ul-bullet{
+                        size: 1.4%P
+                    }
+                }
+                slot
+            }
+        }
+
+        @define body3a{
+            col(
+                position: (8, 17),
+                size: (26, 78),
+                origin: top-left,
+                font-size: 2.4%P,
+                color: documentTextPrimary
+            ){
+                styles{
+                    @ul-item{
+                        font-size: 2.2%P
+                        margin: (1.2, 0)
+                        text-wrap: wrap
+                    }
+                    @ol-item{
+                        font-size: 2.2%P
+                        margin: (1.2, 0)
+                        text-wrap: wrap
+                    }
+                    @ul-bullet{
+                        size: 1.2%P
+                    }
+                }
+                slot
+            }
+        }
+
+        @define body3b{
+            col(
+                position: (37, 17),
+                size: (26, 78),
+                origin: top-left,
+                font-size: 2.4%P,
+                color: documentTextPrimary
+            ){
+                styles{
+                    @ul-item{
+                        font-size: 2.2%P
+                        margin: (1.2, 0)
+                        text-wrap: wrap
+                    }
+                    @ol-item{
+                        font-size: 2.2%P
+                        margin: (1.2, 0)
+                        text-wrap: wrap
+                    }
+                    @ul-bullet{
+                        size: 1.2%P
+                    }
+                }
+                slot
+            }
+        }
+
+        @define body3c{
+            col(
+                position: (66, 17),
+                size: (26, 78),
+                origin: top-left,
+                font-size: 2.4%P,
+                color: documentTextPrimary
+            ){
+                styles{
+                    @ul-item{
+                        font-size: 2.2%P
+                        margin: (1.2, 0)
+                        text-wrap: wrap
+                    }
+                    @ol-item{
+                        font-size: 2.2%P
+                        margin: (1.2, 0)
+                        text-wrap: wrap
+                    }
+                    @ul-bullet{
+                        size: 1.2%P
+                    }
+                }
+                slot
+            }
+        }
+
+        header()
+        slot
+        lucid-footer()
+    }
+}
+
+////////////////////
+// CONCLUSION SLIDE
+////////////////////
+
+@define conclusion-slide(title:""){
+    content-slide(title: either("${title}", "Conclusion"), section: "Closing remarks"){
+        slot
+    }
+}
+
+////////////////////
+// THANK YOU SLIDE
+////////////////////
+
+@define thankyou-slide(title:"", subtitle:"Questions & Discussion"){
+    page{
+        styles{
+            @thankyou-kicker{
+                color: documentTextMuted,
+                origin: left,
+                position: (8, 25),
+                font-size: 2.3%P,
+                font-family: "SansSerif"
+            }
+            @thankyou-title{
+                color: documentTextPrimary,
+                origin: left,
+                position: (8, 38),
+                font-size: 8.5%P,
+                font-family: "SansSerif",
+                font-bold
+            }
+            @thankyou-subtitle{
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 51),
+                font-size: 4%P,
+                font-family: "SansSerif",
+                font-bold
+            }
+            @thankyou-author{
+                color: documentTextPrimary,
+                origin: left,
+                position: (8, 74),
+                font-size: 3.4%P,
+                font-family: "SansSerif",
+                font-bold
+            }
+            @thankyou-email{
+                color: documentTextSecondary,
+                origin: left,
+                position: (8, 79),
+                font-size: 2.8%P,
+                font-family: "SansSerif"
+            }
+            @thankyou-date{
+                color: documentTextMuted,
+                origin: right,
+                position: (92, 15),
+                font-size: 2.2%P
+            }
+            @thankyou-version{
+                color: documentTextMuted,
+                origin: right,
+                position: (92, 79),
+                font-size: 2.2%P
+            }
+        }
+
+        rectangle(background-color: documentBg)
+
+        // Mirrored cover framing keeps the closing slide in the same system.
+        rectangle(position: (8, 9), size: (84, 0.12), background-color: documentLine)
+        rectangle(position: (8, 22), size: (8, 0.4), background-color: documentColors[0])
+        rectangle(position: (8, 61), size: (12, 0.35), background-color: documentColors[0])
+        rectangle(position: (8, 65), size: (84, 0.12), background-color: documentLine)
+
+        @(thankyou-kicker)  text(either("${documentChapter}", "Discussion"))
+        @(thankyou-title)    text(either("${title}", "Thank You!"))
+        @(thankyou-subtitle) text("${subtitle}")
+        @(thankyou-author)   text(either("${documentAuthor}", ""))
+        @(thankyou-email)    text(either("${documentAuthorEmail}", ""))
+        @(thankyou-date)     text(either("${documentDate}", ""))
+        @(thankyou-version)  text(either("${documentVersion}", ""))
+        slot
+        lucid-footer()
+    }
+}

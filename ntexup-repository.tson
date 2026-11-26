@@ -1,3 +1,6 @@
+template(name:"lucid"   , layout:"small" , version:"1.0", binaries:"1.2.0.0")
+template(name:"lucid"   , layout:"medium", version:"1.0", binaries:"1.2.0.0",recommended)
+template(name:"lucid"   , layout:"large" , version:"1.0", binaries:"1.2.0.0")
 template(name:"ibtihel"   , layout:"small" , version:"1.0", binaries:"1.1.0.0")
 template(name:"ibtihel"   , layout:"medium", version:"1.0", binaries:"1.1.0.0",recommended)
 template(name:"ibtihel"   , layout:"large" , version:"1.0", binaries:"1.1.0.0")

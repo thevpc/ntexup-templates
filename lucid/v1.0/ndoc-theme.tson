@@ -1,0 +1,3 @@
+@name("lucid")@binaries("1.2.0.0")"small"
+@name("lucid")@binaries("1.2.0.0")"large"
+@name("lucid")@recommended()@binaries("1.2.0.0")"medium"

@@ -1,5 +1,10 @@
 ////////////////////
-// meridian theme (single file to simplify AI edition)
+// meridian theme — dark, sophisticated, modern
+// (single file to simplify AI edition)
+//
+// Deep night background, luminous accents, glass-like surfaces and a "globe
+// meridians" motif on cover and closing slides. Same page grid and component
+// API as classic:  margins x 6..94 · header 4..17 · body 19..91 · footer 95.5
 ////////////////////
 
 import(
@@ -19,8 +24,6 @@ import(
     "latex"
 )
 
-
-
 ////////////////////
 // VARS
 ////////////////////
@@ -37,81 +40,95 @@ documentVersion:="1.0"
 
 themeShowPalette:=false
 documentColorAccent:=0
-// Meridian — a refined noir palette with luminous accents
+
+// Luminous palette, tuned for >= 4.5:1 on the night background
 documentColors:=arrayLeftRotate([
-    "#e5c158", // 0: Radiant champagne gold — primary accent
-    "#60a5fa", // 1: Luminous azure blue
-    "#34d399", // 2: Emerald mint green
-    "#fbbf24", // 3: Warm amber gold
-    "#f87171", // 4: Coral rose red
-    "#a78bfa", // 5: Soft violet purple
-    "#38bdf8", // 6: Cyan ice blue
-    "#fb923c", // 7: Vibrant orange
-    "#e879f9", // 8: Orchid pink
-    "#4ade80", // 9: Bright spring lime
-    "#94a3b8", // 10: Slate silver
-    "#fef08a"  // 11: Light canary highlight
+    "#8ea2ff", // 0: periwinkle (primary)
+    "#2dd4bf", // 1: aqua
+    "#f5b453", // 2: amber
+    "#f472b6", // 3: pink
+    "#4ade80", // 4: mint
+    "#b39dfa", // 5: lavender
+    "#60a5fa", // 6: sky
+    "#facc15", // 7: gold
+    "#fb7185", // 8: rose
+    "#22d3ee", // 9: cyan
+    "#fb923c", // 10: tangerine
+    "#cbd5e1"  // 11: silver
 ], either(documentColorAccent, 0))
 
-// Core neutrals — the Meridian noir surface system (kept outside the rotating accent array
-// so the look stays stable even if documentColorAccent is changed)
-documentBg:="#0d0f13"            // page background — near-black charcoal
-documentSurface:="#161920"       // raised panel / card surface
-documentSurfaceAlt:="#1d212a"    // secondary panel surface
-documentLine:="#2a2e38"          // hairline dividers / borders
-documentTextPrimary:="#f2f0ea"   // primary text — warm ivory
-documentTextSecondary:="#a7abb8" // secondary text — cool grey
-documentTextMuted:="#666b78"     // muted / tertiary text
+// Surfaces & text
+documentBg:="#0b0e17"            // night
+documentSurface:="#121726"       // cards (glass)
+documentSurfaceAlt:="#182036"    // secondary panels
+documentLine:="#263049"          // hairlines
+documentTextPrimary:="#eef1f8"   // primary text
+documentTextSecondary:="#aab3c8" // secondary text
+documentTextMuted:="#7d87a1"     // captions, footer
+documentPrimaryColor:=documentColors[0]
 
-// Fixed semantic colors for callouts (independent from the rotating accent)
-semanticInfoColor:="#6b8caf"
-semanticInfoBg:="#131922"
-semanticWarningColor:="#c9974a"
-semanticWarningBg:="#1c160e"
-semanticErrorColor:="#b5654f"
-semanticErrorBg:="#1e1310"
-semanticSuccessColor:="#7c9885"
-semanticSuccessBg:="#121a15"
+// Chrome
+themeInk:="#070912"
+themeOnInk:="#eef1f8"
+themeOnInkMuted:="#8f98b0"
+themeTitleFont:="SansSerif"
+themeBodyFont:="SansSerif"
+themeCardShadow:="#00000080"
+themeArtA:="#8ea2ff"
+themeArtB:="#2dd4bf"
+themeArtC:="#8ea2ff33"
+themeCodeBg:="#070a12"
+themeCodeLine:="#263049"
 
+// Semantic colors (callouts)
+semanticInfoColor:="#5ec8e5"
+semanticInfoBg:="#0f1d2a"
+semanticWarningColor:="#f5b453"
+semanticWarningBg:="#221a0d"
+semanticErrorColor:="#fb7185"
+semanticErrorBg:="#251219"
+semanticSuccessColor:="#4ade80"
+semanticSuccessBg:="#0e2117"
 
 ////////////////////
 // STYLES
 ////////////////////
 
 styles{
-    all{
-        font-size : 4.5%P
-        font-family : "SansSerif",
+    (*){
+        font-size : 3.4%P
+        font-family : themeBodyFont,
         color: documentTextPrimary
     }
 
     source{
-        font-size : 1.85%P,
+        font-size : 2.3%P,
         font-family : "monospaced",
-        source-primary-color: documentTextPrimary
-        source-keyword-color: documentColors[0]
-        source-entity-color: "#8ecae6"
+        source-primary-color: "#e8eaf2"
+        source-keyword-color: "#8ab4ff"
+        source-entity-color: "#7dd3fc"
         source-action-color: "#a5b4fc"
-        source-annotation-color: "#fca5a5"
-        source-variable-color: "#f0a6ca"
-        source-operator-color: documentTextPrimary
-        source-separator-color: documentTextSecondary
-        source-comments-color: documentTextMuted
-        source-string-color: "#a8c98a"
-        source-input-color: "#e9c46a"
-        source-path-color: "#8ecae6"
-        source-version-color: documentColors[5]
-        source-number-color: documentColors[5]
-        source-date-color: documentColors[5]
-        source-boolean-color: documentColors[5]
-        source-option-color: "#c3a6e8"
-        source-title-color: documentTextPrimary
+        source-annotation-color: "#fda4af"
+        source-variable-color: "#f9a8d4"
+        source-operator-color: "#e8eaf2"
+        source-separator-color: "#9aa3b8"
+        source-comments-color: "#7c859c"
+        source-string-color: "#b5e08a"
+        source-input-color: "#fde68a"
+        source-path-color: "#7dd3fc"
+        source-version-color: "#fbbf77"
+        source-number-color: "#fbbf77"
+        source-date-color: "#fbbf77"
+        source-boolean-color: "#fbbf77"
+        source-option-color: "#c4b5fd"
+        source-title-color: "#e8eaf2"
         source-error-color: "#f87171"
         source-keyword-font-bold
-        background-color: "#0a0c10"
-        color: documentTextPrimary
+        background-color: themeCodeBg
+        color: "#e8eaf2"
+        line-color: themeCodeLine
         draw-contour: true
-        padding: (0.8%P, 0.4%P)
+        padding: (1%P, 0.6%P)
     }
 
     page{
@@ -120,60 +137,26 @@ styles{
 
     text{
         text-wrap: wrap
-
-        // fenced code inside `text` keeps the dark theme's code palette
         source-code-font-family: "monospaced"
-        source-primary-color: documentTextPrimary
-        source-keyword-color: documentColors[0]
-        source-entity-color: "#8ecae6"
+        source-primary-color: "#eef1f8"
+        source-keyword-color: "#8ea2ff"
+        source-entity-color: "#7dd3fc"
         source-action-color: "#a5b4fc"
-        source-annotation-color: "#fca5a5"
-        source-variable-color: "#f0a6ca"
-        source-operator-color: documentTextPrimary
-        source-separator-color: documentTextSecondary
-        source-comments-color: documentTextMuted
-        source-string-color: "#a8c98a"
-        source-input-color: "#e9c46a"
-        source-path-color: "#8ecae6"
-        source-version-color: documentColors[5]
-        source-number-color: documentColors[5]
-        source-date-color: documentColors[5]
-        source-boolean-color: documentColors[5]
-        source-option-color: "#c3a6e8"
-        source-title-color: documentTextPrimary
-        source-error-color: "#f87171"
-    }
-
-    @ul-item{
-        margin : (1.8, 0)
-        at: left,
-        font-size: 3.2%P
-        text-wrap: wrap
-    }
-    @ul-bullet{
-        background-color: documentColors[0]
-        at: left,
-        size: 1.6%P
-    }
-    @ol-bullet{
-        color: documentColors[0]
-        at: center,
-        font-bold
-    }
-    @ol-item{
-        at: left,
-        margin: (1.8, 0)
-        font-size: 3.2%P
-        text-wrap: wrap
-    }
-    @compact{
-        font-size: 2.3%P
-    }
-    @compact-list{
-        font-size: 2.3%P
-    }
-    @large{
-        font-size: 3.4%P
+        source-annotation-color: "#fda4af"
+        source-variable-color: "#f9a8d4"
+        source-operator-color: "#eef1f8"
+        source-separator-color: "#aab3c8"
+        source-comments-color: "#7d87a1"
+        source-string-color: "#b5e08a"
+        source-input-color: "#fde68a"
+        source-path-color: "#7dd3fc"
+        source-version-color: "#fbbf77"
+        source-number-color: "#fbbf77"
+        source-date-color: "#fbbf77"
+        source-boolean-color: "#c4b5fd"
+        source-option-color: "#c4b5fd"
+        source-title-color: "#eef1f8"
+        source-error-color: "#fb7185"
     }
     ellipse{
         at: center,
@@ -182,107 +165,134 @@ styles{
         at: center,
     }
 
+    @ul-item{
+        margin : (1.2, 0)
+        at: left,
+        font-size: 3.2%P
+        text-wrap: wrap
+    }
+    @ul-item-2{
+        font-size: 2.8%P
+        color: documentTextSecondary
+    }
+    @ul-bullet{
+        background-color: documentColors[0]
+        at: left,
+        size: 1.1%P
+    }
+    @ul-bullet-2{
+        background-color: documentTextMuted
+        size: 0.9%P
+    }
+    @ol-bullet{
+        color: documentColors[0]
+        at: center,
+        font-bold
+    }
+    @ol-item{
+        at: left,
+        margin: (1.2, 0)
+        font-size: 3.2%P
+        text-wrap: wrap
+    }
+    @compact{
+        font-size: 2%P
+    }
+    @compact-list{
+        font-size: 2%P
+    }
+    @large{
+        font-size: 3.4%P
+    }
+    @lead{
+        font-size: 3.2%P
+        color: documentTextSecondary
+    }
+    @muted{
+        color: documentTextMuted
+    }
+    @accent{
+        color: documentColors[0]
+        font-bold
+    }
     @image-fig{
         margin: 2
+    }
+    @image-fig-title{
+        at: top
+        font-size: 2%P
+        font-bold,
+        color: documentTextPrimary
     }
     @image-fig-legend{
         at: bottom
         font-size: 1.6%P
-        color: documentTextSecondary
+        color: documentTextMuted
     }
-    table{
-        font-size: 2.8%P
-        color: documentTextPrimary
-        background-color: documentBg
-        draw-grid
-        line-color: documentLine
-        padding: (0.8%P, 0.3%P)
-    }
-    table-header{
-        font-size: 2.8%P
-        font-bold
-        color: documentBg
-        background-color: documentColors[0]
-    }
-    table-footer{
-        font-size: 2.5%P
-        font-bold
-        color: documentTextSecondary
-        background-color: documentSurfaceAlt
-    }
-    table-row(row: even): {
-        background-color: documentSurface
-    }
-    table-cell{
-        padding: (0.8%P, 0.3%P)
-    }
-
-    @table-striped{
-        background-color: documentBg
-        row(row: even){
-            background-color: documentSurfaceAlt
-        }
-        table-header{
-            font-bold
-            color: documentBg
-            background-color: documentColors[0]
-        }
-        cell{ padding: (0.8%P, 0.3%P) }
-    }
-
-    @table-bordered{
-        background-color: documentBg
-        draw-grid
-        line-color: documentLine
-        row{
-            background-color: documentBg
-            color: documentTextPrimary
-        }
-        table-header{
-            font-bold
-            background-color: documentSurfaceAlt
-        }
-        cell{ padding: (0.8%P, 0.3%P) }
-    }
-
-    @image-fig-title{
-        at: top
-        font-size: 2.2%P
-        font-bold,
-        color: documentColors[0]
-    }
-
-    // Shape primitives — default to centered placement, matching ellipse/arc above,
-    // so a bare shape() call behaves consistently across the whole showcase.
-    triangle{ at: center }
-    square{ at: center }
-    circle{ at: center }
-    rhombus{ at: center }
-    diamond{ at: center }
-    parallelogram{ at: center }
-    trapezoid{ at: center }
-    pentagon{ at: center }
-    hexagon{ at: center }
-    heptagon{ at: center }
-    octagon{ at: center }
-    nonagon{ at: center }
-    decagon{ at: center }
-    polygon{ at: center }
-    donut{ at: center }
-    pie{ at: center }
-    cylinder{ at: center }
-
-    // Grid hairlines follow the theme's own dividers instead of a default black grid
     grid{
         line-color: documentLine
     }
-
-    // Inline LaTeX equations and NTF rich-text inherit the theme's ivory foreground
     eq{
         color: documentTextPrimary
     }
     ntf{
         color: documentTextPrimary
+    }
+
+    table{
+        font-size: 2.4%P
+        color: documentTextPrimary
+        background-color: documentSurface
+        draw-grid
+        line-color: documentLine
+        padding: (0.8%P, 0.4%P)
+    }
+    table-header{
+        font-size: 2.4%P
+        font-bold
+        color: "#0b0e17"
+        background-color: documentColors[0]
+    }
+    table-footer{
+        font-size: 2.2%P
+        font-bold
+        color: documentTextSecondary
+        background-color: documentSurfaceAlt
+    }
+    table-row(row: even): {
+        background-color: documentBg
+    }
+    table-cell{
+        padding: (0.8%P, 0.4%P)
+    }
+
+    @table-striped{
+        background-color: documentSurface
+        row(row: even){
+            background-color: documentSurfaceAlt
+        }
+        table-header{
+            font-bold
+            color: "#ffffff"
+            background-color: documentColors[0]
+        }
+        cell{ padding: (0.8%P, 0.4%P) }
+    }
+
+    @table-bordered{
+        background-color: documentSurface
+        draw-grid
+        line-color: documentLine
+        row{
+            background-color: documentSurface
+            color: documentTextPrimary
+        }
+        table-header{
+            font-bold
+            color: documentTextPrimary
+            background-color: documentSurfaceAlt
+        }
+        cell{ padding: (0.8%P, 0.4%P) }
     }
 }
 
@@ -292,82 +302,90 @@ styles{
 
 @define image-fig(src, title:"", legend:"", at:center, size:30){
     @(img) group(at: at, size: size){
-        rectangle(background-color: documentSurface, color: documentLine, draw-contour: true, round-corner: 3)
+        rectangle(background-color: documentSurface, line-color: documentLine, draw-contour, size: 98, round-corner: 2)
         @(image-fig) image(src, size: (92, 80), at: center, preserve-aspect-ratio)
         @(image-fig-title) text("${title}")
         @(image-fig-legend) text("${legend}")
     }
 }
 
+// Card: white surface, hairline border, faint shadow and an accent tab on top.
 @define card(accentColor: ""){
     group(margin: 1, row-weight: 70){
-        rectangle(background-color: documentSurface, color: documentLine, draw-contour: true, round-corner: 4)
-        rectangle(background-color: either(accentColor, documentColors[0]), position: (1.2, 50), origin: left, size: (0.35%P, 90))
+        rectangle(
+            background-color: documentSurface,
+            line-color: documentLine,
+            draw-contour: true,
+            round-corner: 2,
+            shadow: {distance: (0, 1), radius: 4, color: themeCardShadow}
+        )
+        rectangle(background-color: either(accentColor, documentColors[0]), position: (4, 0), origin: top-left, size: (16, 0.45%P))
         @define kicker(text, color: ""){
-            group(position: (4, 3), size: (92, 8), origin: top-left){
-                rectangle(position: (0, 50), size: (1.2%P, 0.35%P), origin: left, background-color: either(color, either(accentColor, documentColors[0])))
-                text("${text}", position: (1.8%P, 50), origin: left, font-size: 1.8%P, font-bold, color: either(color, either(accentColor, documentColors[0])))
+            group(position: (4, 5), size: (92, 7), origin: top-left){
+                text("${text}", position: (0, 50), origin: left, font-size: 1.9%P, font-bold, color: either(color, either(accentColor, documentColors[0])))
             }
         }
         styles{
             unordered-list{
-                position: (4, 12)
-                size: (92, 86)
+                position: (4, 15)
+                size: (92, 81)
                 origin: top-left
             }
             ul{
-                position: (4, 12)
-                size: (92, 86)
+                position: (4, 15)
+                size: (92, 81)
                 origin: top-left
             }
             ordered-list{
-                position: (4, 12)
-                size: (92, 86)
+                position: (4, 15)
+                size: (92, 81)
                 origin: top-left
             }
             ol{
-                position: (4, 12)
-                size: (92, 86)
+                position: (4, 15)
+                size: (92, 81)
                 origin: top-left
             }
             column{
-                position: (4, 12)
-                size: (92, 86)
+                position: (4, 15)
+                size: (92, 81)
                 origin: top-left
             }
             col{
-                position: (4, 12)
-                size: (92, 86)
+                position: (4, 15)
+                size: (92, 81)
                 origin: top-left
             }
             source{
-                position: (4, 12)
-                size: (92, 86)
+                position: (4, 15)
+                size: (92, 81)
                 origin: top-left
-                font-size: 1.85%P
+                font-size: 2.1%P
             }
             @ul-item{
-                font-size: 1.75%P
-                margin: (0.6, 0)
+                font-size: 2.5%P
+                margin: (0.8, 0)
                 text-wrap: wrap
             }
             @ol-item{
-                font-size: 1.75%P
-                margin: (0.6, 0)
+                font-size: 2.5%P
+                margin: (0.8, 0)
                 text-wrap: wrap
             }
             @ul-bullet{
-                size: 1.0%P
+                size: 0.9%P
+                background-color: either(accentColor, documentColors[0])
             }
         }
         slot
     }
 }
 
+// Small uppercase label preceded by an accent dash.
 @define kicker(text, color: ""){
     group(size: (100, 6)){
-        rectangle(position: (0, 50), size: (1.2%P, 0.35%P), origin: left, background-color: either(color, documentColors[0]))
-        text("${text}", position: (1.8%P, 50), origin: left, font-size: 1.8%P, font-bold, color: either(color, documentColors[0]))
+        rectangle(position: (0, 50), size: (1.4%P, 0.3%P), origin: left, background-color: either(color, documentColors[0]))
+        text("${text}", position: (2.2%P, 50), origin: left, font-size: 2%P, font-bold, color: either(color, documentColors[0]))
     }
 }
 
@@ -377,17 +395,18 @@ styles{
 
 @define stat(value, label, accentColor: ""){
     group(margin: 1){
-        text("${value}", position: (50, 38), origin: center, font-size: 5.5%P, font-bold, color: either(accentColor, documentColors[0]))
-        text("${label}", position: (50, 68), origin: center, font-size: 1.8%P, color: documentTextSecondary)
+        text("${value}", position: (50, 40), origin: center, font-size: 7%P, font-bold, font-family: themeTitleFont, color: either(accentColor, documentColors[0]))
+        rectangle(position: (50, 60), origin: center, size: (12, 0.25%P), background-color: documentLine)
+        text("${label}", position: (50, 72), origin: center, font-size: 2.2%P, color: documentTextSecondary)
     }
 }
 
 @define quote(author: ""){
     group(margin: 3){
-        rectangle(background-color: documentColors[0], position: (1.2, 50), origin: left, size: (0.35%P, 90))
-        group(position: (5, 4), size: (93, 92)){
+        text("“", position: (0, 0), origin: top-left, font-size: 7%P, font-family: "Serif", font-bold, color: documentColors[0])
+        group(position: (2, 16), size: (96, 78)){
             slot
-            text(either("${author}", ""), position: (0, 92), font-size: 1.8%P, color: documentTextSecondary, font-bold)
+            text(either("${author}", ""), position: (0, 94), font-size: 1.8%P, color: documentTextSecondary, font-bold)
         }
     }
 }
@@ -396,12 +415,20 @@ styles{
     group(margin: 2){
         rectangle(
             background-color: either(background, documentSurface),
-            color: documentLine,
+            line-color: documentLine,
             draw-contour: true,
-            round-corner: 6
+            round-corner: 2,
+            shadow: {distance: (0, 1), radius: 4, color: themeCardShadow}
         )
-        group(position: (3, 12), size: (94, 85)){
-            text(either("${title}", ""), font-size: 3%P, font-bold, position: (0, 0), origin: top-left, color: either(accentColor, documentColors[0]))
+        group(position: (4, 8), size: (92, 88)){
+            text(
+                either("${title}", ""),
+                font-size: 2.8%P,
+                font-bold,
+                position: (0, 0),
+                origin: top-left,
+                color: either(accentColor, documentColors[0])
+            )
             group(position: (0, 14), size: (100, 86)){
                 slot
             }
@@ -411,14 +438,14 @@ styles{
 
 @define callout(title: "", accentColor, bgColor){
     group(margin: 1, row-weight: 30){
-        rectangle(background-color: bgColor, color: documentLine, draw-contour: true, round-corner: 4)
-        rectangle(background-color: accentColor, position: (1.2, 50), origin: left, size: (1.2, 90))
-        group(position: (4, 4), size: (92, 92), origin: top-left){
-            text(either("${title}", ""), position: (0, 0), origin: top-left, font-bold, color: documentTextPrimary, font-size: 2.2%P)
-            group(position: (0, 18), size: (100, 80), origin: top-left){
+        rectangle(background-color: bgColor, line-color: documentLine, draw-contour: true, round-corner: 2)
+        rectangle(background-color: accentColor, position: (0, 50), origin: left, size: (0.45%P, 84))
+        group(position: (5, 8), size: (90, 86), origin: top-left){
+            text(either("${title}", ""), position: (0, 0), origin: top-left, font-bold, color: accentColor, font-size: 2.4%P)
+            group(position: (0, 20), size: (100, 80), origin: top-left){
                 styles{
-                    all{
-                        font-size: 1.75%P
+                    (*){
+                        font-size: 2.3%P
                         color: documentTextPrimary
                     }
                 }
@@ -476,98 +503,71 @@ styles{
     }
 }
 
+// Footer: document identity left, date right, on the shared page grid.
+@define footer(){
+    text("${documentTitle}", position: (6, 95.6), origin: left, font-size: 1.8%P, font-bold, color: documentTextMuted)
+    text(either("${documentDate}", ""), position: (94, 95.6), origin: right, font-size: 1.8%P, color: documentTextMuted)
+}
+
+// The ink panel art shared by cover, section and closing slides.
+@define meridian-globe(){
+    // "globe meridians": an outline sphere, three meridians and an equator
+    circle(position: (78, 46), size: (56, 56), origin: center, background-color: "#8ea2ff14", line-color: "#8ea2ff66", draw-contour)
+    ellipse(position: (78, 46), size: (10, 56), origin: center, background-color: "#00000000", line-color: "#8ea2ff55", draw-contour)
+    ellipse(position: (78, 46), size: (21, 56), origin: center, background-color: "#00000000", line-color: "#8ea2ff40", draw-contour)
+    ellipse(position: (78, 46), size: (31, 56), origin: center, background-color: "#00000000", line-color: "#8ea2ff2e", draw-contour)
+    ellipse(position: (78, 46), size: (39.6, 14), origin: center, background-color: "#00000000", line-color: "#2dd4bf66", draw-contour)
+    circle(position: (88, 32), size: (2.2, 2.2), origin: center, background-color: themeArtB)
+    circle(position: (68.5, 57), size: (1.4, 1.4), origin: center, background-color: themeArtA)
+}
+
+@define meridian-art(){
+    rectangle(position: (0, 0), size: (100, 100), origin: top-left, background-color: documentBg)
+    meridian-globe()
+    rectangle(position: (68, 84), size: (28, 0.15), origin: top-left, background-color: documentLine)
+}
+
 ////////////////////
 // COVER SLIDE
 ////////////////////
 
 @define cover-slide(){
     page{
-        styles{
-            @kicker{
-                color: documentColors[0],
-                origin: left,
-                position: (8, 18),
-                font-size: 2.8%P,
-                font-family: "SansSerif",
-                font-bold
-            }
-            @title{
-                color: documentTextPrimary,
-                origin: left,
-                position: (8, 32),
-                font-size: 7.5%P,
-                font-family: "SansSerif",
-                font-bold
-            }
-            @subtitle{
-                color: documentColors[0],
-                origin: left,
-                position: (8, 44),
-                font-size: 3.8%P,
-                font-family: "SansSerif",
-                font-bold
-            }
-            @subsubtitle{
-                color: documentTextSecondary,
-                origin: left,
-                position: (8, 50),
-                font-size: 3%P,
-                font-family: "SansSerif"
-            }
-            @author{
-                color: documentTextPrimary,
-                origin: left,
-                position: (8, 84),
-                font-size: 3.4%P,
-                font-bold
-            }
-            @affiliation{
-                color: documentTextSecondary,
-                origin: left,
-                position: (8, 88.5),
-                font-size: 2.8%P
-            }
-            @email{
-                color: documentColors[0],
-                origin: left,
-                position: (8, 92.5),
-                font-size: 2.6%P
-            }
-            @date{
-                color: documentTextMuted,
-                origin: right,
-                position: (92, 8),
-                font-size: 2.4%P
-            }
-            @version{
-                color: documentTextMuted,
-                origin: right,
-                position: (92, 92.5),
-                font-size: 2.2%P
-            }
-        }
-
-        // Noir background
         rectangle(background-color: documentBg)
+        meridian-art()
 
-        // Editorial corner marks (top-left, bottom-right)
-        rectangle(position: (6, 6), size: (5, 0.2), background-color: documentColors[0])
-        rectangle(position: (6, 6), size: (0.2, 5), background-color: documentColors[0])
-        rectangle(position: (89, 94), size: (5, 0.2), background-color: documentColors[0])
-        rectangle(position: (94, 89), size: (0.2, 5), background-color: documentColors[0])
+        rectangle(position: (7, 16), size: (2.2, 0.5), origin: left, background-color: documentColors[0])
+        text(either("${documentChapter}", "Presentation"), position: (10.2, 16), origin: left, font-size: 2.3%P, font-bold, color: documentColors[0])
 
-        // Accent rule under subtitle block
-        rectangle(position: (8, 58), size: (12, 0.3), background-color: documentColors[0])
+        text("${documentTitle}", position: (7, 31), origin: left, font-size: 9%P, font-bold, font-family: themeTitleFont, color: documentTextPrimary)
+        text(either("${documentSubtitle}", ""), position: (7, 43), origin: left, font-size: 3.8%P, color: documentTextSecondary)
+        text(either("${documentSubsubtitle}", ""), position: (7, 49.5), origin: left, font-size: 2.7%P, color: documentTextMuted)
 
-        @(kicker)      text(either("${documentChapter}", "Presentation"))
-        @(title)       text("${documentTitle}")
-        @(subtitle)    text(either("${documentSubtitle}", ""))
-        @(subsubtitle) text(either("${documentSubsubtitle}", ""))
-        @(author)      text(either("${documentAuthor}", ""))
-        @(affiliation) text(either("${documentAuthorAffiliation}", ""))
-        @(email)       text(either("${documentAuthorEmail}", ""))
-        @(date)        text(either("${documentDate}", ""))
-        @(version)     text(either("${documentVersion}", ""))
+        rectangle(position: (7, 62), size: (50, 0.15), origin: left, background-color: documentLine)
+
+        text(either("${documentAuthor}", ""), position: (7, 70), origin: left, font-size: 3.2%P, font-bold, color: documentTextPrimary)
+        text(either("${documentAuthorAffiliation}", ""), position: (7, 75.5), origin: left, font-size: 2.5%P, color: documentTextSecondary)
+        text(either("${documentAuthorEmail}", ""), position: (7, 80.5), origin: left, font-size: 2.5%P, color: documentColors[0])
+
+        text(either("${documentDate}", ""), position: (68, 91), origin: left, font-size: 2.2%P, color: themeOnInkMuted)
+        text(either("${documentVersion}", ""), position: (96, 91), origin: right, font-size: 2.2%P, font-bold, color: themeOnInk)
+        slot
+    }
+}
+
+////////////////////
+// SECTION SLIDE (bonus: chapter openers)
+////////////////////
+
+@define section-slide(title, number:"", subtitle:""){
+    page{
+        rectangle(background-color: themeInk)
+        meridian-globe()
+        text("${number}", position: (8, 34), origin: left, font-size: 12%P, font-bold, font-family: themeTitleFont, color: documentColors[0])
+        rectangle(position: (8, 50), size: (8, 0.5), origin: left, background-color: documentColors[0])
+        text("${title}", position: (8, 60), origin: left, font-size: 6%P, font-bold, font-family: themeTitleFont, color: themeOnInk)
+        text("${subtitle}", position: (8, 69), origin: left, font-size: 2.6%P, color: themeOnInkMuted)
+        text("${documentTitle}", position: (8, 95.6), origin: left, font-size: 1.8%P, font-bold, color: themeOnInkMuted)
         slot
     }
 }
@@ -575,24 +575,22 @@ styles{
 ////////////////////
 // AGENDA SLIDE
 ////////////////////
-@define agenda-slide(title){
+@define agenda-slide(title:""){
     content-slide(title: either("${title}", "Agenda")){
         styles{
             @ul-item{
-                margin: (2.8, 0)
-                font-size: 3.4%P
+                margin: (2.4, 0)
+                font-size: 3.8%P
                 text-wrap: wrap
             }
             @ol-item{
-                margin: (2.8, 0)
-                font-size: 3.4%P
+                margin: (2.4, 0)
+                font-size: 3.8%P
                 text-wrap: wrap
             }
-            @ul-bullet{
-                size: 1.8%P
-            }
             @ol-bullet{
-                font-size: 3.4%P
+                font-size: 3.8%P
+                color: documentColors[0]
             }
         }
         slot
@@ -604,77 +602,44 @@ styles{
 ////////////////////
 
 @default-body(body, body2a, body2b, body3a, body3b, body3c)
-@define content-slide(title){
+@define content-slide(title, section:""){
     page{
         rectangle(background-color: documentBg)
+        // faint glow in the corner and an accent segment on the header rule
+        circle(position: (100, 0), size: (34, 34), origin: center, background-color: "#8ea2ff0d")
 
         @define header{
-            group(
-                position: (0, 0),
-                size: (100, 16),
-                origin: top-left
-            ){
-                // Accent tick + chapter kicker
-                rectangle(position: (3, 30), size: (2.2, 2.5), background-color: documentColors[0])
+            group(position: (0, 0), size: (100, 100), origin: top-left){
+                rectangle(position: (6, 6), size: (1.8, 0.45), origin: left, background-color: documentColors[0])
                 text(
-                    either("${documentChapter}", "${documentTitle}"),
-                    position: (6.5, 32),
+                    either("${section}", either("${documentChapter}", "${documentTitle}")),
+                    position: (8.6, 6),
                     origin: left,
-                    font-size: 2.6%P,
+                    font-size: 2%P,
                     font-bold,
                     color: documentColors[0]
                 )
-
-                // Slide title
                 text(
                     "${title}",
-                    position: (3, 62),
+                    position: (6, 11.4),
                     origin: left,
-                    font-size: 5%P,
+                    font-size: 5.2%P,
                     font-bold,
+                    font-family: themeTitleFont,
                     color: documentTextPrimary
                 )
-
-                // header hairline
-                rectangle(
-                    position: (0, 98),
-                    size: (100, 0.15),
-                    background-color: documentLine
-                )
-
+                rectangle(position: (6, 16.4), size: (88, 0.15), origin: top-left, background-color: documentLine)
+                rectangle(position: (6, 16.3), size: (10, 0.35), origin: top-left, background-color: documentColors[0])
                 slot
-            }
-        }
-
-        @define footer{
-            group(
-                position: (0, 96),
-                size: (100, 4),
-                origin: top-left
-            ){
-                text(
-                    "${documentTitle}",
-                    position: (3, 50),
-                    origin: left,
-                    font-size: 2.2%P,
-                    color: documentTextMuted
-                )
-                text(
-                    either("${documentDate}", ""),
-                    position: (97, 50),
-                    origin: right,
-                    font-size: 2.2%P,
-                    color: documentTextMuted
-                )
             }
         }
 
         @define body{
             group(
-                position: (3, 20),
-                size: (94, 74),
+                position: (6, 19),
+                size: (88, 73),
                 origin: top-left,
-                font-size: 3.2%P,
+                font-size: 3.4%P,
                 color: documentTextPrimary
             ){
                 slot
@@ -683,25 +648,22 @@ styles{
 
         @define body2a{
             col(
-                position: (3, 20),
-                size: (45, 74),
+                position: (6, 19),
+                size: (42, 73),
                 origin: top-left,
-                font-size: 2.8%P,
+                font-size: 3%P,
                 color: documentTextPrimary
             ){
                 styles{
                     @ul-item{
-                        font-size: 2.6%P
-                        margin: (1.4, 0)
+                        font-size: 2.9%P
+                        margin: (1, 0)
                         text-wrap: wrap
                     }
                     @ol-item{
-                        font-size: 2.6%P
-                        margin: (1.4, 0)
+                        font-size: 2.9%P
+                        margin: (1, 0)
                         text-wrap: wrap
-                    }
-                    @ul-bullet{
-                        size: 1.4%P
                     }
                 }
                 slot
@@ -710,25 +672,22 @@ styles{
 
         @define body2b{
             col(
-                position: (52, 20),
-                size: (45, 74),
+                position: (52, 19),
+                size: (42, 73),
                 origin: top-left,
-                font-size: 2.8%P,
+                font-size: 3%P,
                 color: documentTextPrimary
             ){
                 styles{
                     @ul-item{
-                        font-size: 2.6%P
-                        margin: (1.4, 0)
+                        font-size: 2.9%P
+                        margin: (1, 0)
                         text-wrap: wrap
                     }
                     @ol-item{
-                        font-size: 2.6%P
-                        margin: (1.4, 0)
+                        font-size: 2.9%P
+                        margin: (1, 0)
                         text-wrap: wrap
-                    }
-                    @ul-bullet{
-                        size: 1.4%P
                     }
                 }
                 slot
@@ -737,25 +696,22 @@ styles{
 
         @define body3a{
             col(
-                position: (3, 20),
-                size: (29, 74),
+                position: (6, 19),
+                size: (27, 73),
                 origin: top-left,
-                font-size: 2.4%P,
+                font-size: 2.6%P,
                 color: documentTextPrimary
             ){
                 styles{
                     @ul-item{
-                        font-size: 2.2%P
-                        margin: (1.2, 0)
+                        font-size: 2.5%P
+                        margin: (0.9, 0)
                         text-wrap: wrap
                     }
                     @ol-item{
-                        font-size: 2.2%P
-                        margin: (1.2, 0)
+                        font-size: 2.5%P
+                        margin: (0.9, 0)
                         text-wrap: wrap
-                    }
-                    @ul-bullet{
-                        size: 1.2%P
                     }
                 }
                 slot
@@ -764,25 +720,22 @@ styles{
 
         @define body3b{
             col(
-                position: (35, 20),
-                size: (29, 74),
+                position: (36.5, 19),
+                size: (27, 73),
                 origin: top-left,
-                font-size: 2.4%P,
+                font-size: 2.6%P,
                 color: documentTextPrimary
             ){
                 styles{
                     @ul-item{
-                        font-size: 2.2%P
-                        margin: (1.2, 0)
+                        font-size: 2.5%P
+                        margin: (0.9, 0)
                         text-wrap: wrap
                     }
                     @ol-item{
-                        font-size: 2.2%P
-                        margin: (1.2, 0)
+                        font-size: 2.5%P
+                        margin: (0.9, 0)
                         text-wrap: wrap
-                    }
-                    @ul-bullet{
-                        size: 1.2%P
                     }
                 }
                 slot
@@ -791,25 +744,22 @@ styles{
 
         @define body3c{
             col(
-                position: (67, 20),
-                size: (29, 74),
+                position: (67, 19),
+                size: (27, 73),
                 origin: top-left,
-                font-size: 2.4%P,
+                font-size: 2.6%P,
                 color: documentTextPrimary
             ){
                 styles{
                     @ul-item{
-                        font-size: 2.2%P
-                        margin: (1.2, 0)
+                        font-size: 2.5%P
+                        margin: (0.9, 0)
                         text-wrap: wrap
                     }
                     @ol-item{
-                        font-size: 2.2%P
-                        margin: (1.2, 0)
+                        font-size: 2.5%P
+                        margin: (0.9, 0)
                         text-wrap: wrap
-                    }
-                    @ul-bullet{
-                        size: 1.2%P
                     }
                 }
                 slot
@@ -827,7 +777,7 @@ styles{
 ////////////////////
 
 @define conclusion-slide(title:""){
-    content-slide(title: either("${title}", "Conclusion")){
+    content-slide(title: either("${title}", "Conclusion"), section: "Closing remarks"){
         slot
     }
 }
@@ -836,66 +786,22 @@ styles{
 // THANK YOU SLIDE
 ////////////////////
 
-@define thankyou-slide(title:""){
+@define thankyou-slide(title:"", subtitle:"Questions & discussion"){
     page{
         rectangle(background-color: documentBg)
+        meridian-art()
 
-        styles{
-            @kicker{
-                color: documentColors[0],
-                origin: left,
-                position: (8, 26),
-                font-size: 2.8%P,
-                font-family: "SansSerif",
-                font-bold
-            }
-            @thankyou-title{
-                color: documentTextPrimary,
-                origin: left,
-                position: (8, 40),
-                font-size: 8.5%P,
-                font-family: "SansSerif",
-                font-bold
-            }
-            @thankyou-subtitle{
-                color: documentColors[0],
-                origin: left,
-                position: (8, 52),
-                font-size: 4%P,
-                font-family: "SansSerif",
-                font-bold
-            }
-            @thankyou-author{
-                color: documentTextPrimary,
-                origin: left,
-                position: (8, 74),
-                font-size: 3.4%P,
-                font-family: "SansSerif",
-                font-bold
-            }
-            @thankyou-email{
-                color: documentColors[0],
-                origin: left,
-                position: (8, 78.5),
-                font-size: 2.8%P,
-                font-family: "SansSerif"
-            }
-        }
+        rectangle(position: (7, 24), size: (2.2, 0.5), origin: left, background-color: documentColors[0])
+        text(either("${documentChapter}", "Discussion"), position: (10.2, 24), origin: left, font-size: 2%P, font-bold, color: documentColors[0])
+        text(either("${title}", "Thank you"), position: (7, 38), origin: left, font-size: 8.5%P, font-bold, font-family: themeTitleFont, color: documentTextPrimary)
+        text("${subtitle}", position: (7, 50), origin: left, font-size: 3.2%P, color: documentTextSecondary)
 
-        // Editorial corner marks, mirrored from the cover
-        rectangle(position: (6, 6), size: (5, 0.2), background-color: documentColors[0])
-        rectangle(position: (6, 6), size: (0.2, 5), background-color: documentColors[0])
-        rectangle(position: (89, 94), size: (5, 0.2), background-color: documentColors[0])
-        rectangle(position: (94, 89), size: (0.2, 5), background-color: documentColors[0])
+        rectangle(position: (7, 62), size: (50, 0.15), origin: left, background-color: documentLine)
+        text(either("${documentAuthor}", ""), position: (7, 70), origin: left, font-size: 3.2%P, font-bold, color: documentTextPrimary)
+        text(either("${documentAuthorEmail}", ""), position: (7, 75.5), origin: left, font-size: 2.5%P, color: documentColors[0])
 
-        // Accent rule
-        rectangle(position: (8, 60), size: (12, 0.3), background-color: documentColors[0])
-
-        @(kicker)            text("Thank You")
-        @(thankyou-title)    text(either("${title}", "Questions?"))
-        @(thankyou-subtitle) text("Let's discuss")
-        @(thankyou-author)   text(either("${documentAuthor}", ""))
-        @(thankyou-email)    text(either("${documentAuthorEmail}", ""))
+        text(either("${documentDate}", ""), position: (68, 91), origin: left, font-size: 2.2%P, color: themeOnInkMuted)
+        text(either("${documentVersion}", ""), position: (96, 91), origin: right, font-size: 2.2%P, font-bold, color: themeOnInk)
         slot
     }
 }

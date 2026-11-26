@@ -29,10 +29,18 @@ include("github://thevpc/ntexup-templates/classic/v1.0/theme")
 
 You can change the theme name (here classic) to one of the available themes:
 
-- classic
-- eniso
-- ibtihel
-- meridian
+| Theme | Look |
+|---|---|
+| `classic` | light, sophisticated and modern: warm paper, ink cover panel, accent-tab cards (recommended default) |
+| `meridian` | dark, sleek and modern: night background, luminous accents, "globe meridians" cover |
+| `lucid` | clean and minimalist: white page, hairlines, editorial typography (the former classic look) |
+| `eniso` | academic: ENISo (Université de Sousse) institutional header, serif headings, navy and crimson |
+| `ibtihel` | personal theme |
+
+`classic`, `meridian` and `eniso` share one component API and page grid (`cover-slide`, `section-slide`,
+`agenda-slide`, `content-slide` with `body`/`body2a`/`body2b`/`body3a..c`, `conclusion-slide`,
+`thankyou-slide`, `card`, `kicker`, `stat`, `quote`, `panel`, `callout`, `hint-*`, `definition`,
+`theorem`, `example`, `remark`, `image-fig`), so a deck switches between them without edits.
 
 You can customize the theme by setting variables in your `main.ntx`, for example:
 
@@ -42,7 +50,7 @@ themeShowPalette = true
 include("github://thevpc/ntexup-templates/classic/v1.0/theme")
 ```
 
-Replace `classic` in the include path with `eniso`, `ibtihel`, or `meridian` to switch themes. `documentColorAccent` accepts an index from 0 to 11.
+Replace `classic` in the include path with `meridian`, `lucid`, `eniso` or `ibtihel` to switch themes. `documentColorAccent` accepts an index from 0 to 11.
 
 ## Creating New Projects from Scratch
 You can create a new project from scratch using the ntexup command-line tool.

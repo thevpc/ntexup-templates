@@ -1,0 +1,63 @@
+// ********************************
+// *  My Presentation
+// *  last updated : 2025-10-10
+// *  author       : @your-id-here
+// ********************************
+
+//---------------------------------------------
+// PREPARE ENV
+//---------------------------------------------
+documentTitle="New Document"
+documentSubtitle=""
+documentSubsubtitle=""
+documentAuthor="Author"
+documentAuthorEmail="author@email.com"
+documentAuthorAffiliation="Author's Institution"
+documentChapter="Chapter 1"
+documentDate="2026-09-26"
+documentVersion="1.0"
+
+//---------------------------------------------
+
+include("${template.templateUrl}")
+
+cover-slide()
+
+agenda-slide(title:"Plan"){
+    body {
+        ol{
+            ¶ Introduction
+            ¶ Chapter 1
+            ¶ Chapter 2
+            ¶ Conclusion
+        }
+    }
+}
+
+content-slide(title:"My Slide"){
+    row{
+        ul{
+            ¶ First Idea
+            ¶ My Second Idea
+            ¶ My Third Idea
+        }
+        ul{
+            ¶ First Idea
+            ¶ My Second Idea
+            ¶ My Third Idea
+        }
+    }
+}
+
+conclusion-slide(title:"Conclusion"){
+    body {
+        ul{
+            ¶ First Point
+            ¶ Second Point
+            ¶ Third Point
+            ¶ Fourth Point
+        }
+    }
+}
+
+thankyou-slide()

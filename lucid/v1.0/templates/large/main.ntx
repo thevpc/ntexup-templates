@@ -1,0 +1,23 @@
+// ********************************
+// *  My Presentation
+// *  last updated : 2025-10-10
+// *  author       : @your-id-here
+// ********************************
+
+//---------------------------------------------
+// PREPARE ENV
+//---------------------------------------------
+documentTitle="New Document"
+documentSubtitle=""
+documentSubsubtitle=""
+documentAuthor="Author"
+documentAuthorEmail="author@email.com"
+documentAuthorAffiliation="Author's Institution"
+documentChapter="Chapter 1"
+documentDate="2026-09-26"
+documentVersion="1.0"
+
+//---------------------------------------------
+
+include("01-styles")
+include("02-pages")
