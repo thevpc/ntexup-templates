@@ -302,11 +302,11 @@ styles{
 @define card(accentColor: ""){
     group(margin: 1, row-weight: 70){
         rectangle(background-color: documentSurface, color: documentLine, draw-contour: true, round-corner: 4)
-        rectangle(background-color: either(accentColor, documentColors[0]), position: (0, 6), size: (0.35%P, 88))
+        rectangle(background-color: either(accentColor, documentColors[0]), position: (1.2, 50), origin: left, size: (0.35%P, 90))
         @define kicker(text, color: ""){
             group(position: (4, 3), size: (92, 8), origin: top-left){
                 rectangle(position: (0, 50), size: (1.2%P, 0.35%P), origin: left, background-color: either(color, either(accentColor, documentColors[0])))
-                text("${text}", position: (1.8%P, 50), origin: left, font-size: 2.2%P, font-bold, color: either(color, either(accentColor, documentColors[0])))
+                text("${text}", position: (1.8%P, 50), origin: left, font-size: 1.8%P, font-bold, color: either(color, either(accentColor, documentColors[0])))
             }
         }
         styles{
@@ -347,17 +347,17 @@ styles{
                 font-size: 1.85%P
             }
             @ul-item{
-                font-size: 2.3%P
-                margin: (1.2, 0)
+                font-size: 1.75%P
+                margin: (0.6, 0)
                 text-wrap: wrap
             }
             @ol-item{
-                font-size: 2.3%P
-                margin: (1.2, 0)
+                font-size: 1.75%P
+                margin: (0.6, 0)
                 text-wrap: wrap
             }
             @ul-bullet{
-                size: 1.3%P
+                size: 1.0%P
             }
         }
         slot
@@ -367,7 +367,7 @@ styles{
 @define kicker(text, color: ""){
     group(size: (100, 6)){
         rectangle(position: (0, 50), size: (1.2%P, 0.35%P), origin: left, background-color: either(color, documentColors[0]))
-        text("${text}", position: (1.8%P, 50), origin: left, font-size: 2.2%P, font-bold, color: either(color, documentColors[0]))
+        text("${text}", position: (1.8%P, 50), origin: left, font-size: 1.8%P, font-bold, color: either(color, documentColors[0]))
     }
 }
 
@@ -375,19 +375,19 @@ styles{
     rectangle(size: (width, thickness), background-color: documentColors[0])
 }
 
-@define stat(value, label){
+@define stat(value, label, accentColor: ""){
     group(margin: 1){
-        text("${value}", position: (50, 38), origin: center, font-size: 7.5%P, font-bold, color: documentColors[0])
-        text("${label}", position: (50, 68), origin: center, font-size: 2.8%P, color: documentTextSecondary)
+        text("${value}", position: (50, 38), origin: center, font-size: 5.5%P, font-bold, color: either(accentColor, documentColors[0]))
+        text("${label}", position: (50, 68), origin: center, font-size: 1.8%P, color: documentTextSecondary)
     }
 }
 
 @define quote(author: ""){
     group(margin: 3){
-        rectangle(background-color: documentColors[0], position: (0, 4), size: (0.35%P, 92))
+        rectangle(background-color: documentColors[0], position: (1.2, 50), origin: left, size: (0.35%P, 90))
         group(position: (5, 4), size: (93, 92)){
             slot
-            text(either("${author}", ""), position: (0, 92), font-size: 3%P, color: documentTextSecondary, font-bold)
+            text(either("${author}", ""), position: (0, 92), font-size: 1.8%P, color: documentTextSecondary, font-bold)
         }
     }
 }
@@ -412,13 +412,13 @@ styles{
 @define callout(title: "", accentColor, bgColor){
     group(margin: 1, row-weight: 30){
         rectangle(background-color: bgColor, color: documentLine, draw-contour: true, round-corner: 4)
-        rectangle(background-color: accentColor, position: (0, 0), size: (1.5, 100))
+        rectangle(background-color: accentColor, position: (1.2, 50), origin: left, size: (1.2, 90))
         group(position: (4, 4), size: (92, 92), origin: top-left){
             text(either("${title}", ""), position: (0, 0), origin: top-left, font-bold, color: documentTextPrimary, font-size: 2.2%P)
             group(position: (0, 18), size: (100, 80), origin: top-left){
                 styles{
                     all{
-                        font-size: 2.0%P
+                        font-size: 1.75%P
                         color: documentTextPrimary
                     }
                 }
